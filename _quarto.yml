@@ -2,7 +2,8 @@ project:
   type: book
 
 book:
-  title: "Técnicas Experimentais em Agronomia"
+  title: "Técnicas Experimentais em Agronomia" 
+  output-file: "Apostila_TE" 
   author: 
     - name: "Inês Cristina de Batista Fonseca" 
     - name: "Guilherme Biz"
@@ -13,7 +14,7 @@ book:
     - introducao.qmd
     - summary.qmd
     - references.qmd 
- 
+
  
 bibliography: references.bib
 lang: pt 
