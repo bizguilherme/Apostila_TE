@@ -1,0 +1,35 @@
+## Contexto Histórico da Estatística Experimental
+
+Técnicas Experimentais em Agronomia é uma disciplina voltada à aplicação da Estatística em experimentos agronômicos. Seu objetivo é desenvolver nos estudantes a capacidade de planejar experimentos, definir delineamentos adequados, analisar corretamente os dados e interpretar os resultados de forma consistente.
+
+Antes de entrar diretamente em métodos e modelos, vale fazer uma pergunta mais ampla: de onde vem a Estatística? Como ela se estruturou como área do conhecimento? E, principalmente, como passou a ocupar um papel central na experimentação agronômica?
+
+Entender esse percurso ajuda a situar a disciplina dentro de um processo maior de desenvolvimento científico. A Estatística não nasceu como a conhecemos hoje. Ela evoluiu de registros administrativos para se tornar uma ciência formal da variabilidade, da inferência e da tomada de decisão sob incerteza.
+
+A origem da Estatística está ligada à organização do Estado. O termo deriva do latim *status* e do alemão *Statistik*, utilizado no século XVIII para descrever as condições políticas e econômicas dos países europeus (Stigler, 1986). Muito antes disso, civilizações como Egito, Babilônia, China e Roma já realizavam censos e registros de produção com fins administrativos e tributários. Porém, nesse momento, ainda não havia uma estrutura matemática que permitisse analisar a incerteza ou modelar a variabilidade.
+
+A mudança começa no século XVII, com o surgimento da Teoria das Probabilidades. A correspondência entre [Blaise Pascal]{.underline} e [Pierre de Fermat]{.underline}, em 1654, ao discutirem problemas de jogos de azar, estabelece as bases do cálculo de probabilidades (Hacking, 1975). Pouco depois, [John Graunt]{.underline} analisa tábuas de mortalidade em Londres e mostra que fenômenos coletivos apresentam padrões regulares.
+
+No século XVIII, [Jacob Bernoulli]{.underline} formaliza a Lei dos Grandes Números, [Thomas Bayes]{.underline} apresenta o teorema que leva seu nome, e [Pierre-Simon Laplace]{.underline} sistematiza a inferência probabilística. A partir daí, a Estatística deixa de ser apenas registro e passa a ser também modelo matemático da incerteza.
+
+No século XIX, a noção de variabilidade ganha destaque. [Carl Friedrich Gauss]{.underline} desenvolve o método dos mínimos quadrados e consolida o uso da distribuição normal na teoria dos erros. [Adolphe Quetelet]{.underline} amplia a aplicação da Estatística ao estudar fenômenos sociais e biológicos, reforçando a ideia de que a variabilidade é parte natural dos fenômenos observados.
+
+É no século XX, entretanto, que a Estatística assume o formato que mais nos interessa nesta disciplina. [Karl Pearson]{.underline} desenvolve ferramentas como o coeficiente de correlação e o teste qui-quadrado, estruturando métodos formais de análise de associação. Mas a grande virada para a experimentação ocorre com [Ronald Aylmer Fisher]{.underline}.
+
+Trabalhando na [Rothamsted Experimental Station]{.underline}, Fisher enfrentava um problema muito prático: como comparar tratamentos agrícolas em condições naturalmente heterogêneas? A resposta não foi apenas matemática, mas metodológica. Ele introduziu três princípios fundamentais do delineamento experimental:
+
+-   **Randomização**: para garantir validade da inferência;
+
+-   **Repetição**: para permitir a estimação do erro experimental;
+
+-   **Controle local**: para reduzir a variabilidade não controlada.
+
+A partir daí, a Estatística Experimental passa a se diferenciar claramente da Estatística meramente observacional. Não se trata apenas de analisar dados já existentes, mas de **planejar previamente como os dados serão gerados**. A variabilidade deixa de ser um “problema” e passa a ser parte estruturante do modelo, algo que pode ser quantificado e controlado.
+
+Na Agronomia, essa mudança foi decisiva. O solo não é homogêneo, o clima varia, há interação entre genótipo e ambiente, e os sistemas de manejo introduzem múltiplas fontes de variação. Sem delineamento experimental, as comparações entre tratamentos ficam comprometidas. A Estatística Experimental surge, portanto, como instrumento para garantir precisão, validade interna e reprodutibilidade dos resultados.
+
+Posteriormente, [Jerzy Neyman]{.underline} e [Egon Pearson]{.underline} formalizam a teoria de testes de hipóteses, consolidando o arcabouço da inferência frequentista que sustenta grande parte das análises utilizadas até hoje.
+
+Com o avanço computacional na segunda metade do século XX, a Estatística amplia ainda mais seu alcance. Simulações, reamostragem e métodos bayesianos passam a integrar a prática científica. Atualmente, a Estatística é também um dos pilares de Ciência de Dados, mas sua base continua sendo a mesma: modelar a variabilidade e tomar decisões sob incerteza.
+
+Assim, ao longo de sua trajetória, a Estatística evoluiu de registros administrativos para uma ciência formal da variabilidade. No contexto da Agronomia, essa evolução se materializa na Estatística Experimental, que estrutura o planejamento, a análise e a interpretação de experimentos. É esse corpo metodológico que fundamenta as Técnicas Experimentais e sustenta a produção de conhecimento científico confiável nas Ciências Agrárias.

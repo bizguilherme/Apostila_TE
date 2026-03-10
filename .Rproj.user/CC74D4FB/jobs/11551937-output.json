@@ -1,0 +1,8 @@
+[1,"==> quarto preview intro.qmd --to pdf --no-watch-inputs --no-browse\n\n"]
+[1,"\r[1/5] index.qmd\n\r[2/5] intro.qmd\n\r[3/5] introducao.qmd\n\r[4/5] summary.qmd\n"]
+[1,"\r[5/5] references.qmd\n\n"]
+[1,"pandoc \n  to: latex\n  output-file: index.tex\n  standalone: true\n  toc: true\n  number-sections: true\n  top-level-division: chapter\n  pdf-engine: lualatex\n  variables:\n    graphics: true\n    tables: true\n  default-image-extension: pdf\n  \nmetadata\n  crossref:\n    chapters: true\n  documentclass: scrreprt\n  papersize: letter\n  classoption:\n    - DIV=11\n    - numbers=noendperiod\n  header-includes:\n    - \\KOMAoption{captions}{tableheading}\n  block-headings: true\n  bibliography:\n    - references.bib\n  lang: pt\n  editor: visual\n  toc-title: Sumário\n  title: Técnicas Experimentais em Agronomia\n  author:\n    - name: Inês Cristina de Batista Fonseca\n    - name: Guilherme Biz\n  \n"]
+[1,"\nRendering PDF\nrunning lualatex - 1\n"]
+[1,"  This is LuaHBTeX, Version 1.18.0 (MiKTeX 24.3)\n   restricted system commands enabled.\n  \nrunning lualatex - 2\n"]
+[1,"  This is LuaHBTeX, Version 1.18.0 (MiKTeX 24.3)\n   restricted system commands enabled.\n  \n\nOutput created: _book\\Técnicas-Experimentais-em-Agronomia.pdf\n\nWatching files for changes\n"]
+[1,"Browse at http://localhost:3594/web/viewer.html\nListening on http://127.0.0.1:3594/\n"]

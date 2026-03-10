@@ -1,0 +1,41 @@
+project:
+  type: book
+
+book:
+  title: "Técnicas Experimentais em Agronomia"
+  author: 
+    - name: "Inês Cristina de Batista Fonseca" 
+    - name: "Guilherme Biz"
+ 
+  chapters:
+    - index.qmd 
+    - intro.qmd
+    - introducao.qmd
+    - summary.qmd
+    - references.qmd 
+ 
+ 
+bibliography: references.bib
+lang: pt 
+language:
+  toc-title: "Sumário" 
+
+format:
+  pdf:
+    toc-title: "Sumário"
+    include-in-header:
+      text: |
+        \addto\captionsportuguese{%
+          \renewcommand{\contentsname}{Sumário}
+        } 
+        \usepackage{multirow}
+        \usepackage{array}
+        \usepackage{makecell}
+        \usepackage{longtable}
+  html:
+    theme:
+      - cosmo
+      - brand
+        
+editor: visual
+

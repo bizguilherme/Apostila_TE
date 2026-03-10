@@ -1,0 +1,17 @@
+{
+  "hash": "c0e5e350de95ae7f00a925cfe68ebdeb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Plano de ensino\n\n1.  Identificação\n\n    Disciplina: Técnicas Experimentais em Agronomia (2AGR245)\n\n    Curso: Pós-graduação em Agronomia\n\n    Ano Letivo: 2026 - 1º Semestre - Carga horária: 120 horas ( 8 horas/semana)\n\n    Professores: Profª. Dr.ª Inês Cristina de Batista Fonseca\n\n    Prof. Dr. Guilherme Biz (gbiz\\@uel.br)\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n",
+    "supporting": [
+      "intro_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
