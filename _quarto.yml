@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs 
 
 book:
   title: "Técnicas Experimentais em Agronomia" 
@@ -34,10 +35,7 @@ format:
         \usepackage{makecell}
         \usepackage{longtable}
         \usepackage{tikz}
-  html:
-    theme:
-      - cosmo
-      - brand
+
         
 editor: visual
 
