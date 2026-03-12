@@ -1,0 +1,49 @@
+# Estatística Descritiva
+
+## Introdução
+
+Em experimentos agronômicos é comum coletar diferentes tipos de informações, como produtividade, altura de plantas, número de vagens ou características dos cultivares avaliados. Essas informações precisam ser organizadas e analisadas de forma adequada para que seja possível compreender o comportamento das variáveis estudadas e interpretar os resultados obtidos no experimento.
+
+A Estatística fornece ferramentas que permitem **organizar, resumir, analisar e interpretar dados**, auxiliando o pesquisador na obtenção de conclusões a partir das informações coletadas.
+
+## Áreas da Estatística
+
+De forma geral, a Estatística pode ser dividida em duas grandes áreas: **estatística descritiva** e **estatística indutiva**.
+
+A **estatística descritiva** tem como objetivo organizar, descrever e resumir um conjunto de dados, permitindo uma visualização mais clara das informações coletadas. Para isso, utiliza ferramentas como **tabelas**, **gráficos** e **medidas numéricas**, que ajudam a sintetizar as principais características dos dados.
+
+A **estatística indutiva**, também chamada de **estatística inferencial**, está relacionada à análise e interpretação dos dados. Seu objetivo é permitir que sejam feitas conclusões sobre uma **população** com base em informações obtidas a partir de uma **amostra** dessa população.
+
+## Variáveis e Dados
+
+Para a realização de análises estatísticas é importante compreender alguns conceitos básicos.
+
+Uma **variável** é uma característica ou atributo observado em cada elemento de uma população ou amostra, que pode assumir diferentes valores ou categorias. Essa variação pode ocorrer entre os indivíduos avaliados em um experimento ou levantamento de dados.
+
+Os **dados** correspondem aos valores observados ou medidos para cada variável. Em outras palavras, são as informações obtidas durante a coleta de dados e que descrevem as características dos elementos que compõem a população ou a amostra em estudo.
+
+## Tipos de Variáveis
+
+As variáveis observadas em um estudo podem ser classificadas em **qualitativas** ou **quantitativas**, dependendo da forma como seus valores são expressos.
+
+As **variáveis qualitativas** descrevem características ou categorias dos indivíduos e não são expressas numericamente. Elas podem ser divididas em dois tipos. As **variáveis qualitativas nominais** representam categorias sem uma ordem natural entre elas, como gênero, estado civil ou tipo de grão (dentado, semidentado e semiduro). Já as **variáveis qualitativas ordinais** apresentam categorias que possuem uma ordenação lógica, como grau de escolaridade ou níveis de resistência à ferrugem (r \> mr \> ms \> s).
+
+As **variáveis quantitativas**, por sua vez, são expressas por valores numéricos e representam quantidades mensuráveis. Essas variáveis podem ser classificadas em **discretas** ou **contínuas**. As **variáveis quantitativas discretas** assumem valores inteiros resultantes de contagens, como número de filhos, número de grãos por vagem ou número de vagens por planta. Já as **variáveis quantitativas contínuas** podem assumir qualquer valor dentro de um intervalo, sendo obtidas por meio de medições, como peso, altura da planta ou altura da espiga.
+
+## Conjunto de Dados
+
+A seguir é apresentado um conjunto de dados que será utilizado nos exemplos ao longo desta apostila. Esses dados foram adaptados do livro *Estatística para as Ciências Agrárias e Biológicas: com Noções de Experimentação* ( @dalton) e são utilizados aqui para fins didáticos. O arquivo também pode ser acessado e baixado pelo link [Conjunto de dados do experimento com milho](https://pessoal.uel.br/biz/wp-content/uploads/2025/06/dados_milho.pdf)
+
+\includepdf[pages=-]{"dados_milho.pdf"}
+
+Nesse conjunto de dados é possível identificar diferentes tipos de variáveis, tanto qualitativas quanto quantitativas, que serão utilizadas para ilustrar as técnicas de **estatística descritiva** apresentadas nas próximas seções.
+
+#### Importando os dados no software R
+
+<br>
+
+```{r echo=TRUE, results='markup'}
+#| paged-print: false
+dados=read.table("https://pessoal.uel.br/biz/wp-content/uploads/2025/06/dados_milho.txt",head=T)
+head(dados)
+```

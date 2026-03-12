@@ -48,8 +48,8 @@ Duas avaliações sendo a média final por média aritmética simples.
 \endlastfoot
 
 \multirow{3}{*}{19/03} &
-Apresentação da disciplina. Introdução à Estatística. Conceitos básicos e noções iniciais de Estatística Descritiva. Texto longo, texto longo, texto longo. &
-Introdução ao software R e ao ambiente RStudio. Texto longo, texto longo. \\ \hline
+Apresentação da disciplina. Introdução à Estatística. Conceitos básicos e noções de amostragem.  &
+Introdução ao software R e ao ambiente RStudio.  \\ \hline
 \multirow{3}{*}{26/03} & Estatística Descritiva: construção e interpretação de tabelas e gráficos. Medidas descritivas de posição e dispersão. & Aplicações em Estatística Descritiva utilizando o software R. \\ \hline
 \multirow{3}{*}{02/04} & Variáveis aleatórias contínuas e distribuição Normal. Introdução à Inferência Estatística: estimativas pontuais e intervalares. & Aplicações e uso do software R. \\ \hline
 \multirow{2}{*}{09/04} & Testes de hipóteses estatísticas: conceitos fundamentais, procedimentos e interpretação dos resultados. & Aplicações com o uso do software R.\\\hline

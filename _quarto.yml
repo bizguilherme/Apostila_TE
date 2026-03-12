@@ -13,6 +13,7 @@ book:
     - index.qmd 
     - intro.qmd
     - introducao.qmd
+    - descritiva.qmd
     - summary.qmd
     - references.qmd 
 
@@ -35,6 +36,7 @@ format:
         \usepackage{makecell}
         \usepackage{longtable}
         \usepackage{tikz}
+        \usepackage{pdfpages}
 
         
 editor: visual
