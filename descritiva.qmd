@@ -44,6 +44,6 @@ Nesse conjunto de dados é possível identificar diferentes tipos de variáveis,
 
 ```{r echo=TRUE, results='markup'}
 #| paged-print: false
-dados=read.table("https://pessoal.uel.br/biz/wp-content/uploads/2025/06/dados_milho.txt",head=T)
+dados=read.table("https://bizguilherme.github.io/Apostila_TE/dados_milho.txt",head=T)
 head(dados)
 ```
