@@ -14,7 +14,6 @@ book:
     - intro.qmd
     - introducao.qmd
     - descritiva.qmd
-    - summary.qmd
     - references.qmd 
 
  
@@ -37,6 +36,7 @@ format:
         \usepackage{longtable}
         \usepackage{tikz}
         \usepackage{pdfpages}
+        \usepackage{tablefootnote}
 
         
 editor: visual

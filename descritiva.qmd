@@ -4,17 +4,17 @@
 
 Em experimentos agronômicos é comum coletar diferentes tipos de informações, como produtividade, altura de plantas, número de vagens ou características dos cultivares avaliados. Essas informações precisam ser organizadas e analisadas de forma adequada para que seja possível compreender o comportamento das variáveis estudadas e interpretar os resultados obtidos no experimento.
 
-A Estatística fornece ferramentas que permitem **organizar, resumir, analisar e interpretar dados**, auxiliando o pesquisador na obtenção de conclusões a partir das informações coletadas.
+A Estatística fornece ferramentas que permitem organizar, resumir, analisar e interpretar dados, auxiliando o pesquisador na obtenção de conclusões a partir das informações coletadas.
 
-## Áreas da Estatística
+**Áreas da Estatística**
 
 De forma geral, a Estatística pode ser dividida em duas grandes áreas: **estatística descritiva** e **estatística indutiva**.
 
-A **estatística descritiva** tem como objetivo organizar, descrever e resumir um conjunto de dados, permitindo uma visualização mais clara das informações coletadas. Para isso, utiliza ferramentas como **tabelas**, **gráficos** e **medidas numéricas**, que ajudam a sintetizar as principais características dos dados.
+A **estatística descritiva** tem como objetivo organizar, descrever e resumir um conjunto de dados, permitindo uma visualização mais clara das informações coletadas. Para isso, utiliza ferramentas como tabelas, gráficos e medidas numéricas, que ajudam a sintetizar as principais características dos dados.
 
-A **estatística indutiva**, também chamada de **estatística inferencial**, está relacionada à análise e interpretação dos dados. Seu objetivo é permitir que sejam feitas conclusões sobre uma **população** com base em informações obtidas a partir de uma **amostra** dessa população.
+A **estatística indutiva**, também chamada de **estatística inferencial**, está relacionada à análise e interpretação dos dados. Seu objetivo é permitir que sejam feitas conclusões sobre uma população com base em informações obtidas a partir de uma amostra dessa população.
 
-## Variáveis e Dados
+**Variáveis e Dados**
 
 Para a realização de análises estatísticas é importante compreender alguns conceitos básicos.
 
@@ -22,7 +22,7 @@ Uma **variável** é uma característica ou atributo observado em cada elemento 
 
 Os **dados** correspondem aos valores observados ou medidos para cada variável. Em outras palavras, são as informações obtidas durante a coleta de dados e que descrevem as características dos elementos que compõem a população ou a amostra em estudo.
 
-## Tipos de Variáveis
+**Tipos de Variáveis**
 
 As variáveis observadas em um estudo podem ser classificadas em **qualitativas** ou **quantitativas**, dependendo da forma como seus valores são expressos.
 
@@ -30,20 +30,565 @@ As **variáveis qualitativas** descrevem características ou categorias dos indi
 
 As **variáveis quantitativas**, por sua vez, são expressas por valores numéricos e representam quantidades mensuráveis. Essas variáveis podem ser classificadas em **discretas** ou **contínuas**. As **variáveis quantitativas discretas** assumem valores inteiros resultantes de contagens, como número de filhos, número de grãos por vagem ou número de vagens por planta. Já as **variáveis quantitativas contínuas** podem assumir qualquer valor dentro de um intervalo, sendo obtidas por meio de medições, como peso, altura da planta ou altura da espiga.
 
-## Conjunto de Dados
+**Conjunto de Dados**
 
 A seguir é apresentado um conjunto de dados que será utilizado nos exemplos ao longo desta apostila. Esses dados foram adaptados do livro *Estatística para as Ciências Agrárias e Biológicas: com Noções de Experimentação* ( @dalton) e são utilizados aqui para fins didáticos. O arquivo também pode ser acessado e baixado pelo link [Conjunto de dados do experimento com milho](https://pessoal.uel.br/biz/wp-content/uploads/2025/06/dados_milho.pdf)
 
-\includepdf[pages=-]{"dados_milho.pdf"}
+Nesse conjunto de dados é possível identificar diferentes tipos de variáveis, tanto qualitativas quanto quantitativas, que serão utilizadas para ilustrar as técnicas de estatística descritiva apresentadas nas próximas seções.
 
-Nesse conjunto de dados é possível identificar diferentes tipos de variáveis, tanto qualitativas quanto quantitativas, que serão utilizadas para ilustrar as técnicas de **estatística descritiva** apresentadas nas próximas seções.
+\newpage
+\begin{table}[ht!]
+\caption{Resultados de um experimento de competição de híbridos de milho para a região de Chapecó, SC - safra: 1987/1988}
+%\vspace{-1cm}
+$$\begin{tabular}{c|c|c|c|c|c|c}\hline
+\multirow{3}{*}{Híbridos} & Rendimento & Ciclo  & Altura & Altura & Tipo de     & Resistência \\
+                          & médio      & (dias) & planta & espiga & grão        & à   \\
+                                                    & (kg/ha)    &        & (cm)   & (cm)   &             & ferrugem\tablefootnote{r=resistente; mr=moderadamente resistente; ms=moderadamente susceptível; s=susceptível}\\ \hline
+1                           & 6388       & 65       & 242      & 103      & dentado     & r  \\
+2                           & 6166       & 65       & 258      & 134      & semidentado & r  \\
+3                                                   & 6047       & 65       & 240      & 104      & semidentado & s  \\
+4                           & 5889       & 66       & 243      & 108      & semidentado & s  \\
+5                           & 5823       & 69       & 257      & 128      & dentado     & ms \\
+6                           & 5513       & 68       & 241      & 108      & semidentado & s  \\
+7                           & 5202       & 64       & 235      & 108      & dentado     & r  \\
+8                           & 5172       & 68       & 240      & 103      & dentado     & s  \\
+9                           & 5166       & 69       & 253      & 123      & dentado     & ms \\
+10                        & 4975         & 70       & 250      & 117      & semidentado & ms \\
+11                        & 4778         & 70       & 242      & 114      & dentado     & mr \\
+12                        & 4680         & 66       & 245      & 111      & semiduro      & ms \\
+13                        & 4660         & 69       & 239      & 110      & semiduro      & mr \\
+14                        & 5403         & 73       & 264      & 138      & dentado     & ms \\
+15                        & 5117         & 76       & 282      & 149      & dentado     & mr \\
+16                        & 5063         & 72       & 274      & 151      & dentado     & r  \\
+17                        & 4993         & 71       & 279      & 134      & semidentado & r  \\
+18                        & 4980         & 72       & 274      & 140      & dentado     & ms \\
+19                        & 4770         & 73       & 244      & 140      & dentado     & r  \\
+20                        & 4685         & 71       & 265      & 139      & semiduro      & mr \\
+21                        & 4614         & 73       & 248      & 110      & semidentado & r  \\
+22                        & 4552         & 73       & 265      & 128      & semidentado & r  \\
+23                        & 3973         & 74       & 261      & 124      & semidentado & mr \\
+24                        & 4550         & 71       & 259      & 129      & semiduro      & s  \\
+25                        & 5056         & 64       & 252      & 104      & semiduro      & mr \\
+26                        & 4500         & 70       & 271      & 109      & dentado     & ms \\
+27                        & 4760         & 68       & 243      & 137      & semiduro      & r  \\
+28                        & 5110         & 66       & 252      & 141      & semidentado & ms \\
+29                        & 4960         & 70       & 262      & 120      & dentado     & ms \\
+30                        & 4769         & 73       & 260      & 118      & dentado     & r  \\
+31                        & 4849         & 74       & 250      & 119      & semidentado & s  \\
+32                        & 5230         & 71       & 255      & 138      & semiduro      & s  \\
+\hline
+\end{tabular}$$
+\end{table}
+\vspace{-1cm}
+\footnotesize
+\hspace{.5cm}
 
-#### Importando os dados no software R
+\textbf{Fonte:} Andrade, D. F.; Ogliari, P. J. Estatística para as ciências agrárias e biológicas:com noções de experimentação. 3º ed. - Florianópolis: Ed. da UFSC, 2017.
 
-<br>
+\normalsize
+
+\newpage
+
+**Importando os dados no software R**
 
 ```{r echo=TRUE, results='markup'}
 #| paged-print: false
-dados=read.table("https://bizguilherme.github.io/Apostila_TE/dados_milho.txt",head=T)
+dados=read.table(
+  "https://pessoal.uel.br/biz/wp-content/uploads/2025/06/dados_milho.txt",
+  head=T)
 head(dados)
 ```
+
+**Dados Brutos e Rol**
+
+Após a obtenção dos dados em uma pesquisa ou experimento, a primeira etapa da análise estatística consiste em organizar essas informações. Inicialmente, os dados são registrados exatamente como foram observados, sendo denominados dados brutos.
+
+**Dados brutos** são os dados obtidos diretamente da pesquisa, sem terem passado por qualquer processo de organização, síntese ou análise. Nessa forma, os valores aparecem na mesma ordem em que foram coletados.
+
+Uma maneira simples de organizar os dados é colocá-los em ordem crescente, formando o chamado rol.
+
+**Rol** é o conjunto de dados disposto em ordem crescente (ou decrescente), o que facilita a visualização da distribuição dos valores e constitui o primeiro passo para outras formas de organização dos dados.
+
+A seguir são apresentados os valores da variável altura de espiga, inicialmente na forma de dados brutos e, posteriormente, organizados em rol.
+
+**Dados brutos**
+
+```{r echo=FALSE}
+library(huxtable)
+alt=dados$Altura_espiga
+dim(alt)=c(4,8)
+
+alt=as_hux(alt)
+top_border(alt)[1,]=0.4
+bottom_border(alt)[4,]=0.4
+set_caption(alt, "Alturas de espigas (cm) de híbridos de milho para a região de Chapecó, SC - safra: 1987/1988")
+
+```
+
+**Rol**
+
+```{r echo=FALSE}
+library(huxtable)
+alt=sort(dados$Altura_espiga)
+alt=matrix(alt,4,8,byrow=T)
+
+alt=as_hux(alt)
+top_border(alt)[1,]=0.4
+bottom_border(alt)[4,]=0.4
+set_caption(alt, "Rol das Alturas de espigas (cm) de híbridos de milho para a região de Chapecó, SC - safra: 1987/1988")
+```
+
+## Representação Tabular e Gráfica
+
+Uma forma bastante utilizada para organizar e apresentar dados é por meio de tabelas, pois elas permitem visualizar as informações de maneira estruturada e facilitar a interpretação dos resultados.
+
+De modo geral, uma tabela é composta pelos seguintes elementos:
+
+-   **Título**: indica a natureza do fenômeno estudado, as variáveis analisadas, bem como o local e o período de referência dos dados.
+
+-   **Corpo**: corresponde ao conjunto de linhas e colunas que contém os dados apresentados na tabela.
+
+-   **Cabeçalho**: identifica o conteúdo de cada coluna.
+
+-   **Coluna indicadora**: identifica o conteúdo de cada linha.
+
+A organização dos dados em tabelas constitui um passo importante na análise estatística. Entretanto, quando o conjunto de dados é grande, torna-se difícil interpretar os valores apenas observando os dados individuais. Nesses casos, é comum resumir as informações por meio de tabelas de distribuição de frequências, que apresentam o número de ocorrências de cada valor ou classe de valores da variável analisada.
+
+### Distribuições de frequências de variáveis qualitativas e representações gráficas
+
+Após a organização inicial dos dados em tabelas, uma forma bastante utilizada de resumir e interpretar as informações é por meio das tabelas de distribuição de frequências.
+
+Uma tabela de distribuição de frequências estabelece a correspondência entre as categorias ou valores de uma variável e o número de vezes em que essas categorias ocorrem no conjunto de dados. Dessa forma, é possível observar como os dados estão distribuídos entre as diferentes categorias da variável analisada.
+
+Para variáveis qualitativas, como é o caso da resistência à ferrugem dos híbridos de milho, as categorias representam diferentes classificações do fenômeno observado. A partir dessas categorias podem ser calculadas:
+
+-   a **frequência absoluta** ($n_i$), que corresponde ao número de observações em cada categoria;
+-   a **frequência relativa** ($f_i$), que representa a proporção de observações em relação ao total;
+-   a **porcentagem**, que expressa a frequência relativa em termos percentuais;
+-   a **porcentagem acumulada**, que indica a soma progressiva das porcentagens.
+
+A Tabela \ref{dist1} a seguir apresenta a distribuição de frequências da variável *resistência à ferrugem* para 32 híbridos de milho recomendados para a região de Chapecó, SC, na safra 1987/1988.
+
+\begin{table}[H]
+\centering
+\caption{ Distribuição de Frequências da resistência à ferrugem de 32 híbridos de milho recomendados para a região de Chapecó, safra 1987/88.}\label{dist1}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Resistência} & \textbf{Frequência} & \textbf{Frequência} & \textbf{Porcentagem} & \textbf{Porcentagem} \\
+\textbf{à ferrugem} & \textbf{absoluta} ($n_i$) & \textbf{relativa} ($f_i$) & \textbf{(\%)} & \textbf{acumulada} \\
+\hline
+r  & 10 & 0,3125 & 31,25 & 31,25 \\
+mr & 6  & 0,1875 & 18,75 & 50,00 \\
+ms & 9  & 0,2813 & 28,13 & 78,13 \\
+s  & 7  & 0,2187 & 21,87 & 100,00 \\
+\hline
+\textbf{Total} & \textbf{32} & \textbf{1} & \textbf{100} & - \\
+\hline
+\end{tabular}
+\end{table}
+
+Essa distribuição pode ser obtida diretamente a partir do conjunto de dados utilizando funções disponíveis no R. A seguir apresenta-se um exemplo de construção dessa tabela utilizando o pacote \`epiDisplay\`.
+
+```{r echo=T, results='hide',fig.show='hide',message=FALSE}
+library(epiDisplay)
+tab1(factor(dados$Resistencia,levels = c("r","mr","ms","s")))
+
+```
+
+**Gráficos para variáveis qualitativas – Colunas**
+
+O gráfico de colunas representa as categorias da variável no eixo horizontal e as respectivas frequências no eixo vertical. Cada coluna possui altura proporcional ao número de observações da categoria correspondente.
+
+```{r echo=TRUE, fig.align='center'}
+barplot(table(dados$Resistencia)[c("r","mr","ms","s")],
+        xlab="Resistência à ferrugem",ylab="Frequências",col="green4",
+        density=50,ylim=c(0,12))
+abline(h=0)
+```
+
+**Figura**: Resistência à ferrugem de híbridos de milho, para a região de Chapecó, 1987/88
+
+**Gráficos para variáveis qualitativas – Barras**
+
+O gráfico de barras apresenta a mesma informação do gráfico de colunas, porém com as barras dispostas horizontalmente. Esse tipo de representação pode facilitar a visualização quando os nomes das categorias são longos ou quando se deseja destacar as diferenças entre as frequências.
+
+```{r echo=TRUE, fig.align='center'}
+barplot(table(dados$Resistencia)[c("r","mr","ms","s")],
+        xlab="Resistência à ferrugem",ylab="Frequências",col="green4",
+        density=50,xlim=c(0,12),horiz = T)
+abline(v=0)
+```
+
+**Figura**: Resistência à ferrugem de híbridos de milho, para a região de Chapecó, 1987/88
+
+**Gráficos para variáveis qualitativas – Setores**
+
+No gráfico de setores, também conhecido como gráfico de pizza, cada categoria é representada por um setor do círculo. A área de cada setor é proporcional à frequência ou porcentagem correspondente, permitindo visualizar a participação relativa de cada categoria no total de observações.
+
+```{r echo=TRUE, fig.align='center'}
+resis=table(dados$Resistencia)[c("r","mr","ms","s")]
+names(resis)=paste(c("resistentes","mod. resistentes","mod. susceptível",
+                     "susceptível"),round(100*resis/sum(resis),2),"%") 
+pie(resis,col=c("green4","blue","white","black"),
+    density=c(100,100,80,20),border="black")
+```
+
+**Figura**: Resistência à ferrugem de híbridos de milho, para a região de Chapecó, 1987/88
+
+Os gráficos apresentados ilustram diferentes formas de representar as mesmas informações contidas na tabela de distribuição de frequências. A escolha do tipo de gráfico depende do objetivo da análise e da forma como se deseja destacar as características dos dados.
+
+A seguir são propostos exercícios para a construção de tabelas de distribuição de frequências e de representações gráficas para variáveis qualitativas.
+
+**Exercícios**
+
+1.  Construa uma tabela de distribuição de frequências para a variável "Tipo de grão" de um experimento de competição de híbridos de milho para a região de Chapecó, SC - safra: 1987/1988 (ANDRADE; OGLIARI, 2010, p. 62) e ilustre dois gráficos indicados.
+
+### Distribuições de frequências de variáveis quantitativas discretas e representações gráficas
+
+Em experimentos agronômicos é comum a coleta de variáveis numéricas que assumem valores inteiros e contáveis, como, por exemplo, o número de plantas emergidas por parcela, o número de espigas por planta, o número de grãos por vagem ou o número de insetos por planta. Esse tipo de variável é denominado variável quantitativa discreta, pois seus valores resultam de processos de contagem.
+
+A organização inicial dessas informações pode ser realizada por meio de tabelas de distribuição de frequências, que permitem resumir os dados observados e facilitar sua interpretação. A construção dessas tabelas para variáveis quantitativas discretas é semelhante à realizada para variáveis qualitativas. Nesse caso, cada valor numérico observado da variável corresponde a uma categoria da tabela, sendo apresentadas as respectivas frequências absolutas, frequências relativas e, quando necessário, as frequências acumuladas.
+
+Além da representação tabular, a representação gráfica constitui uma importante ferramenta para a visualização do comportamento dos dados. Para variáveis quantitativas discretas, os gráficos mais utilizados são o gráfico de bastões, o gráfico de barras e o gráfico de colunas, os quais permitem visualizar com facilidade a distribuição das observações entre os diferentes valores da variável estudada.
+
+A seguir é apresentado um exercício baseado em dados de experimentação agrícola, com o objetivo de ilustrar a construção de uma tabela de distribuição de frequências para uma variável quantitativa discreta.
+
+**Exemplo: Distribuição de frequências para variável quantitativa discreta**
+
+Considere a variável Ciclo (dias) de um experimento de competição de híbridos de milho conduzido na região de Chapecó (SC), na safra 1987/1988 (ANDRADE; OGLIARI, 2010). O ciclo corresponde ao número de dias necessários para que o híbrido complete seu desenvolvimento até a maturidade fisiológica.
+
+Como se trata de uma variável numérica obtida por contagem de dias, ela pode ser tratada como uma variável quantitativa discreta. Para compreender melhor o comportamento dos dados, pode-se organizar as observações em uma tabela de distribuição de frequências, indicando quantas vezes cada valor da variável ocorre no conjunto de dados.
+
+<br>
+
+A seguir apresenta-se a construção da tabela de distribuição de frequências utilizando o software R.
+
+```{r echo=T,fig.show='hide',message=FALSE}
+library(epiDisplay)
+tab1(dados$Ciclo)
+
+```
+
+A distribuição também pode ser representada graficamente. Para variáveis quantitativas discretas, uma representação bastante utilizada é o gráfico de bastões, no qual cada valor da variável é representado por um bastão cuja altura corresponde à sua frequência.
+
+```{r echo=T,message=FALSE}
+plot(table(dados$Ciclo),las=1,ylab = "Frequência",xlab="Ciclo")
+
+```
+
+### Distribuições de frequências de variáveis quantitativas contínuas e representações gráficas
+
+Na experimentação agronômica, muitas variáveis de interesse não são obtidas por contagem, mas sim por processos de medição, como por exemplo: altura de plantas, produtividade de grãos, massa de matéria seca, diâmetro de colmo ou teor de umidade. Essas variáveis podem assumir qualquer valor dentro de um intervalo de números reais e, por essa razão, são denominadas variáveis quantitativas contínuas.
+
+Quando o número de valores observados é relativamente grande, torna-se pouco prático apresentar cada valor individualmente. Assim, os dados são organizados em classes ou intervalos de valores, permitindo uma visualização mais clara do comportamento da variável.
+
+A construção de uma tabela de distribuição de frequências com classes envolve algumas etapas básicas, apresentadas a seguir.
+
+-   Calcular a amplitude total dos dados:
+
+$$A_t=nº\ do\ maior - nº\ do\ menor = x_{max}-x_{min}.$$
+
+-   Não existindo um critério "rígido" para estabelecer o número de intervalos, sugere-se não utilizar menos de 5 e não mais de 15 intervalos.
+
+$$k=\sqrt(n),\ \ \ \mbox{ou}\ \ \ k=\sqrt(n)-1, \ \ \ \mbox{ou} \ \ \ k=1+3,3log(n).$$
+
+-   O intervalo das classes pode ser obtido dividindo-se a amplitude total pelo número de classes:
+
+$$a_c=\frac{A_t}{k}.$$
+
+A seguir apresenta-se um exemplo envolvendo dados de rendimento médio de híbridos de milho, expressos em kg/ha. A tabela mostra a distribuição de frequências considerando classes de rendimento.
+
+**Tabela**: Distribuição de frequências dos rendimentos médios, em kg/ha, de 32 híbridos de milho recomendados para o Oeste catarinense, 1987/88
+
+$$
+\begin{array}{lcccccc}\hline
+\textbf{Rendimento}  & \textbf{Freq.}      & \textbf{Freq.}        & \textbf{Freq.}      & \textbf{Freq. rel.}    & \textbf{Porc.} & \textbf{Porc.} \\
+\textbf{médio}~(kg/ha)&\textbf{abs.} ~(n_i)& \textbf{acum.} ~(N_i) & \textbf{rel.}~(f_i)& \textbf{acum.}~ (F_i)&  \% &\textbf{acum.}\\\hline
+3973 \vdash 4457  &    1   &        1  &  0,031  &    0,031 &       3,1  &    3,1\\
+4457 \vdash 4941  &   12   &        13 &  0,375  &    0,406 &       37,5 &    40,6\\
+4941 \vdash 5425  &   13   &        26 &  0,406  &    0,812 &       40,6 &    81,2\\
+5425 \vdash 5909  &    3   &        29 &  0,094  &    0,906 &        9,4 &    90,6\\
+5909 \vdash 6393  &    3   &        32 &  0,094  &    1,000 &        9,4 &     100,0\\\hline
+\textbf{TOTAL}       &   32   &     -      &  1      &   -       & 100        &    -      \\\hline
+\end{array}
+$$
+
+```{r echo=T, results='hide',fig.show='hide',message=FALSE}
+require(fdth)
+tab=fdt(dados$Rendimento,start = 3973,end = 6393,h = 484)
+tab
+```
+
+**Gráficos para variáveis contínuas**
+
+Após a construção da tabela de distribuição de frequências, os dados podem ser representados graficamente. Para variáveis quantitativas contínuas organizadas em classes, as representações gráficas mais utilizadas são:
+
+-   **Histograma**
+
+-   **Polígono de frequências**
+
+Esses gráficos permitem visualizar a forma da distribuição dos dados, identificando concentrações de observações em determinadas classes, bem como possíveis assimetrias ou dispersões.
+
+**Histograma**
+
+```{r echo=T, fig.align="center"}
+s=seq(min(dados$Rendimento),6393,484)
+hist(dados$Rendimento,breaks=s,xaxt="n",ylim=c(0,14),border="black",
+     xlab="Rendimento médio (kg/ha)",density=30, las=1,
+     ylab="Densidade de frequências",col="green4",main="")
+axis(1,s,line=-.35)
+abline(h=0,cex=4)
+```
+
+**Polígono de frequências**
+
+```{r echo=TRUE, fig.align='center'}
+tab=hist(dados$Rendimento,breaks=s,plot=F)
+pontosmedios=c(3731,tab$mids,6635)
+fr=c(0,tab$counts,0)
+plot(pontosmedios,fr,type="l",lwd=2,xlab="Rendimento médio (kg/ha)",
+    ylab="Densidade de frequência",las=1,bty="l",xaxt="n",axes=F,ylim=c(0,14))
+axis(1,pontosmedios,line=-.35)
+axis(2,tab$couts,las=1)
+abline(h=0)
+```
+
+**Exercício**
+
+2.  Construa a tabela de distribuição de frequências para a variável *Altura de plantas* de um experimento de competição de híbridos de milho conduzido na região de Chapecó (SC), safra 1987/1988 (ANDRADE; OGLIARI, 2010, p. 62).
+
+Utilize 6 classes e construa também os gráficos indicados para variáveis quantitativas contínuas.
+
+**Resposta - Exercício 2**
+
+**Tabela**: Distribuição de frequências das Altura de plantas de 32 híbridos de milho recomendados para o Oeste catarinense, 1987/88
+
+$$
+\begin{array}{lccccccc}
+\hline
+\textbf{Altura das} & \mathbf{n_i} & \mathbf{N_i} & \mathbf{f_i} & \mathbf{F_i} & \% & \textbf{Porc.} & \bar{x}_i \\
+~~\textbf{plantas} &  &  &  &  &  & \textbf{acumulada} &  \\
+\hline
+235 \vdash 243 & 7 & 7 & 0{,}21875 & 0{,}21875 & 21{,}875 & 21{,}875 & 239 \\
+243 \vdash 251 & 7 & 14 & 0{,}21875 & 0{,}43750 & 21{,}875 & 43{,}750 & 247 \\
+251 \vdash 259 & 6 & 20 & 0{,}18750 & 0{,}62500 & 18{,}750 & 62{,}500 & 255 \\
+259 \vdash 267 & 7 & 27 & 0{,}21875 & 0{,}84375 & 21{,}875 & 84{,}375 & 263 \\
+267 \vdash 275 & 3 & 30 & 0{,}09375 & 0{,}93750 & 9{,}375 & 93{,}750 & 271 \\
+275 \vdash 283 & 2 & 32 & 0{,}06250 & 1{,}00000 & 6{,}250 & 100{,}000 & 279 \\
+\hline
+\textbf{Total} & \mathbf{32} & - & \mathbf{1} & - & \mathbf{100} & - & - \\
+\hline
+\end{array}
+$$
+
+```{r echo=T, results='hide'}
+tab=fdt(dados$Altura_planta,start=235,end=283,h = 8)
+```
+
+**Histograma**
+
+```{r echo=T, fig.align="center",warning=FALSE}
+plot(tab,col="green4",density=50,border="black",xlab = "Altura de Plantas",
+     ylab="Freq. Abs.",las=1)
+```
+
+
+## Medidas Descritivas
+
+
+Nas seções anteriores foram apresentadas formas de organizar e visualizar os dados por meio de tabelas de distribuição de frequências e representações gráficas. Essas ferramentas permitem compreender a forma geral da distribuição e identificar padrões ou concentrações de valores observados em experimentos.
+
+
+Outra maneira importante de resumir os dados de uma variável quantitativa consiste em apresentá-los por meio de valores numéricos, denominados medidas descritivas. Essas medidas sintetizam as informações do conjunto de dados em poucos números, facilitando a interpretação e a comparação entre diferentes experimentos ou tratamentos.
+
+
+As medidas descritivas auxiliam na análise do comportamento dos dados, permitindo descrever características como tendência central, variabilidade e dispersão das observações. Dependendo do contexto, esses dados podem ser provenientes de uma população ou de uma amostra.
+
+
+
+Quando as medidas são calculadas utilizando todos os elementos de uma população, elas são denominadas parâmetros populacionais. Por outro lado, quando são obtidas a partir de uma amostra, recebem o nome de estatísticas amostrais.
+
+
++-----------------+---------------+------------------+
+| Medidas         | Parâmetros    | Estatísticas     |
++:===============:+:=============:+:================:+
+| Nº de elementos | N             | n                |
++-----------------+---------------+------------------+
+| Média           | $\mu$         | $\bar{x}$        |
++-----------------+---------------+------------------+
+| Variância       | $\sigma^2$    | $s^2$            |
++-----------------+---------------+------------------+
+| Desvio Padrão   | $\sigma$      | $s$              |
++-----------------+---------------+------------------+
+
+
+Nas próximas subseções serão apresentadas algumas das principais medidas descritivas utilizadas na análise de dados experimentai, frequentemente empregadas na interpretação de resultados em experimentos agronômicos.
+
+
+**Medidas de Posição**
+
+
+As medidas de tendência central são assim denominadas por indicarem um ponto em torno do qual se concentram os dados. Esse ponto pode ser interpretado como o centro da distribuição, representando um valor típico do conjunto de observações.
+
+Entre as principais medidas de tendência central destacam-se a média, a mediana e a moda, cada uma delas fornecendo uma forma diferente de representar o comportamento central dos dados.
+
+
+
+### Média Aritmética
+
+
+A média aritmética ($\bar{x}$) é definida como a soma de todos os valores observados da variável dividida pelo número total de observações. Trata-se da medida de tendência central mais utilizada em Estatística.
+
+Sob uma interpretação geométrica, a média de uma distribuição pode ser vista como o centro de gravidade do conjunto de dados, isto é, o ponto de equilíbrio da distribuição.
+
+
+Seja $(x_1,x_2,...,x_n)$ um conjunto de dados. A média aritmética é dada por
+
+$$
+\mu=\frac{\sum_{i=1}^Nx_i}{N}
+\qquad \mbox{ou} \qquad
+\bar{x}=\frac{\sum_{i=1}^nx_i}{n}.
+$$
+
+Em geral, utiliza-se $\mu$ para representar a média populacional e $\bar{x}$ para indicar a média calculada a partir de uma amostra.
+
+Caso os dados estejam apresentados segundo uma distribuição de frequências, tem-se
+
+$$
+\mu=\frac{\sum_{i=1}^k\bar{x}_in_i}{N}
+\qquad \mbox{ou} \qquad
+\bar{x}=\frac{\sum_{i=1}^k\bar{x}_in_i}{n}.
+$$
+
+Observe que, no caso de dados agrupados, a média é obtida a partir de uma ponderação, em que os pesos são as frequências absolutas de cada classe ($n_i$) e $\bar{x}_i$ é o ponto médio da classe $i$.
+
+
+**Observações**
+
+
+
+1. A média é única para um conjunto de dados e nem sempre coincide com um valor observado.
+
+2. A média é afetada por valores extremos.
+
+3. Quando existem valores discrepantes no conjunto de dados, a média pode não ser a medida mais apropriada para representar o comportamento dos dados.
+
+4. Uma propriedade importante da média é que a soma dos desvios de cada valor observado em relação à média é igual a zero, isto é,
+
+$$
+\sum_{i=1}^n(x_i-\bar{x})=0
+$$
+
+
+**Exemplo 1**
+
+
+A seguir apresenta-se um conjunto de dados referentes à resistência de uvas Niágara. Os valores correspondem às medições fornecidas por produtores no ano de 2002.
+
+Com base nesses dados, calcula-se a média aritmética da variável resistência.
+
+
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+library(knitr)
+library(kableExtra)
+
+# Vetor de dados
+resis = scan(dec = ",", text = "
+0,92 1,80 1,00 0,94 0,76 0,72 0,50 1,10 0,99 0,70 0,73 0,89 0,64 0,76 0,84
+0,63 0,75 0,83 0,82 0,59 0,58 0,54 0,87 0,80 0,82 0,64 0,76 1,04 0,73 1,04
+0,67 0,76 0,75 0,61 0,69 0,52")
+
+# Organizando os dados em uma matriz
+resis = matrix(sort(resis), 4, 9, byrow = TRUE)
+
+# Transformar a matriz em data frame e criar cabeçalho falso
+resis_df <- as.data.frame(resis)
+colnames(resis_df) <- rep("", ncol(resis_df))  # sem nomes nas colunas
+
+
+
+kable(resis_df,
+      booktabs = TRUE,
+      caption = "Rol de resistência, em N, de uvas Niágara, fornecida por produtores em 2002")
+
+```
+
+A média pode ser obtida diretamente a partir dos dados brutos utilizando o software R.
+
+```{r echo=T, fig.align="center",results='hide'}
+resis=scan(dec=",", text= "
+0,92 1,80 1,00 0,94 0,76 0,72 0,50 1,10 0,99 0,70 0,73 0,89 0,64 0,76 0,84
+0,63 0,75 0,83 0,82 0,59 0,58 0,54 0,87 0,80 0,82 0,64 0,76 1,04 0,73 1,04
+0,67 0,76 0,75 0,61 0,69 0,52")
+mean(resis)
+```
+
+**Exemplo 2 - Dados agrupados em classes**
+
+
+Em muitas situações os dados não estão disponíveis individualmente, sendo apresentados na forma de distribuições de frequências agrupadas em classes. Nesses casos, a média é calculada utilizando-se os pontos médios das classes
+
+
+
+
+Utilizando a tabela abaixo, calcule a média da resistência de uvas Niágara.
+
+
+\begin{table}[H]
+\centering
+\caption{Distribuição de frequências das resistências de uvas Niágara}
+\label{tab:freq_uvas}
+
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Resistência} & \textbf{Freq.} ($n_i$) & \textbf{Freq.} ($f_i$) & \textbf{Freq.} ($N_i$) & \textbf{Ponto} ($\bar{x}_i$) & $n_i\bar{x}_i$ \\
+\midrule
+0,50 $\vdash$ 0,72 & 12 & 0,33 & 12 & 0,61 & 7,32 \\
+0,72 $\vdash$ 0,94 & 17 & 0,47 & 29 & 0,83 & 14,11 \\
+0,94 $\vdash$ 1,16 & 6  & 0,17 & 35 & 1,05 & 6,30 \\
+1,16 $\vdash$ 1,38 & 0  & 0,00 & 35 & 1,27 & 0,00 \\
+1,38 $\vdash$ 1,60 & 0  & 0,00 & 35 & 1,49 & 0,00 \\
+1,60 $\vdash$ 1,82 & 1  & 0,03 & 36 & 1,71 & 1,71 \\
+\midrule
+\textbf{Total} & 36 & 1,00 & -- & -- & 29,44 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O cálculo também pode ser realizado no **R**, utilizando a tabela de frequências obtida a partir dos dados originais.
+
+```{r echo=T,results='hide'}
+tabres=fdth::fdt(resis,start = .5,h=.22,end=1.82)
+tabres
+mean(tabres)
+```
+
+**Exercício**
+
+Calcule a média da variável rendimento médio de híbridos de milho utilizando:
+
+1. os **dados brutos**;  
+2. os **dados agrupados em classes** apresentados na tabela.
+
+\begin{table}[H]
+\centering
+\caption{Distribuição de frequências dos rendimentos médios, em kg/ha, de 32 híbridos de milho recomendados para o Oeste catarinense, 1987/88}
+\label{tab:freq_milho}
+
+\begin{tabular}{cccc}
+\toprule
+\textbf{Rendimento médio} & \textbf{Freq. abs.} & \textbf{Freq. rel.} & \textbf{Ponto médio} \\
+\textbf{(kg/ha)} & $(n_i)$ & $(f_i)$ & $(\bar{x}_i)$ \\
+\midrule
+3973 $\vdash$ 4457 & 1  & 0,031 & -- \\
+4457 $\vdash$ 4941 & 12 & 0,375 & -- \\
+4941 $\vdash$ 5425 & 13 & 0,406 & -- \\
+5425 $\vdash$ 5909 & 3  & 0,094 & -- \\
+5909 $\vdash$ 6393 & 3  & 0,094 & -- \\
+\midrule
+\textbf{Total} & 32 & 1,000 & -- \\
+\bottomrule
+\end{tabular}
+
+\end{table}
