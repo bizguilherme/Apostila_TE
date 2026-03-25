@@ -50,6 +50,27 @@
             "title": "Estatística para as ciências agrárias e biológicas: Com noções de experimentação",
             "title-short": "Estatística para as ciências agrárias e biológicas",
             "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Pimentel-Gomes",
+                    "given": "Frederico"
+                }
+            ],
+            "edition": "15",
+            "id": "pimentel_gomes",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "publisher": "FEALQ",
+            "publisher-place": "Piracicaba",
+            "title": "Curso de estatística experimental",
+            "type": "book"
         }
     ],
     "project_biblios": [
