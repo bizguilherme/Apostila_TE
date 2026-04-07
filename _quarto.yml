@@ -14,7 +14,11 @@ book:
     - intro.qmd
     - introducao.qmd
     - descritiva.qmd
+    - va_tecnicas.qmd
+    - Dist_amostrais.qmd
+    - Estimacao_TE.qmd
     - references.qmd 
+    
 
  
 bibliography: references.bib

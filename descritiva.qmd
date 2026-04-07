@@ -1650,7 +1650,7 @@ Os segmentos que se estendem da caixa até os valores mínimo e máximo (dentro 
 
 No contexto agronômico, o boxplot é amplamente utilizado para comparar tratamentos, avaliar a uniformidade de experimentos e identificar parcelas com comportamento atípico, sendo uma ferramenta fundamental na análise exploratória de dados.
 
-```{r echo=F, fig.align='center'}
+```{r echo=F, fig.align='center',, fig.width=6, fig.height=6}
 a=c(0,3,4,5,6,7,10)
 boxplot(a,ylim=c(-2,12),xlim=c(0.4,1.7),axes=F)
 points(1,12,pch=19)
@@ -1671,7 +1671,7 @@ arrows(1.4,c(0,3.5,5,6.5,10,12),1.27,c(0,3.5,5,6.5,10,12),length = .07,lwd=1.5)
 ```
 
 
-#### Exemplo: Boxplot da resistência de uvas Niágara
+**Exemplo: Boxplot da resistência de uvas Niágara**
 
 Considere os dados de resistência (N) de uvas Niágara fornecidos por produtores. A construção do boxplot para esse conjunto de dados permite visualizar a distribuição das resistências de forma resumida.
 
@@ -1776,7 +1776,8 @@ d3 <- density(assim_esq)
 # Plot
 plot(d1, col = "black", lwd = 2,
      main = "Densidade das distribuições",
-     xlab = "Valores",las=1,ylim=c(0,0.15),ylab="Densidade")
+     xlab = "Valores",las=1,ylim=c(0,0.1),xlim=c(10,115),
+     ylab="Densidade")
 
 lines(d2, col = "blue", lwd = 2, lty = 2)
 lines(d3, col = "red", lwd = 2, lty = 3)
@@ -1792,7 +1793,7 @@ segments(median(assim_dir), 0, median(assim_dir), 0.08, col="blue", lty=3)
 segments(median(assim_esq), 0, median(assim_esq), 0.08, col="red", lty=3)
 
 legend("topright",
-       legend = c("Simétrica", "As. à direita", "As. à esquerda"),
+       legend = c("Simétrica", "As. à dir.", "As. à esq."),
        col = c("black", "blue", "red"),
        lty = c(1,2,3), lwd = 2)
 ```

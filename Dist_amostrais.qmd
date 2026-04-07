@@ -1,0 +1,165 @@
+# Distribuições Amostrais
+
+Até o momento, a análise estatística foi conduzida a partir de dados observados em uma única amostra, o que permite descrever e resumir as informações coletadas em experimentos. Entretanto, em técnicas experimentais aplicadas à agronomia, o objetivo central raramente se limita à amostra em si, mas sim à compreensão de características da população da qual essa amostra foi retirada, por exemplo, o comportamento produtivo de uma cultura sob determinadas condições de manejo ou ambiente.
+
+Nesse contexto, surge uma questão fundamental: se diferentes amostras forem coletadas da mesma população, os resultados obtidos serão sempre os mesmos? A resposta é negativa, pois existe a chamada variabilidade amostral. Mesmo sob condições controladas, diferentes amostras podem produzir estimativas distintas para uma mesma medida, como a média de produtividade ou a altura de plantas.
+
+É justamente para compreender e quantificar essa variabilidade que se introduz o conceito de distribuição amostral. Essa distribuição descreve como uma estatística, como a média, a proporção ou a variância, se comporta ao considerar todas as possíveis amostras de mesmo tamanho extraídas de uma população. Assim, ela permite avaliar o grau de variação esperado entre diferentes amostras e fornece uma base teórica sólida para a inferência estatística.
+
+A compreensão das distribuições amostrais é, portanto, essencial, pois sustenta os principais procedimentos inferenciais utilizados em experimentação agronômica, como a estimação de parâmetros populacionais, a construção de intervalos de confiança e a realização de testes de hipóteses. Esses instrumentos permitem que conclusões obtidas a partir de amostras sejam generalizadas, de forma rigorosa, para a população de interesse.
+
+**Distribuição Amostral**
+
+A distribuição amostral pode ser definida como a distribuição de uma estatística, como a média, a proporção ou a variância, obtida a partir de todas as possíveis amostras de mesmo tamanho extraídas de uma população. Em outras palavras, em vez de observarmos apenas um único valor da estatística calculado a partir de uma amostra, passamos a considerar todos os valores que essa estatística poderia assumir, dependendo da amostra selecionada.
+
+Para ilustrar esse conceito, considere a população formada pelos valores $\{2, 4, 6, 8\}$. Suponha que sejam retiradas todas as possíveis amostras de tamanho 2, sem reposição. Para cada amostra, calcula-se a média amostral. As amostras possíveis e suas respectivas médias são apresentadas na Tabela \ref{tab:dist_amostral}.
+
+\begin{table}[H]
+\centering
+\caption{Amostras de tamanho 2 e suas respectivas médias}
+\label{tab:dist_amostral}
+\begin{tabular}{cc}
+\hline
+\textbf{Amostra} & \textbf{Média} \\
+\hline
+(2, 4) & 3 \\
+(2, 6) & 4 \\
+(2, 8) & 5 \\
+(4, 6) & 5 \\
+(4, 8) & 6 \\
+(6, 8) & 7 \\
+\hline
+\end{tabular}
+\end{table}
+
+Assim, a distribuição amostral da média é dada pelos valores $\{3, 4, 5, 5, 6, 7\}$. Esse resultado evidencia que a média amostral não assume um único valor, mas pode variar de acordo com a amostra considerada, mesmo quando todas são retiradas da mesma população. É justamente essa variabilidade que a distribuição amostral busca descrever.
+
+A importância desse conceito é central na inferência estatística, pois permite quantificar o erro amostral, isto é, a diferença esperada entre a estatística obtida na amostra e o verdadeiro parâmetro populacional. Além disso, as distribuições amostrais constituem a base para a construção de intervalos de confiança e para a realização de testes de hipóteses, ferramentas fundamentais na análise de experimentos agronômicos.
+
+
+**Simulação da distribuição amostral da média**
+
+Uma forma prática de compreender o comportamento da distribuição amostral da média é por meio de simulação computacional. A seguir, apresenta-se um exemplo utilizando o software R.
+
+```{r}
+set.seed(123)
+
+populacao <- rnorm(10000, mean = 50, sd = 10)
+
+n <- 30
+repeticoes <- 1000
+
+medias <- replicate(repeticoes, mean(sample(populacao, n)))
+
+hist(medias, breaks = 30,
+     main = "Distribuição Amostral das Médias",
+     ylab = "Frequência",
+     xlab = "Médias")
+
+abline(v = mean(medias), lwd = 2)
+```
+
+No código apresentado, inicialmente é gerada uma população com 10.000 observações, seguindo uma distribuição normal com média 50 e desvio padrão 10. Em seguida, são retiradas 1.000 amostras de tamanho $n = 30$, e para cada amostra calcula-se a média amostral. Os valores dessas médias são então utilizados para construir o histograma.
+
+Observa-se que a distribuição das médias amostrais tende a apresentar formato aproximadamente normal, concentrando-se em torno da média populacional. Esse comportamento evidencia que a média amostral é um estimador não viesado do parâmetro populacional e antecipa um resultado fundamental da estatística inferencial, que será formalizado pelo Teorema Central do Limite.
+
+## Distribuição amostral da média
+
+A distribuição amostral da média possui propriedades fundamentais que permitem compreender o comportamento das estimativas obtidas a partir de amostras.
+
+**Caso em que a população é normal**
+
+Seja $X$ uma variável aleatória com distribuição normal, isto é, $X \sim N(\mu, \sigma^2)$. Nesse caso, a média amostral $\bar{X}$, obtida a partir de uma amostra de tamanho $n$, também terá distribuição normal:
+
+$$
+\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+$$
+
+Isso implica que:
+- a média das médias amostrais é igual à média populacional, isto é, $E(\bar{X}) = \mu$;
+- a variância da média amostral é $\mathrm{Var}(\bar{X}) = \frac{\sigma^2}{n}$.
+
+Portanto, mesmo para amostras pequenas, a normalidade da população garante a normalidade da média amostral.
+
+**Caso geral: Teorema Central do Limite**
+
+Quando a população não segue uma distribuição normal, o comportamento da média amostral pode ser descrito pelo Teorema Central do Limite.
+
+Para uma população qualquer, com média $\mu$ e variância $\sigma^2$, a distribuição da média amostral $\bar{X}$ tende a uma distribuição normal à medida que o tamanho da amostra aumenta:
+
+$$
+\bar{X} \approx N\left(\mu, \frac{\sigma^2}{n}\right), \quad \text{para } n \text{ grande}
+$$
+
+Na prática, considera-se que, para amostras com tamanho $n > 30$, essa aproximação já é adequada em muitas situações.
+
+Esse resultado é de grande importância, pois permite utilizar métodos baseados na distribuição normal, como intervalos de confiança e testes de hipóteses, mesmo quando a distribuição da população original é desconhecida, situação comum em experimentos agronômicos.
+
+
+**Exemplo**
+
+Considere que a produtividade de uma cultura apresenta média populacional $\mu = 6000$ kg/ha e desvio padrão $\sigma = 900$ kg/ha. Sejam retiradas amostras de tamanho $n = 36$.
+
+Deseja-se:
+
+a) determinar a distribuição da média amostral;
+
+b) calcular a probabilidade de a média amostral ser inferior a 5800 kg/ha.
+
+a) Distribuição da média amostral
+
+A média da distribuição amostral é igual à média populacional:
+
+$$
+E(\bar{X}) = \mu = 6000
+$$
+
+O erro padrão da média é dado por:
+
+$$
+\mathrm{EP}(\bar{X}) = \frac{\sigma}{\sqrt{n}} = \frac{900}{\sqrt{36}} = 150
+$$
+
+Logo, a distribuição da média amostral é:
+
+$$
+\bar{X} \sim N(6000, 150^2)
+$$
+
+b) Probabilidade
+
+Deseja-se calcular:
+
+$$
+P(\bar{X} < 5800)
+$$
+
+Padronizando a variável:
+
+$$
+Z = \frac{5800 - 6000}{150} = -1{,}33
+$$
+
+Assim,
+
+$$
+P(\bar{X} < 5800) = P(Z < -1{,}33)
+$$
+
+Esse valor pode ser obtido por meio da tabela da normal padrão ou diretamente no R:
+
+```{r}
+pnorm(5800, mean = 6000, sd = 150)
+```
+
+A distribuição amostral da média evidencia que diferentes amostras produzem diferentes estimativas para a média populacional. Essa variabilidade é inerente ao processo amostral e precisa ser considerada na análise de dados.
+
+Dessa forma, surge a necessidade de:
+
+- quantificar a variabilidade das estimativas;
+- construir inferências confiáveis sobre o parâmetro populacional.
+
+Esses objetivos são alcançados por meio da estimação, que pode ser classificada em:
+
+- estimação pontual;
+- estimação intervalar.

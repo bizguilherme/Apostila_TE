@@ -1,0 +1,295 @@
+# Estimação dos parâmetros
+
+Em estudos agronômicos, raramente é possível observar todos os elementos de uma população, como todas as plantas de uma lavoura ou todas as parcelas de uma área experimental. Por esse motivo, utiliza-se uma amostra, a partir da qual se deseja obter informações sobre parâmetros populacionais desconhecidos.
+
+A **estimação** é o processo estatístico que utiliza os dados amostrais para avaliar esses parâmetros.
+
+Por exemplo, pode-se utilizar uma amostra de plantas para estimar:
+
+- a produtividade média de uma cultura ($\mu$);
+- a proporção de plantas doentes em uma lavoura ($\pi$);
+- a variabilidade da produção entre parcelas ($\sigma^2$).
+
+Os principais parâmetros de interesse são:
+
+- média ($\mu$)
+- proporção ($\pi$)
+- variância ($\sigma^2$)
+
+
+## Estimação Pontual
+
+Um **estimador** é uma estatística calculada a partir dos dados da amostra e utilizada para estimar um parâmetro populacional desconhecido.
+
+Quando um valor específico é obtido para esse estimador, tem-se uma estimativa pontual.
+
+Em estudos agronômicos, por exemplo, a partir de dados coletados em parcelas experimentais, pode-se obter estimativas para características de interesse da cultura.
+
+Os principais estimadores são:
+
+- $\bar{x}$ é o estimador da média populacional $\mu$
+- $\hat{p}$ é o estimador da proporção populacional $\pi$
+- $s^2$ é o estimador da variância populacional $\sigma^2$
+
+**Propriedades dos Estimadores**
+
+Para que um estimador seja considerado adequado, ele deve apresentar algumas propriedades importantes:
+
+- **Não viesado** (não tendencioso):
+
+Um estimador é dito não viesado quando seu valor esperado coincide com o parâmetro populacional, ou seja:
+
+$$E(\hat{\theta})=\theta$$
+
+Isso significa que, em média, o estimador acerta o verdadeiro valor do parâmetro.
+
+- **Preciso**:
+
+Refere-se à baixa variabilidade do estimador entre diferentes amostras.
+
+Quanto menor a variância do estimador, maior sua precisão. Estimadores precisos produzem valores próximos entre si, mesmo que não estejam exatamente no valor verdadeiro do parâmetro.
+
+- **Acurado**:
+
+Um estimador é acurado quando produz estimativas próximas do verdadeiro parâmetro populacional.
+A acurácia depende simultaneamente de baixo viés e alta precisão.
+
+
+**Exemplo 1 — Estimação Pontual**
+
+Uma amostra aleatória simples de dez isolados de fungos ectomicorrízicos *P. tinctorius*, cultivados *in vitro*, apresentou os seguintes valores de biomassa (em gramas):
+
+$$\begin{tabular}{ccccc}\hline
+0,034 & 0,033 & 0,029 & 0,034 & 0,027\\
+0,034 & 0,029 & 0,035 & 0,032 & 0,028\\ \hline
+\end{tabular}$$
+
+**Objetivo:** obter estimativas para a média e o desvio padrão populacional.
+
+**Solução**
+
+A média amostral é dada por:
+
+$$
+\bar{x} = \frac{0{,}315}{10} = 0{,}0315 \text{ g} \approx 0{,}032 \text{ g}
+$$
+
+O desvio padrão amostral é:
+
+$$
+s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}} \approx 0{,}003 \text{ g}
+$$
+
+Assim, as estimativas pontuais para $\mu$ e $\sigma$ são, respectivamente, **0,032 g** e **0,003 g**.
+
+**No R**
+
+```r
+dados <- c(0.034,0.033,0.029,0.034,0.027,
+           0.034,0.029,0.035,0.032,0.028)
+
+mean(dados)
+sd(dados)
+```
+
+Observa-se que os valores obtidos são **estimativas pontuais**, ou seja, valores únicos calculados a partir da amostra. No entanto, diferentes amostras da mesma população podem produzir resultados distintos.
+
+O principal problema da estimação pontual é que ela não fornece uma medida da incerteza associada à estimativa, isto é, não indica o quanto o valor estimado pode estar distante do verdadeiro parâmetro populacional.
+
+Dessa forma, surge a necessidade de quantificar essa incerteza.
+Isso é feito por meio da **estimação por intervalo**.
+
+
+
+## Estimação por Intervalo
+
+Na estimação por intervalo, constrói-se um intervalo de valores plausíveis para o parâmetro, combinando o estimador pontual com uma medida do erro amostral.
+
+Esse procedimento permite avaliar a possível magnitude do erro cometido na estimação.
+
+Os **intervalos de confiança** são construídos com base nas distribuições dos estimadores amostrais.
+
+
+A estimação por intervalo consiste em determinar um intervalo de valores que, com um determinado nível de confiança, contenha o verdadeiro valor do parâmetro populacional.
+
+$$
+P(\hat{\theta}_1 \leq \theta \leq \hat{\theta}_2) = \gamma
+$$
+
+em que $\gamma = 1 - \alpha$ é o nível de confiança.
+
+**Interpretação**
+
+O nível de confiança $\gamma$ representa a proporção de intervalos que conteriam o verdadeiro valor do parâmetro se o processo de amostragem fosse repetido um grande número de vezes.
+
+Notação
+
+Denotamos o intervalo de confiança para um parâmetro $\theta$ por:
+
+$$
+IC(\theta, \gamma)
+$$
+
+**Exemplos**
+
+* $IC(\mu, 0{,}95)$
+* $IC(\pi, 0{,}99)$
+
+### Intervalo de Confiança para a Média ($\sigma$ conhecido ou $n$ grande)
+
+O intervalo de confiança para a média populacional, quando o desvio padrão $\sigma$ é conhecido ou o tamanho da amostra é grande, é dado por:
+
+$$
+IC(\mu, \gamma) = \left[\bar{x} - z_{\alpha/2}\frac{\sigma}{\sqrt{n}}; \bar{x} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right]
+$$
+
+
+
+**Exemplo — Peso de sementes**
+
+A distribuição dos pesos de pacotes de sementes de milho, enchidos automaticamente por uma certa máquina, é normal, com desvio padrão ($\sigma$) conhecido e igual a 0,20 kg. Uma amostra de 15 pacotes retirada ao acaso apresentou os seguintes pesos, em kg:
+
+$$\begin{tabular}{cccccccc}\hline
+20,05 & 20,10 & 20,25 & 19,78 & 19,69 & 19,90 & 20,20 & 19,89 \\
+19,70 & 20,30 & 19,93 & 20,25 & 20,18 & 20,01 & 20,09 \\\hline
+\end{tabular}$$
+
+**Objetivo:** construir $IC(\mu, 0,95)$.
+
+**Solução**
+
+Calcula-se inicialmente a média amostral $\bar{x}$:
+
+$$
+\bar{x} \approx 20,02 \text{ kg}
+$$
+
+Em seguida, determina-se o erro padrão:
+
+$$
+EP = \frac{\sigma}{\sqrt{n}} = \frac{0,20}{\sqrt{15}} \approx 0,0516
+$$
+
+Para 95% de confiança, utiliza-se $z_{0,025} = 1,96$.
+
+O erro máximo é:
+
+$$
+E = 1,96 \cdot EP \approx 0,101
+$$
+
+Assim, o intervalo de confiança é:
+
+$$
+IC(\mu, 0,95) = [20,02 - 0,101,; 20,02 + 0,101]
+$$
+
+$$
+IC(\mu, 0,95) \approx [19,92; 20,12]
+$$
+
+
+
+**Verificação no R**
+
+```r
+dados <- c(20.05,20.10,20.25,19.78,19.69,19.90,20.20,19.89,
+           
+           19.70,20.30,19.93,20.25,20.18,20.01,20.09)
+
+mean(dados)
+
+erro <- 1.96*(0.20/sqrt(15))
+
+mean(dados)-erro
+mean(dados)+erro
+## Ou
+LearningStats::Mean.CI(dados,sigma = 0.2,conf.level = .95)
+```
+
+
+### Intervalo de Confiança para a Média ($\sigma$ desconhecido)
+
+Quando o desvio padrão populacional $\sigma$ é desconhecido, utiliza-se a distribuição t de Student. O intervalo de confiança para a média é dado por:
+
+$$
+IC(\mu, \gamma) = \left[\bar{x} - t_{(n-1,\ \alpha/2)}\frac{s}{\sqrt{n}};\ \bar{x} + t_{(n-1,\ \alpha/2)}\frac{s}{\sqrt{n}}\right]
+$$
+
+
+
+**Exemplo**
+
+O peso médio ao nascer e o desvio padrão de bezerros da raça Ibagé, examinada uma amostra de 20 partos, foram de 26 kg e 2 kg, respectivamente. Dê a estimativa por intervalo do verdadeiro peso médio, utilizando grau de confiança de 95\%.
+
+**Objetivo:** determinar $IC(\mu, 0,95)$.
+
+**Solução**
+
+Utiliza-se a distribuição t de Student com $n - 1 = 19$ graus de liberdade.
+
+O erro padrão é:
+
+$$
+EP = \frac{s}{\sqrt{n}} = \frac{2}{\sqrt{20}} \approx 0,447
+$$
+
+Para 95% de confiança:
+
+$$
+t_{(19, 0,025)} \approx 2,093
+$$
+
+O erro máximo é:
+
+$$
+E = t \cdot EP \approx 2,093 \cdot 0,447 \approx 0,935
+$$
+
+Assim, o intervalo de confiança é:
+
+$$
+IC(\mu, 0,95) = [26 - 0,935,; 26 + 0,935]
+$$
+
+$$
+IC(\mu, 0,95) \approx [25,06,; 26,94]
+$$
+
+
+
+**Verificação no R**
+
+```r
+media <- 26
+s <- 2
+n <- 20
+
+erro <- qt(0.975, df=19)*(s/sqrt(n))
+
+media-erro
+media+erro
+## Ou
+LearningStats::Mean.CI(26,sc=2,n=20,conf.level = 0.95)
+```
+
+
+
+**Exercício**
+
+As medidas da eficiência térmica de n=15 máquinas a diesel fabricadas por uma empresa renomada são as seguintes:
+
+30,7; 35,0; 34,9; 33,6; 28,7; 32,1; 29,0;
+31,4; 31,7; 31,8; 33,6; 29,7; 33,4; 28,2; 31,6
+
+Determine um intervalo de 99\% de confiança para a eficiência térmica média de tais máquinas a diesel.
+
+```r
+dados <- c(30.7,35.0,34.9,33.6,28.7,32.1,29.0,
+
+           31.4,31.7,31.8,33.6,29.7,33.4,28.2,31.6)
+
+LearningStats::Mean.CI(dados,conf.level = 0.99)
+```
+
+
