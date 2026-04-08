@@ -6,16 +6,15 @@ A **estimação** é o processo estatístico que utiliza os dados amostrais para
 
 Por exemplo, pode-se utilizar uma amostra de plantas para estimar:
 
-- a produtividade média de uma cultura ($\mu$);
-- a proporção de plantas doentes em uma lavoura ($\pi$);
-- a variabilidade da produção entre parcelas ($\sigma^2$).
+-   a produtividade média de uma cultura ($\mu$);
+-   a proporção de plantas doentes em uma lavoura ($\pi$);
+-   a variabilidade da produção entre parcelas ($\sigma^2$).
 
 Os principais parâmetros de interesse são:
 
-- média ($\mu$)
-- proporção ($\pi$)
-- variância ($\sigma^2$)
-
+-   média ($\mu$)
+-   proporção ($\pi$)
+-   variância ($\sigma^2$)
 
 ## Estimação Pontual
 
@@ -27,15 +26,15 @@ Em estudos agronômicos, por exemplo, a partir de dados coletados em parcelas ex
 
 Os principais estimadores são:
 
-- $\bar{x}$ é o estimador da média populacional $\mu$
-- $\hat{p}$ é o estimador da proporção populacional $\pi$
-- $s^2$ é o estimador da variância populacional $\sigma^2$
+-   $\bar{x}$ é o estimador da média populacional $\mu$
+-   $\hat{p}$ é o estimador da proporção populacional $\pi$
+-   $s^2$ é o estimador da variância populacional $\sigma^2$
 
 **Propriedades dos Estimadores**
 
 Para que um estimador seja considerado adequado, ele deve apresentar algumas propriedades importantes:
 
-- **Não viesado** (não tendencioso):
+-   **Não viesado** (não tendencioso):
 
 Um estimador é dito não viesado quando seu valor esperado coincide com o parâmetro populacional, ou seja:
 
@@ -43,17 +42,15 @@ $$E(\hat{\theta})=\theta$$
 
 Isso significa que, em média, o estimador acerta o verdadeiro valor do parâmetro.
 
-- **Preciso**:
+-   **Preciso**:
 
 Refere-se à baixa variabilidade do estimador entre diferentes amostras.
 
 Quanto menor a variância do estimador, maior sua precisão. Estimadores precisos produzem valores próximos entre si, mesmo que não estejam exatamente no valor verdadeiro do parâmetro.
 
-- **Acurado**:
+-   **Acurado**:
 
-Um estimador é acurado quando produz estimativas próximas do verdadeiro parâmetro populacional.
-A acurácia depende simultaneamente de baixo viés e alta precisão.
-
+Um estimador é acurado quando produz estimativas próximas do verdadeiro parâmetro populacional. A acurácia depende simultaneamente de baixo viés e alta precisão.
 
 **Exemplo 1 — Estimação Pontual**
 
@@ -84,7 +81,7 @@ Assim, as estimativas pontuais para $\mu$ e $\sigma$ são, respectivamente, **0,
 
 **No R**
 
-```r
+``` r
 dados <- c(0.034,0.033,0.029,0.034,0.027,
            0.034,0.029,0.035,0.032,0.028)
 
@@ -96,10 +93,7 @@ Observa-se que os valores obtidos são **estimativas pontuais**, ou seja, valore
 
 O principal problema da estimação pontual é que ela não fornece uma medida da incerteza associada à estimativa, isto é, não indica o quanto o valor estimado pode estar distante do verdadeiro parâmetro populacional.
 
-Dessa forma, surge a necessidade de quantificar essa incerteza.
-Isso é feito por meio da **estimação por intervalo**.
-
-
+Dessa forma, surge a necessidade de quantificar essa incerteza. Isso é feito por meio da **estimação por intervalo**.
 
 ## Estimação por Intervalo
 
@@ -108,7 +102,6 @@ Na estimação por intervalo, constrói-se um intervalo de valores plausíveis p
 Esse procedimento permite avaliar a possível magnitude do erro cometido na estimação.
 
 Os **intervalos de confiança** são construídos com base nas distribuições dos estimadores amostrais.
-
 
 A estimação por intervalo consiste em determinar um intervalo de valores que, com um determinado nível de confiança, contenha o verdadeiro valor do parâmetro populacional.
 
@@ -132,8 +125,8 @@ $$
 
 **Exemplos**
 
-* $IC(\mu, 0{,}95)$
-* $IC(\pi, 0{,}99)$
+-   $IC(\mu, 0{,}95)$
+-   $IC(\pi, 0{,}99)$
 
 ### Intervalo de Confiança para a Média ($\sigma$ conhecido ou $n$ grande)
 
@@ -142,8 +135,6 @@ O intervalo de confiança para a média populacional, quando o desvio padrão $\
 $$
 IC(\mu, \gamma) = \left[\bar{x} - z_{\alpha/2}\frac{\sigma}{\sqrt{n}}; \bar{x} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right]
 $$
-
-
 
 **Exemplo — Peso de sementes**
 
@@ -188,11 +179,9 @@ $$
 IC(\mu, 0,95) \approx [19,92; 20,12]
 $$
 
-
-
 **Verificação no R**
 
-```r
+``` r
 dados <- c(20.05,20.10,20.25,19.78,19.69,19.90,20.20,19.89,
            
            19.70,20.30,19.93,20.25,20.18,20.01,20.09)
@@ -207,7 +196,6 @@ mean(dados)+erro
 LearningStats::Mean.CI(dados,sigma = 0.2,conf.level = .95)
 ```
 
-
 ### Intervalo de Confiança para a Média ($\sigma$ desconhecido)
 
 Quando o desvio padrão populacional $\sigma$ é desconhecido, utiliza-se a distribuição t de Student. O intervalo de confiança para a média é dado por:
@@ -216,11 +204,9 @@ $$
 IC(\mu, \gamma) = \left[\bar{x} - t_{(n-1,\ \alpha/2)}\frac{s}{\sqrt{n}};\ \bar{x} + t_{(n-1,\ \alpha/2)}\frac{s}{\sqrt{n}}\right]
 $$
 
-
-
 **Exemplo**
 
-O peso médio ao nascer e o desvio padrão de bezerros da raça Ibagé, examinada uma amostra de 20 partos, foram de 26 kg e 2 kg, respectivamente. Dê a estimativa por intervalo do verdadeiro peso médio, utilizando grau de confiança de 95\%.
+O peso médio ao nascer e o desvio padrão de bezerros da raça Ibagé, examinada uma amostra de 20 partos, foram de 26 kg e 2 kg, respectivamente. Dê a estimativa por intervalo do verdadeiro peso médio, utilizando grau de confiança de 95%.
 
 **Objetivo:** determinar $IC(\mu, 0,95)$.
 
@@ -256,11 +242,9 @@ $$
 IC(\mu, 0,95) \approx [25,06,; 26,94]
 $$
 
-
-
 **Verificação no R**
 
-```r
+``` r
 media <- 26
 s <- 2
 n <- 20
@@ -273,23 +257,93 @@ media+erro
 LearningStats::Mean.CI(26,sc=2,n=20,conf.level = 0.95)
 ```
 
-
-
 **Exercício**
 
 As medidas da eficiência térmica de n=15 máquinas a diesel fabricadas por uma empresa renomada são as seguintes:
 
-30,7; 35,0; 34,9; 33,6; 28,7; 32,1; 29,0;
-31,4; 31,7; 31,8; 33,6; 29,7; 33,4; 28,2; 31,6
+30,7; 35,0; 34,9; 33,6; 28,7; 32,1; 29,0; 31,4; 31,7; 31,8; 33,6; 29,7; 33,4; 28,2; 31,6
 
-Determine um intervalo de 99\% de confiança para a eficiência térmica média de tais máquinas a diesel.
+Determine um intervalo de 99% de confiança para a eficiência térmica média de tais máquinas a diesel.
 
-```r
+``` r
 dados <- c(30.7,35.0,34.9,33.6,28.7,32.1,29.0,
 
            31.4,31.7,31.8,33.6,29.7,33.4,28.2,31.6)
 
 LearningStats::Mean.CI(dados,conf.level = 0.99)
 ```
+### Intervalo de confiança para diferença entre duas médias
+
+Em muitas situações experimentais na agronomia, o interesse do pesquisador não está apenas em estimar um parâmetro isolado, mas em comparar dois tratamentos distintos. Essa comparação é essencial, por exemplo, na avaliação de diferentes cultivares, fontes de adubação ou práticas de manejo, permitindo inferir qual alternativa apresenta melhor desempenho médio.
+
+Do ponto de vista estatístico, essa análise é conduzida por meio da diferença entre duas médias populacionais, representada por $\mu_1 - \mu_2$. Como esses parâmetros são desconhecidos, utiliza-se a informação proveniente de amostras para construir inferências. A estimativa pontual dessa diferença é dada por $\bar{x}_1 - \bar{x}_2$, ou seja, a diferença entre as médias observadas nos dois tratamentos.
+
+Entretanto, assim como ocorre em outros contextos inferenciais, essa estimativa está sujeita à variabilidade amostral. Dessa forma, torna-se mais informativo trabalhar com intervalos de confiança, que fornecem uma faixa de valores plausíveis para a verdadeira diferença entre as médias populacionais. Esse procedimento permite avaliar não apenas a magnitude da diferença, mas também a precisão da estimativa obtida.
+
+Para a construção do intervalo de confiança para a diferença de médias, considera-se a seguinte notação: para o tratamento 1, $\bar{x}_1$ representa a média amostral, $s_1$ o desvio padrão amostral e $n_1$ o tamanho da amostra; de forma análoga, para o tratamento 2, utilizam-se $\bar{x}_2$, $s_2$ e $n_2$. A partir desses elementos, é possível desenvolver os intervalos sob diferentes pressupostos, como independência entre amostras e hipóteses sobre as variâncias populacionais.
+
+#### Amostras grandes ou variâncias conhecidas
+
+Em situações em que se deseja comparar dois tratamentos com base em amostras independentes, e quando os tamanhos amostrais são grandes ($n_1, n_2 > 30$) ou as variâncias populacionais são conhecidas, pode-se utilizar a aproximação normal para a construção do intervalo de confiança da diferença entre médias.
+Nessas condições, a distribuição da diferença entre as médias amostrais pode ser aproximada por uma normal, o que permite utilizar o quantil da distribuição normal padrão na construção do intervalo.
+O intervalo de confiança para $\mu_1 - \mu_2$, com nível de confiança $\gamma = 1 - \alpha$, é dado por:
+$$
+IC(\mu_1 - \mu_2,\gamma) = \left[(\bar{x}_1 - \bar{x}_2) \pm z_{\alpha/2}\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\right]
+$$
+em que $z_{\alpha/2}$ é o valor crítico da distribuição normal padrão, $\sigma_1^2$ e $\sigma_2^2$ são as variâncias populacionais, e $n_1$ e $n_2$ são os tamanhos das amostras.
+
+**Exemplo**
+
+Um pesquisador em agronomia conduziu um experimento para comparar a produtividade de soja (t/ha) utilizando dois tipos de fertilizantes comerciais, A e B, em áreas experimentais semelhantes.
+Para o fertilizante A, obteve-se média amostral de $8{,}2$ t/ha, desvio padrão populacional de $1{,}5$ t/ha, com amostra de tamanho $n_1 = 40$.
+Para o fertilizante B, a média amostral foi de $7{,}4$ t/ha, com desvio padrão populacional de $1{,}2$ t/ha e tamanho amostral $n_2 = 35$.
+Assumindo independência entre as amostras e distribuição aproximadamente normal, deseja-se construir o intervalo de confiança de $95%$ para $(\mu_1 - \mu_2)$.
+
+**Solução**
+Diferença entre as médias:
+$$
+\bar{x}_1 - \bar{x}_2 = 8{,}2 - 7{,}4 = 0{,}8
+$$
+Erro padrão:
+$$
+EP = \sqrt{\frac{1{,}5^2}{40} + \frac{1{,}2^2}{35}}
+= \sqrt{\frac{2{,}25}{40} + \frac{1{,}44}{35}}
+= \sqrt{0{,}05625 + 0{,}04114}
+= \sqrt{0{,}09739} \approx 0{,}312
+$$
+Valor crítico:
+$$
+z_{0{,}025} = 1{,}96
+$$
+Intervalo de confiança:
+$$
+IC = [0{,}8 \pm 1{,}96 \cdot 0{,}312]
+= [0{,}8 \pm 0{,}611]
+= [0{,}189 ; ; ; 1{,}411]
+$$
+Como o intervalo não contém o valor zero, há evidências de que os fertilizantes apresentam produtividades médias diferentes.
+
+```r 
+# install.packages("LearningStats") # executar se necessário library(LearningStats) 
+
+
+```
+
+**Exercício** 
+
+Estão sendo estudados dois processos para conservar alimentos, cuja principal variável de interesse é o tempo de duração. No processo A, o tempo $X$ segue a distribuição $N(\mu_1, 100)$, e no processo B o tempo $Y$ segue $N(\mu_2, 100)$.
+
+Sorteiam-se duas amostras independentes:
+Processo A: $n_1 = 16$, média $\bar{x}_1 = 50$
+Processo B: $n_2 = 25$, média $\bar{x}_2 = 60$
+\begin{itemize}
+\item[(a)] Construa intervalos de confiança para $\mu_1$ e $\mu_2$, separadamente.
+\vspace{0.5cm}
+\item[(b)] Construa um intervalo de confiança para $\mu_1 - \mu_2$. Com base no resultado, avalie se há evidência de igualdade entre os processos.
+\end{itemize}
+
+#### Variâncias desconhecidas e supostamente iguais
+
+#### Variâncias desconhecidas e supostamente deseiguais
 
 

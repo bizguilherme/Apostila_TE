@@ -262,7 +262,11 @@ A distribuição normal apresenta características importantes para a interpreta
 
 **Cálculo de probabilidades**
 
-Em aplicações práticas, frequentemente é necessário calcular probabilidades associadas a intervalos de valores, como: - a probabilidade de a produtividade ser superior a um determinado valor; - a probabilidade de a altura de plantas estar dentro de uma faixa específica.
+Em aplicações práticas, frequentemente é necessário calcular probabilidades associadas a intervalos de valores, como:
+
+- a probabilidade de a produtividade ser superior a um determinado valor;
+
+- a probabilidade de a altura de plantas estar dentro de uma faixa específica.
 
 No entanto, o cálculo direto dessas probabilidades envolve integrais de difícil resolução. Por isso, utiliza-se uma estratégia baseada na padronização da variável.
 
@@ -393,25 +397,25 @@ pnorm(-0.93) - pnorm(-1.67)
 
 Sabendo-se que Z∼N(0,1) e utilizando a tabela da distribuição normal padrão, determine z tal que:
 
-(a) P(0<Z<z_t)=0,475
+(a) P(0\<Z\<z_t)=0,475
 
-(b) P(-z_t<Z<0)=0,35314
+(b) P(-z_t\<Z\<0)=0,35314
 
-(c) P(-z_t<Z<z_t)=0,95
+(c) P(-z_t\<Z\<z_t)=0,95
 
-(d) P(Z<z_t)=0,36693
+(d) P(Z\<z_t)=0,36693
 
-(e) P(Z<z_t)=0,82121
+(e) P(Z\<z_t)=0,82121
 
-(f) P(Z<z_t)=0,30153
+(f) P(Z\<z_t)=0,30153
 
-(g) P(Z>z_t)=0,95254
+(g) P(Z\>z_t)=0,95254
 
-(h) P(Z>z_t)=0,07493
+(h) P(Z\>z_t)=0,07493
 
 Utilize inicialmente a tabela da normal padrão para resolver os exercícios. Em seguida, utilize o R para conferir os resultados.
 
-```r
+``` r
 # a)
 qnorm(0.975)
 # b)
@@ -428,27 +432,25 @@ qnorm(0.30153)
 qnorm(0.95254,lower.tail = FALSE)
 # h)
 qnorm(0.07493,lower.tail = FALSE)
-
 ```
-
-
 
 Seja $Y∼N(4,1)$. Determine:
 
 (a) P(Y≤4)
 
-(b) P(4<Y<5)
+(b) P(4\<Y\<5)
 
-(c) P(2<Y<5)
+(c) P(2\<Y\<5)
 
-(d) P(5<Y<7)
+(d) P(5\<Y\<7)
 
 (e) P(Y≤1)
 
 (f) P(0≤Y≤2)
 
 Utilize inicialmente a tabela da normal padrão para resolver os exercícios. Em seguida, utilize o R para conferir os resultados.
-```r 
+
+``` r
 # a)
 pnorm(4,4,1)
 # b)
@@ -463,12 +465,11 @@ pnorm(1,4,1)
 pnorm(2,4,1)-pnorm(0,4,1)
 ```
 
-
 O diâmetro ($X$) de certa espécie de árvore segue $X∼N(50,\ 6)$. Se o diâmetro diferir da média em mais de 10 cm, a árvore é vendida por 10 u.m.; caso contrário, é vendida por 20 u.m. Determine o preço médio de venda de cada árvore.
 
 Utilize inicialmente a tabela da normal padrão para resolver os exercícios. Em seguida, utilize o R para conferir os resultados.
 
-```r
+``` r
 pv20=pnorm(60,50,6)-pnorm(40,50,6)
 pv10=1-pv20
 (ValorMedioVenda=10*pv10+20*pv20)

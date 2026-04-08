@@ -36,7 +36,6 @@ Assim, a distribuição amostral da média é dada pelos valores $\{3, 4, 5, 5, 
 
 A importância desse conceito é central na inferência estatística, pois permite quantificar o erro amostral, isto é, a diferença esperada entre a estatística obtida na amostra e o verdadeiro parâmetro populacional. Além disso, as distribuições amostrais constituem a base para a construção de intervalos de confiança e para a realização de testes de hipóteses, ferramentas fundamentais na análise de experimentos agronômicos.
 
-
 **Simulação da distribuição amostral da média**
 
 Uma forma prática de compreender o comportamento da distribuição amostral da média é por meio de simulação computacional. A seguir, apresenta-se um exemplo utilizando o software R.
@@ -75,9 +74,7 @@ $$
 \bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
 $$
 
-Isso implica que:
-- a média das médias amostrais é igual à média populacional, isto é, $E(\bar{X}) = \mu$;
-- a variância da média amostral é $\mathrm{Var}(\bar{X}) = \frac{\sigma^2}{n}$.
+Isso implica que: - a média das médias amostrais é igual à média populacional, isto é, $E(\bar{X}) = \mu$; - a variância da média amostral é $\mathrm{Var}(\bar{X}) = \frac{\sigma^2}{n}$.
 
 Portanto, mesmo para amostras pequenas, a normalidade da população garante a normalidade da média amostral.
 
@@ -95,18 +92,15 @@ Na prática, considera-se que, para amostras com tamanho $n > 30$, essa aproxima
 
 Esse resultado é de grande importância, pois permite utilizar métodos baseados na distribuição normal, como intervalos de confiança e testes de hipóteses, mesmo quando a distribuição da população original é desconhecida, situação comum em experimentos agronômicos.
 
-
 **Exemplo**
 
 Considere que a produtividade de uma cultura apresenta média populacional $\mu = 6000$ kg/ha e desvio padrão $\sigma = 900$ kg/ha. Sejam retiradas amostras de tamanho $n = 36$.
 
 Deseja-se:
 
-a) determinar a distribuição da média amostral;
+a)  determinar a distribuição da média amostral;
 
-b) calcular a probabilidade de a média amostral ser inferior a 5800 kg/ha.
-
-a) Distribuição da média amostral
+b)  calcular a probabilidade de a média amostral ser inferior a 5800 kg/ha.
 
 A média da distribuição amostral é igual à média populacional:
 
@@ -126,7 +120,7 @@ $$
 \bar{X} \sim N(6000, 150^2)
 $$
 
-b) Probabilidade
+b)  Probabilidade
 
 Deseja-se calcular:
 
@@ -156,10 +150,10 @@ A distribuição amostral da média evidencia que diferentes amostras produzem d
 
 Dessa forma, surge a necessidade de:
 
-- quantificar a variabilidade das estimativas;
-- construir inferências confiáveis sobre o parâmetro populacional.
+-   quantificar a variabilidade das estimativas;
+-   construir inferências confiáveis sobre o parâmetro populacional.
 
 Esses objetivos são alcançados por meio da estimação, que pode ser classificada em:
 
-- estimação pontual;
-- estimação intervalar.
+-   estimação pontual;
+-   estimação intervalar.
