@@ -297,7 +297,7 @@ em que $z_{\alpha/2}$ é o valor crítico da distribuição normal padrão, $\si
 Um pesquisador em agronomia conduziu um experimento para comparar a produtividade de soja (t/ha) utilizando dois tipos de fertilizantes comerciais, A e B, em áreas experimentais semelhantes.
 Para o fertilizante A, obteve-se média amostral de $8{,}2$ t/ha, desvio padrão populacional de $1{,}5$ t/ha, com amostra de tamanho $n_1 = 40$.
 Para o fertilizante B, a média amostral foi de $7{,}4$ t/ha, com desvio padrão populacional de $1{,}2$ t/ha e tamanho amostral $n_2 = 35$.
-Assumindo independência entre as amostras e distribuição aproximadamente normal, deseja-se construir o intervalo de confiança de $95%$ para $(\mu_1 - \mu_2)$.
+Assumindo independência entre as amostras e distribuição aproximadamente normal, deseja-se construir o intervalo de confiança de $95\%$ para $(\mu_1 - \mu_2)$.
 
 **Solução**
 Diferença entre as médias:
@@ -319,14 +319,13 @@ Intervalo de confiança:
 $$
 IC = [0{,}8 \pm 1{,}96 \cdot 0{,}312]
 = [0{,}8 \pm 0{,}611]
-= [0{,}189 ; ; ; 1{,}411]
+= [0{,}189 ;\ 1{,}411]
 $$
 Como o intervalo não contém o valor zero, há evidências de que os fertilizantes apresentam produtividades médias diferentes.
 
 ```r 
-# install.packages("LearningStats") # executar se necessário library(LearningStats) 
-
-
+require(LearningStats)
+diffmean.CI(x1=8.2,x2=7.4,sigma1=1.5,sigma2=1.2,n1=40,n2=35,conf.level=.95)
 ```
 
 **Exercício** 
@@ -334,16 +333,659 @@ Como o intervalo não contém o valor zero, há evidências de que os fertilizan
 Estão sendo estudados dois processos para conservar alimentos, cuja principal variável de interesse é o tempo de duração. No processo A, o tempo $X$ segue a distribuição $N(\mu_1, 100)$, e no processo B o tempo $Y$ segue $N(\mu_2, 100)$.
 
 Sorteiam-se duas amostras independentes:
+
 Processo A: $n_1 = 16$, média $\bar{x}_1 = 50$
+
 Processo B: $n_2 = 25$, média $\bar{x}_2 = 60$
+
 \begin{itemize}
 \item[(a)] Construa intervalos de confiança para $\mu_1$ e $\mu_2$, separadamente.
 \vspace{0.5cm}
 \item[(b)] Construa um intervalo de confiança para $\mu_1 - \mu_2$. Com base no resultado, avalie se há evidência de igualdade entre os processos.
 \end{itemize}
 
+```r 
+require(LearningStats)
+Mean.CI(x=50,sigma=10,n=16,conf.level=.95)
+Mean.CI(x=60,sigma=10,n=25,conf.level=.95)
+diffmean.CI(x1=50,x2=60,sigma1=10,sigma2=10,n1=16,n2=25,conf.level=.95)
+```
+
+
 #### Variâncias desconhecidas e supostamente iguais
 
-#### Variâncias desconhecidas e supostamente deseiguais
+Na prática agronômica, raramente se conhece a variância populacional dos tratamentos avaliados. Em experimentos de campo ou em casa de vegetação, a variabilidade das respostas é influenciada por fatores como heterogeneidade do solo, variações microclimáticas e diferenças no manejo. Dessa forma, o pesquisador dispõe, em geral, apenas das variâncias amostrais.
+
+Quando as amostras são pequenas ($n_1, n_2 \leq 30$) e as variâncias populacionais são desconhecidas, a inferência sobre a diferença entre médias passa a utilizar a distribuição $t$ de Student, que incorpora a incerteza associada à estimação da variância.
+
+Em situações nas quais é razoável assumir que as variâncias populacionais são iguais ($\sigma_1^2 = \sigma_2^2$), utiliza-se uma estimativa combinada da variância, denominada \textit{variância combinada}, que resulta em maior precisão na estimação da variabilidade comum.
+
+$$
+S_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}}
+$$
+
+O intervalo de confiança para a diferença entre médias é dado por:
+
+$$
+IC(\mu_1 - \mu_2, \gamma) =
+\left[
+(\bar{x}_1 - \bar{x}_2)
+\pm
+t_{\alpha/2,\; n_1 + n_2 - 2}
+\cdot
+S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+\right]
+$$
+**Exemplo** 
+
+Dois cultivares de milho foram comparados quanto à altura de plantas (cm) em condições experimentais semelhantes. As seguintes observações foram obtidas:
+
+Foram coletadas duas amostras independentes, com os seguintes resultados:
+
+Cultivar A: 82, 88, 85, 87, 90, 84, 83, 86, 89, 81, 85, 88  
+
+Cultivar B: 78, 82, 79, 81, 77, 80, 83, 76, 84, 79  
+
+Construa um intervalo de confiança de 95\% para a diferença entre as médias ($\mu_A - \mu_B$), assumindo variâncias desconhecidas e iguais.
+
+**Solução**
+
+1. Estatísticas amostrais
+
+Para a Cultivar A:
+
+$$
+n_1 = 12
+$$
+
+$$
+\bar{x}_1 = 85{,}67
+$$
+
+$$
+s_1 \approx 2{,}87
+$$
+
+Para a Cultivar B:
+
+$$
+n_2 = 10
+$$
+
+$$
+\bar{x}_2 = 79{,}90
+$$
+
+$$
+s_2 \approx 2{,}60
+$$
 
 
+
+2. Diferença entre médias
+
+$$
+\bar{x}_1 - \bar{x}_2 = 85{,}67 - 79{,}90 = 5{,}77
+$$
+
+
+3. Variância combinada
+
+$$
+S_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}}
+$$
+
+$$
+S_p = \sqrt{\frac{11(2{,}87^2) + 9(2{,}60^2)}{20}}
+$$
+
+$$
+S_p = \sqrt{\frac{90{,}64 + 60{,}84}{20}} = \sqrt{7{,}57} \approx 2{,}75
+$$
+
+
+4. Erro padrão
+
+$$
+EP = S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+$$
+
+$$
+EP = 2{,}75 \sqrt{0{,}1833} \approx 1{,}18
+$$
+
+
+5. Valor crítico
+
+$$
+gl = 20
+$$
+
+$$
+t_{0{,}025,20} \approx 2{,}086
+$$
+
+
+6. Intervalo de confiança
+
+$$
+IC = 5{,}77 \pm 2{,}086 \cdot 1{,}18
+$$
+
+$$
+IC = 5{,}77 \pm 2{,}46
+$$
+
+$$
+IC = [3{,}31 \;,\; 8{,}23]
+$$
+
+
+O intervalo de confiança não contém o valor zero, indicando que há evidência estatística, ao nível de 95\% de confiança, de diferença entre as cultivares.
+
+```r
+cultivarA=c(82, 88, 85, 87, 90, 84, 83, 86, 89, 81, 85, 88)
+cultivarB=c(78, 82, 79, 81, 77, 80, 83, 76, 84, 79)
+
+diffmean.CI(cultivarA,cultivarB,var.equal = T,conf.level = .95)
+```
+
+
+
+**Exercício**
+
+
+Dois tratamentos de adubação foram aplicados em parcelas experimentais, e a produção (kg/parcela) foi registrada para cada tratamento.
+
+Os dados observados foram:
+
+Tratamento A: 52, 55, 50, 53, 54, 51, 56, 52  
+
+Tratamento B: 48, 47, 50, 49, 46, 45, 48, 47  
+
+Assumindo amostras independentes, variâncias desconhecidas e iguais, construa um intervalo de confiança de 95% para a diferença entre as médias:
+
+$$
+IC(\mu_1 - \mu_2, 0{,}95)
+$$
+
+Interprete o resultado obtido no contexto do experimento, discutindo se há evidência de diferença entre os tratamentos.
+
+
+```r
+A=c(52, 55, 50, 53, 54, 51, 56, 52)
+B=c(48, 47, 50, 49, 46, 45, 48, 47)
+
+diffmean.CI(A,B,var.equal = T,conf.level = .95)
+
+```
+
+
+#### Variâncias desconhecidas e supostamente desiguais
+
+
+Na prática experimental, especialmente em estudos agronômicos, nem sempre é razoável assumir que os tratamentos apresentam a mesma variabilidade. Diferenças na resposta podem ocorrer devido a fatores como interação com o solo, eficiência de absorção de nutrientes ou condições ambientais, levando a variâncias distintas entre os grupos.
+
+Quando não se pode assumir homogeneidade de variâncias ($\sigma_1^2 \neq \sigma_2^2$), utiliza-se o procedimento de **Welch**, que ajusta tanto o erro padrão quanto os graus de liberdade da distribuição $t$.
+
+Considerando duas amostras aleatórias e independentes, a estatística é dada por:
+
+$$
+T = \frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}
+{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
+$$
+
+Os graus de liberdade são aproximados por:
+
+$$
+\nu \approx 
+\frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}
+{\frac{\left(\frac{S_1^2}{n_1}\right)^2}{n_1 - 1} + \frac{\left(\frac{S_2^2}{n_2}\right)^2}{n_2 - 1}}
+$$
+
+
+**Intervalo de confiança**
+
+O intervalo de confiança para a diferença entre médias, sem assumir variâncias iguais, é dado por:
+
+$$
+IC(\mu_1 - \mu_2, \gamma) =
+\left[
+(\bar{x}_1 - \bar{x}_2)
+\pm
+t_{\alpha/2,\;\nu}
+\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}
+\right]
+$$
+
+em que $\nu$ é o número de graus de liberdade aproximado pela expressão de Welch.
+
+
+**Exemplo**
+
+Em um experimento com trigo, dois manejos de adubação foram comparados quanto à produtividade (t/ha).
+
+Os resultados amostrais foram:
+
+- Manejo A: $\bar{x}_1 = 6{,}8$, $s_1^2 = 1{,}44$, $n_1 = 15$  
+- Manejo B: $\bar{x}_2 = 5{,}9$, $s_2^2 = 2{,}25$, $n_2 = 12$
+
+Admitindo variâncias populacionais desconhecidas e desiguais, construa um intervalo de confiança de 95\% para a diferença entre as médias $(\mu_1 - \mu_2)$.
+
+
+**Solução**
+
+1. Diferença entre médias
+
+$$
+\bar{x}_1 - \bar{x}_2 = 6{,}8 - 5{,}9 = 0{,}9
+$$
+
+2. Erro padrão
+
+$$
+EP = \sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}
+$$
+
+$$
+EP = \sqrt{\frac{1{,}44}{15} + \frac{2{,}25}{12}}
+= \sqrt{0{,}096 + 0{,}1875}
+$$
+
+$$
+EP = \sqrt{0{,}2835} \approx 0{,}532
+$$
+
+3. Graus de liberdade (aproximação de Welch)
+
+$$
+\nu \approx 
+\frac{(0{,}096 + 0{,}1875)^2}
+{\frac{(0{,}096)^2}{15 - 1} + \frac{(0{,}1875)^2}{12 - 1}}
+$$
+
+$$
+\nu \approx 
+\frac{(0{,}2835)^2}
+{\frac{0{,}009216}{14} + \frac{0{,}035156}{11}}
+$$
+
+$$
+\nu \approx 
+\frac{0{,}0804}{0{,}000658 + 0{,}003196}
+= \frac{0{,}0804}{0{,}003854}
+\approx 20{,}86
+$$
+
+Assim, utilizamos aproximadamente:
+
+$$
+\nu \approx 21
+$$
+
+4. Valor crítico
+
+Para 95% de confiança:
+
+$$
+t_{0{,}025,\,21} \approx 2{,}080
+$$
+
+5. Intervalo de confiança
+
+$$
+IC = 0{,}9 \pm 2{,}080 \cdot 0{,}532
+$$
+
+$$
+IC = 0{,}9 \pm 1{,}11
+$$
+
+$$
+IC = [-0{,}21 \;,\; 2{,}01]
+$$
+
+```r
+diffmean.CI(6.8,5.9,sc1=sqrt(1.44),sc2=sqrt(2.25),n1=15,n2=12,conf.level = .95)
+```
+
+O intervalo de confiança contém o valor zero, indicando que **não há evidência estatística, ao nível de 95% de confiança, de diferença significativa entre os manejos de adubação** quanto à produtividade.
+
+
+**Exercício**
+
+Dois sistemas de manejo de solo foram avaliados quanto à produtividade de milho (kg/parcela).
+
+Os dados observados foram:
+
+Sistema A: 62, 65, 60, 64, 66, 63, 61, 67  
+
+Sistema B: 58, 55, 57, 56, 54, 59, 53  
+
+Assumindo amostras independentes e variâncias populacionais desconhecidas e desiguais, construa um intervalo de confiança de 95% para a diferença entre as médias populacionais:
+
+$$
+IC(\mu_A - \mu_B, 0{,}95)
+$$
+
+Interprete o resultado no contexto do experimento.
+
+
+
+```r
+A <- c(62, 65, 60, 64, 66, 63, 61, 67)
+B <- c(58, 55, 57, 56, 54, 59, 53)
+
+diffmean.CI(A,B,conf.level = .95)
+```
+
+## Intervalo de confiança para proporção
+
+Até o momento, os intervalos de confiança foram construídos para parâmetros relacionados a médias. No entanto, em muitos problemas agronômicos, o interesse do pesquisador está em **proporções**, isto é, na frequência de ocorrência de determinado evento.
+
+Por exemplo, pode-se ter interesse em estimar:
+- a proporção de plantas que germinaram;
+- a proporção de plantas com determinada doença;
+- a proporção de frutos comercializáveis;
+- a taxa de sobrevivência de mudas.
+
+Nesses casos, o parâmetro de interesse é a **proporção populacional**, denotada por $\pi$.
+
+
+### Intervalo de confiança para uma proporção
+
+Considere uma amostra aleatória de tamanho $n$, na qual se observa uma proporção amostral $\hat{p}$ de indivíduos com determinada característica de interesse.
+
+Para amostras suficientemente grandes, a distribuição amostral de $\hat{p}$ pode ser aproximada por uma distribuição normal, com:
+
+$$
+E(\hat{p}) = \pi \quad \text{e} \quad Var(\hat{p}) = \frac{\pi(1 - \pi)}{n}
+$$
+
+Como $\pi$ é desconhecido, utiliza-se $\hat{p}$ como estimativa, resultando no seguinte intervalo de confiança:
+
+$$
+IC(\pi, \gamma) =
+\left[
+\hat{p} - z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \;,\;
+\hat{p} + z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+\right]
+$$
+
+
+A aproximação normal é adequada quando:
+
+$$
+n\hat{p} \geq 5 \quad \text{e} \quad n(1 - \hat{p}) \geq 5
+$$
+
+Essas condições garantem que a distribuição amostral da proporção seja aproximadamente normal.
+
+O intervalo de confiança fornece um conjunto de valores plausíveis para a proporção populacional $\pi$.
+
+Por exemplo, um intervalo de 95\% de confiança indica que, em repetições do processo amostral, aproximadamente 95\% dos intervalos construídos conteriam o verdadeiro valor da proporção populacional.
+
+
+Esse intervalo é conhecido como **intervalo aproximado normal (ou intervalo de Wald)**, sendo amplamente utilizado pela sua simplicidade, embora existam alternativas mais precisas para amostras pequenas.
+
+**Exemplo**
+
+Em um lago, uma amostra aleatória de 1000 peixes indicou a presença de 290 tilápias.
+
+Deseja-se construir um intervalo de confiança de 95% para a verdadeira proporção de tilápias na população do lago.
+
+
+1. Proporção amostral
+
+$$
+\hat{p} = \frac{290}{1000} = 0{,}29
+$$
+
+
+
+2. Erro padrão
+
+$$
+EP = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+$$
+
+$$
+EP = \sqrt{\frac{0{,}29 \cdot 0{,}71}{1000}}
+= \sqrt{0{,}0002059}
+\approx 0{,}0144
+$$
+
+3. Intervalo de confiança
+
+Para 95% de confiança, $z_{0{,}025} = 1{,}96$.
+
+$$
+IC(\pi, 0{,}95) =
+\left[
+\hat{p} - 1{,}96 \cdot EP \;,\;
+\hat{p} + 1{,}96 \cdot EP
+\right]
+$$
+
+$$
+IC = 0{,}29 \pm 1{,}96 \cdot 0{,}0144
+$$
+
+$$
+IC = 0{,}29 \pm 0{,}0282
+$$
+
+$$
+IC = [0{,}2618 \;,\; 0{,}3182]
+$$
+
+
+
+Com 95% de confiança, a proporção de tilápias na população do lago está entre aproximadamente 26,2% e 31,8%.
+
+
+
+```r
+proportion.CI(x=290,n=1000,conf.level = 0.95)
+```
+
+**Exercício**
+
+Em um experimento, observou-se que 320 de 400 sementes germinaram.
+
+Construa um intervalo de confiança de 99% para a verdadeira proporção de sementes que germinam na população:
+
+$$
+IC(\pi, 0{,}99)
+$$
+
+Interprete o resultado no contexto do experimento.
+
+
+```r
+proportion.CI(x=320,n=400,conf.level = 0.99)
+```
+
+### Intervalo de confiança para a diferença entre duas proporções
+
+Em experimentos agronômicos, é comum o interesse em comparar proporções entre dois grupos. Por exemplo:
+
+- proporção de plantas doentes sob diferentes tratamentos;
+- taxa de germinação entre cultivares;
+- proporção de sucesso de manejos distintos.
+
+Sejam:
+
+$$
+\pi_1: \text{proporção populacional do grupo 1}
+$$
+
+$$
+\pi_2: \text{proporção populacional do grupo 2}
+$$
+
+O objetivo é estimar a diferença entre essas proporções:
+
+$$
+\pi_1 - \pi_2
+$$
+
+
+
+As proporções amostrais são dadas por:
+
+$$
+p_1 = \frac{x_1}{n_1}, \quad p_2 = \frac{x_2}{n_2}
+$$
+
+A estimativa pontual da diferença é:
+
+$$
+p_1 - p_2
+$$
+
+
+
+Para amostras suficientemente grandes, o intervalo de confiança para a diferença entre duas proporções é dado por:
+
+$$
+IC(\pi_1 - \pi_2, \gamma) =
+\left[
+(p_1 - p_2)
+\pm
+z_{\alpha/2}
+\sqrt{
+\frac{p_1(1 - p_1)}{n_1} +
+\frac{p_2(1 - p_2)}{n_2}
+}
+\right]
+$$
+
+**Exemplo**
+
+Um pesquisador deseja comparar dois tratamentos para controle de uma doença em plantas de soja.
+
+- Tratamento A: 18 plantas doentes em 100 avaliadas  
+- Tratamento B: 30 plantas doentes em 120 avaliadas  
+
+Construa um intervalo de confiança de 95% para a diferença entre as proporções de plantas doentes.
+
+
+1. Estimativas
+
+$$
+p_1 = \frac{18}{100} = 0{,}18
+$$
+
+$$
+p_2 = \frac{30}{120} = 0{,}25
+$$
+
+2. Diferença entre proporções
+
+$$
+p_1 - p_2 = 0{,}18 - 0{,}25 = -0{,}07
+$$
+
+3. Erro padrão
+
+$$
+EP = \sqrt{
+\frac{0{,}18 \cdot 0{,}82}{100} +
+\frac{0{,}25 \cdot 0{,}75}{120}
+}
+$$
+
+$$
+EP \approx \sqrt{0{,}001476 + 0{,}001563} = \sqrt{0{,}003039} \approx 0{,}055
+$$
+
+4. Valor crítico
+
+Para 95% de confiança:
+
+$$
+z_{0{,}025} = 1{,}96
+$$
+
+5. Intervalo de confiança
+
+$$
+IC = -0{,}07 \pm 1{,}96 \cdot 0{,}055
+$$
+
+$$
+IC = -0{,}07 \pm 0{,}108
+$$
+
+$$
+IC \approx [-0{,}178 \;,\; 0{,}038]
+$$
+
+
+O intervalo de confiança contém valores negativos e positivos, indicando que:
+
+- o tratamento A pode apresentar menor incidência da doença;
+- o tratamento B também pode apresentar menor incidência;
+- ou pode não haver diferença relevante entre os tratamentos.
+
+Portanto, **não há evidência estatística, ao nível de 95% de confiança, de diferença entre os tratamentos** quanto à incidência da doença.
+
+
+
+```r
+x1 =18; n1 = 100
+x2 =30; n2 = 120
+
+p1 =x1/n1
+p2 =x2/n2
+
+z =qnorm(0.975)
+
+EP = sqrt((p1*(1-p1))/n1 + (p2*(1-p2))/n2)
+
+IC_inf = (p1 - p2) - z*EP
+IC_sup = (p1 - p2) + z*EP
+```
+
+**Exercício**
+
+Em um experimento com milho, avaliou-se a proporção de plantas com deficiência nutricional sob dois manejos de adubação:
+
+- Manejo 1: 22 plantas com deficiência em 90 avaliadas  
+- Manejo 2: 15 plantas com deficiência em 80 avaliadas  
+
+Construa um intervalo de confiança de 99% para a diferença entre as proporções populacionais $(\pi_1 - \pi_2)$ e interprete o resultado.
+
+\vspace{0.3cm}
+
+
+```r
+x1 <- 22; n1 <- 90
+x2 <- 15; n2 <- 80
+
+p1 <- x1/n1
+p2 <- x2/n2
+
+z <- qnorm(0.995)
+
+EP <- sqrt((p1*(1-p1))/n1 + (p2*(1-p2))/n2)
+
+IC_inf <- (p1 - p2) - z*EP
+IC_sup <- (p1 - p2) + z*EP
+
+IC_inf
+IC_sup
+```
+
+A estimação por intervalos permite ir além das estimativas pontuais, incorporando a incerteza associada aos dados amostrais. Em vez de fornecer um único valor, essa abordagem apresenta uma faixa de valores plausíveis para o parâmetro populacional, com um nível de confiança previamente estabelecido.
+
+Ao longo desta seção, foram construídos intervalos de confiança para médias, proporções e suas respectivas diferenças, sempre com o objetivo de avaliar não apenas o valor estimado, mas também a sua precisão.
+
+Em experimentos agronômicos, essa abordagem é fundamental, pois possibilita:
+
+- quantificar a variabilidade dos resultados;
+- comparar tratamentos de forma mais informada;
+- interpretar os dados considerando a incerteza inerente aos sistemas biológicos.
+
+Dessa forma, a estimação por intervalos constitui uma ferramenta essencial na análise de experimentos e fornece a base conceitual para os métodos de inferência que serão apresentados na sequência.
