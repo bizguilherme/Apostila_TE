@@ -47,23 +47,23 @@ Duas avaliações sendo a média final por média aritmética simples.
 \hline
 \endlastfoot
 
-\multirow{3}{*}{19/03} &
+\multirow{2}{*}{19/03} &
 Apresentação da disciplina. Introdução à Estatística. Conceitos básicos e noções de amostragem.  &
 Introdução ao software R e ao ambiente RStudio.  \\ \hline
 \multirow{3}{*}{26/03} & Estatística Descritiva: construção e interpretação de tabelas e gráficos. Medidas descritivas de posição e dispersão. & Aplicações em Estatística Descritiva utilizando o software R. \\ \hline
-\multirow{3}{*}{02/04} & Variáveis aleatórias contínuas e distribuição Normal. Introdução à Inferência Estatística: estimativas pontuais e intervalares. & Aplicações e uso do software R. \\ \hline
-\multirow{2}{*}{09/04} & Testes de hipóteses estatísticas: conceitos fundamentais, procedimentos e interpretação dos resultados. & Aplicações com o uso do software R.\\\hline
-\multirow{3}{*}{16/04} & Avaliação sobre os conteúdos de introdução à Estatística, Estatística Descritiva, distribuição Normal, estimação e testes de hipóteses. & \\\hline
-\multirow{3}{*}{23/04} & Devolutiva e discussão da avaliação. Introdução ao Planejamento Estatístico de Experimentos Agronômicos. & Aplicações utilizando o software R. \\\hline
-\multirow{3}{*}{30/04} & Delineamento Inteiramente Casualizado: modelo matemático, hipóteses básicas para a validade da ANOVA e obtenção da análise de variância.& \\\hline
-\multirow{2}{*}{07/05} & Aplicações do Delineamento Inteiramente Casualizado. Testes de comparações múltiplas.  & Uso do software R. \\\hline
-\multirow{2}{*}{14/05} & Delineamento Casualizado em Blocos: conceitos, modelo estatístico e análise. & Aplicações com o uso do software R.\\\hline
-\multirow{2}{*}{21/05} & Experimentos fatoriais com dois fatores: conceitos, modelagem estatística e análise de variância. & Uso do software R.\\\hline
-\multirow{3}{*}{28/05} & Experimentos fatoriais com três ou mais fatores: modelagem estatística, análise e interpretação dos resultados. & Uso do software R.\\\hline
-\multirow{2}{*}{11/06} & Experimentos em parcelas subdivididas: estrutura do delineamento, modelo estatístico e análise. & Uso do software R. \\\hline
-\multirow{2}{*}{18/06} &  Análise de regressão utilizando polinômios ortogonais. & Aplicações com o uso do software R. \\\hline
-\multirow{3}{*}{25/06} & Análise conjunta de grupos de experimentos. & Aplicações e interpretação dos resultados com o uso do software R.\\\hline
-\multirow{2}{*}{02/07} & Avaliação sobre os conteúdos de Estatística Experimental.& \\\hline
+\multirow{1}{*}{09/04} & Variáveis aleatórias contínuas e distribuição Normal. & Aplicações e uso do software R. \\ \hline
+\multirow{2}{*}{16/04} & Introdução à Inferência Estatística: estimativas pontuais e intervalares. & Aplicações com o uso do software R.\\\hline
+\multirow{2}{*}{23/04} &  Testes de hipóteses estatísticas: conceitos fundamentais, procedimentos e interpretação dos resultados.& Aplicações com o uso do software R.\\\hline
+\multirow{3}{*}{30/04} & Avaliação sobre os conteúdos de introdução à Estatística, Estatística Descritiva, distribuição Normal, estimação e testes de hipóteses. &  \\\hline
+\multirow{5}{*}{07/05} & Devolutiva e discussão da avaliação. Introdução ao Planejamento Estatístico de Experimentos Agronômicos.Delineamento Inteiramente Casualizado: modelo matemático, hipóteses básicas para a validade da ANOVA e obtenção da análise de variância.& Aplicações utilizando o software R.\\\hline
+\multirow{2}{*}{14/05} & Aplicações do Delineamento Inteiramente Casualizado. Testes de comparações múltiplas.  & Uso do software R. \\\hline
+\multirow{2}{*}{21/05} & Delineamento Casualizado em Blocos: conceitos, modelo estatístico e análise. & Aplicações com o uso do software R.\\\hline
+\multirow{2}{*}{28/05} & Experimentos fatoriais com dois fatores: conceitos, modelagem estatística e análise de variância. & Uso do software R.\\\hline
+\multirow{3}{*}{11/06} & Experimentos fatoriais com três ou mais fatores: modelagem estatística, análise e interpretação dos resultados. & Uso do software R.\\\hline
+\multirow{2}{*}{18/06} & Experimentos em parcelas subdivididas: estrutura do delineamento, modelo estatístico e análise. & Uso do software R. \\\hline
+\multirow{2}{*}{25/06} &  Análise de regressão utilizando polinômios ortogonais. & Aplicações com o uso do software R. \\\hline
+\multirow{3}{*}{02/07} & Análise conjunta de grupos de experimentos. & Aplicações e interpretação dos resultados com o uso do software R.\\\hline
+\multirow{2}{*}{09/07} & Avaliação sobre os conteúdos de Estatística Experimental.& \\\hline
 \end{longtable}
 
 5.  **Bibliografia**
