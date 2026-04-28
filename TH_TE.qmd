@@ -1,0 +1,613 @@
+# Testes de Hipóteses
+
+**Introdução**
+
+Em muitas situações práticas, o pesquisador deseja verificar a veracidade de uma afirmação sobre parâmetros populacionais ou sobre o comportamento de uma variável aleatória. Para isso, formula-se uma hipótese e utiliza-se a informação proveniente de uma amostra para tomar uma decisão.
+
+Alguns exemplos:
+
+- Verificar se a produtividade média de milho no Paraná é de 5000 kg/ha;
+- Avaliar se as proporções de fixação de fitoplâncton em dois tipos de solo são iguais;
+- Comparar as produções médias de duas cultivares de soja;
+- Investigar se a distribuição de uma espécie vegetal em um habitat ocorre de forma aleatória.
+
+
+**Hipóteses**
+
+Todo teste de hipóteses é construído a partir de uma hipótese nula, denotada por $H_0$. É sempre sobre ela que a decisão estatística é tomada.
+
+A hipótese nula representa a afirmação inicial (ou padrão), enquanto a hipótese alternativa, denotada por $H_1$, representa uma afirmação contrária.
+
+De forma geral:
+
+- $H_0$: envolve igualdade;
+- $H_1$: envolve desigualdade ($\neq$, $<$ ou $>$).
+
+
+**Erros em testes de hipóteses**
+
+Ao tomar decisões com base em dados amostrais, existe a possibilidade de erro. Os dois tipos principais são:
+
+- **Erro tipo I**: rejeitar $H_0$ quando ela é verdadeira;
+- **Erro tipo II**: não rejeitar $H_0$ quando ela é falsa.
+
+As probabilidades associadas são:
+
+- $\alpha$: probabilidade de erro tipo I (nível de significância);
+- $\beta$: probabilidade de erro tipo II.
+
+A relação entre decisões e a realidade pode ser resumida na tabela abaixo:
+
+\begin{table}[H]
+\centering %
+\renewcommand{\arraystretch}{2.3}
+%\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l|ll}  \hline
+\multirow{2}{*}{Situação real}    & \multicolumn{2}{c}{Decisão}                                         \\ \cline{2-3}
+                                  & Aceitar $H_0$                  & \qquad \quad Rejeitar $H_0$        \\ \hline %
+$H_0$ verdadeira                  & {\color{blue} Decisão correta ($1-\alpha$)}   & {\color{red} Erro tipo I (probab. $\alpha$)}     \\
+$H_0$ falsa                       & {\color{red} Erro tipo II (probab. $\beta$)} & {\color{blue} Decisão correta (probab. $1-\beta$)} \\ \hline
+\end{tabular}
+\end{table}
+
+
+Além disso, dois conceitos são importantes:
+
+- **Nível de confiança**: $1 - \alpha$, associado à decisão correta quando $H_0$ é verdadeira;
+- **Poder do teste**: $1 - \beta$, que representa a capacidade do teste detectar diferenças reais.
+
+Em geral, existe uma relação inversa entre $\alpha$ e $\beta$: para um tamanho de amostra fixo, a redução da probabilidade de um tipo de erro tende a aumentar a do outro. Na prática, fixa-se $\alpha$ antecipadamente, controlando o erro tipo I, enquanto o erro tipo II depende, entre outros fatores, do tamanho da amostra e da magnitude do efeito a ser detectado.
+
+
+**Etapas de um teste de hipóteses**
+
+A realização de um teste segue um procedimento sistemático:
+
+1. Enunciar as hipóteses $H_0$ e $H_1$;
+2. Fixar o nível de significância ($\alpha$) e identificar a estatística de teste;
+3. Determinar a região crítica;
+4. Calcular a estatística de teste com os dados amostrais;
+5. Tomar a decisão:
+   - Se o valor calculado estiver na região crítica, rejeita-se $H_0$;
+   - Caso contrário, não se rejeita $H_0$.
+
+
+## Teste de hipótese para a média ($\sigma^2$ conhecida)
+
+
+
+Considere uma amostra aleatória simples de tamanho $n$, retirada de uma população com média $\mu$ e variância conhecida $\sigma^2$.
+
+Sabe-se que a distribuição amostral da média $\bar{X}$ é dada por:
+
+$$
+\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+$$
+
+Assim, sob a hipótese nula $H_0: \mu = \mu_0$, a estatística de teste
+
+$$
+Z = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}
+$$
+
+segue uma distribuição normal padrão:
+
+$$
+Z \sim N(0,1)
+$$
+
+
+### Exemplo
+
+Admite-se que o tempo médio de reação de seres vivos a um determinado estímulo segue distribuição normal com:
+
+- média $\mu = 8$ s  
+- desvio padrão $\sigma = 2$ s  
+
+Um pesquisador suspeita que uma substância altera esse tempo médio. Para investigar, foi realizado um experimento com 10 cobaias, obtendo-se:
+
+\begin{center}
+\begin{tabular}{cccccccccc}
+9,1  & 9,3  & 7,2  & 7,5  & 13,3  & 10,9  & 7,2  & 9,9  & 8,0  & 8,6.
+\end{tabular}
+\end{center}
+
+Verifique se a desconfiança do pesquisador procede, ao nível de 5\% de significância.}
+
+**Etapas do teste de hipóteses**
+
+As etapas para a realização do teste são descritas a seguir.
+
+
+**1) Hipóteses**
+
+De forma geral:
+
+$$
+H_0: \mu = \mu_0 \quad \text{vs} \quad 
+H_1:
+\begin{cases}
+\mu < \mu_0 \\
+\mu \neq \mu_0 \\
+\mu > \mu_0
+\end{cases}
+$$
+
+Como o pesquisador desconfia que o tempo médio sofre alteração, mas não especifica a direção, utiliza-se um teste bilateral:
+
+$$
+H_0: \mu = 8 \; s \quad \text{vs} \quad H_1: \mu \neq 8 \; s
+$$
+
+
+
+**2) Estatística de teste**
+
+Como a variância populacional é conhecida, utiliza-se a estatística:
+
+$$
+Z = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}
+\quad \sim \quad N(0,1)
+$$
+
+
+**3) Região crítica**
+
+Adotando $\alpha = 5\%$ (teste bilateral), os valores críticos são:
+
+$$
+z_{0.025} = \pm 1.96
+$$
+
+```{r}
+curve(dnorm(x), from = -4, to = 4,
+      main = expression("Regiões críticas (" * alpha == 5 * "%)"),
+      xlab = "Z", ylab = "Densidade")
+
+abline(v = c(-1.96, 1.96), lty = 2)
+
+# sombreando com base R (forma simples)
+polygon(c(-4, seq(-4, -1.96, length=100), -1.96),
+        c(0, dnorm(seq(-4, -1.96, length=100)), 0),
+        density = 20)
+
+polygon(c(1.96, seq(1.96, 4, length=100), 4),
+        c(0, dnorm(seq(1.96, 4, length=100)), 0),
+        density = 20)
+```
+
+Assim, a região crítica é dada por:
+
+$$
+Z < -1.96 \quad \text{ou} \quad Z > 1.96
+$$
+
+
+
+**4) Cálculo da estatística**
+
+Com base nos dados amostrais:
+
+- $\bar{x} = 9.1 \; s$
+- $\sigma = 2 \; s$
+- $n = 10$
+
+Tem-se:
+
+$$
+Z = \frac{9.1 - 8}{\frac{2}{\sqrt{10}}} = 1.7392
+$$
+
+
+**5) Decisão**
+
+Como:
+
+$$
+-1.96 < 1.7392 < 1.96
+$$
+
+não rejeitamos $H_0$ ao nível de 5\% de significância.
+
+
+
+**Conclusão**
+
+Não há evidências estatísticas de que a substância influencie o tempo médio de reação ao estímulo elétrico.
+
+**p-valor**
+
+Uma forma alternativa, e mais utilizada na prática, para tomar decisões em testes de hipóteses é por meio do **p-valor**.
+
+O p-valor pode ser definido como:
+
+A probabilidade de obter um resultado tão extremo quanto o observado (ou mais extremo), supondo que a hipótese nula $H_0$ seja verdadeira.
+
+Em outras palavras, o p-valor mede o quanto os dados observados são compatíveis com $H_0$.
+
+
+**Regra de decisão**
+
+A decisão no teste de hipóteses pode ser tomada da seguinte forma:
+
+- Se **p-valor $\leq \alpha$** → rejeita-se $H_0$;
+- Se **p-valor $> \alpha$** → não se rejeita $H_0$.
+
+**Interpretação**
+
+- p-valor pequeno → evidência contra $H_0$;
+- p-valor grande → dados compatíveis com $H_0$.
+
+**Aplicação ao exemplo**
+
+No exemplo do tempo de reação, foi obtido:
+
+$$
+Z = 1.7392
+$$
+
+Como o teste é bilateral, o p-valor é dado por:
+
+```{r}
+z <- 1.7392
+2 * pnorm(z,lower.tail=F)
+```
+O valor obtido representa a probabilidade de observar uma média amostral tão distante de 8 (ou mais), assumindo que o verdadeiro valor médio seja $\mu = 8$.
+Comparando com $\alpha = 5%$:
+
+- Se o p-valor for maior que 0,05 → não rejeitamos $H_0$;
+- Se fosse menor → rejeitaríamos $H_0$.
+
+**Conclusão**
+
+Como o p-valor é maior que 0,05, não há evidências suficientes para rejeitar $H_0$.
+Ou seja, os dados não indicam que a substância altera o tempo médio de reação.
+
+**Observação importante**
+
+A decisão baseada no p-valor é equivalente à decisão baseada na região crítica. A diferença é que o p-valor fornece uma medida contínua da evidência contra $H_0$, enquanto a região crítica leva a uma decisão mais direta (rejeitar ou não rejeitar).
+
+Resolução do exemplo utilizando o R:
+```{r results='markup'}
+tempo=c(9.1,9.3,7.2,7.5,13.3,10.9,7.2,9.9,8.0,8.6)
+
+LearningStats::Mean.test(x=tempo,mu0 = 8,sigma=2)
+```
+
+**Exercício**
+
+Uma balança utilizada para encher pacotes de sementes está programada para produzir pacotes com peso médio de 20 kg e desvio padrão de 0,20 kg.
+
+Periodicamente, realiza-se uma inspeção para verificar se o peso médio está sob controle. Para isso, foi selecionada uma amostra de oito pacotes, cujos pesos (em kg) foram:
+
+$$
+20{,}3 \quad 19{,}8 \quad 20{,}3 \quad 19{,}7 \quad 19{,}8 \quad 19{,}7 \quad 19{,}8 \quad 19{,}8
+$$
+
+Teste a hipótese de que a balança se desregulou e está produzindo um peso médio **inferior a 20 kg**, ao nível de significância de 5\%.
+
+
+```r
+peso = c(20.3, 19.8, 20.3, 19.7, 19.8, 19.7, 19.8, 19.8)
+
+LearningStats::Mean.test(peso,mu0 = 20,alternative = "less",sigma = 0.2)
+```
+
+## Teste de hipótese para a média ($\sigma$ desconhecida)
+
+
+
+Na prática, é mais comum não se conhecer a variância populacional. Nesses casos, utiliza-se a variância amostral como estimativa da variância populacional.
+
+Assim, a estatística de teste passa a ser dada por:
+
+$$
+T = \frac{\bar{X} - \mu_0}{\frac{s}{\sqrt{n}}}
+$$
+
+em que $s$ é o desvio padrão amostral.
+
+Sob a hipótese nula, essa estatística segue uma distribuição $t$ de Student com $n-1$ graus de liberdade:
+
+$$
+T \sim t_{(n-1)}
+$$
+
+### Exemplo
+
+Um agrônomo afirma que a produtividade média do feijão, em lavouras de agricultores familiares em determinado ano, é de 800 kg/ha.
+
+Para verificar essa afirmação, foi selecionada uma amostra de 9 lavouras, obtendo-se as seguintes produtividades (kg/ha):
+
+$$
+767{,}8 \quad 764{,}1 \quad 716{,}8 \quad 750{,}2 \quad 756{,}0 \quad 692{,}5 \quad 736{,}1 \quad 746{,}1 \quad 731{,}4
+$$
+
+(a) Qual a conclusão ao nível de significância de 5\%?
+
+(b) Caso a afirmação do agrônomo não seja verdadeira, dê uma estimativa da média populacional, com grau de confiança de 95\%.
+
+
+1) Hipóteses
+
+Como o objetivo é verificar se a produtividade média difere de 800 kg/ha, tem-se um teste bilateral:
+
+$$
+H_0: \mu = 800 \quad \text{vs} \quad H_1: \mu \neq 800
+$$
+
+
+2) Estatística de teste
+
+Como a variância populacional é desconhecida, utiliza-se a estatística t de Student:
+
+$$
+T = \frac{\bar{X} - \mu_0}{\frac{s}{\sqrt{n}}}
+\quad \sim \quad t_{(n-1)}
+$$
+
+com $n = 9$ e, portanto, $gl = 8$.
+
+
+3) Região crítica
+
+Adotando $\alpha = 5\%$ e considerando um teste bilateral:
+
+$$
+t_{0{,}025;8} = 2{,}306
+$$
+
+Logo, a região crítica é:
+
+```{r echo=FALSE}
+# parâmetros
+gl <- 8
+alpha <- 0.05
+
+# valores críticos
+t_crit <- qt(1 - alpha/2, df = gl)
+
+# curva t
+curve(dt(x, df = gl), from = -4, to = 4,
+      ylab = "Densidade",
+      xlab = "t",
+      main = expression("Distribuição t (gl = 8, " * alpha == 0.05 * ")"))
+
+# altura da curva nos pontos críticos
+y_crit <- dt(t_crit, df = gl)
+
+# linhas verticais até a curva
+segments(x0 = -t_crit, y0 = 0, x1 = -t_crit, y1 = y_crit, lty = 2)
+segments(x0 =  t_crit, y0 = 0, x1 =  t_crit, y1 = y_crit, lty = 2)
+
+# regiões críticas (esquerda)
+x1 <- seq(-4, -t_crit, length = 100)
+y1 <- dt(x1, df = gl)
+polygon(c(x1, rev(x1)), c(y1, rep(0, length(y1))),col="red",density = 30)
+
+# regiões críticas (direita)
+x2 <- seq(t_crit, 4, length = 100)
+y2 <- dt(x2, df = gl)
+polygon(c(x2, rev(x2)), c(y2, rep(0, length(y2))),col="red",density = 30)
+
+```
+
+4) Cálculo da estatística
+
+A partir dos dados amostrais, obtém-se:
+
+$$
+\bar{X} = 740{,}1 \quad ; \quad s = 24{,}07 \quad ; \quad n = 9
+$$
+
+Substituindo na estatística de teste:
+
+$$
+T = \frac{740,1 - 800}{\frac{24,07}{\sqrt{9}}}
+= \frac{-59,9}{8,02}
+= -7,47
+$$
+
+5) Decisão
+
+Comparando o valor calculado com os valores críticos:
+
+$$
+-7,47 < -2,306
+$$
+
+Portanto, o valor da estatística pertence à região crítica.
+
+**Decisão:** rejeita-se $H_0$ ao nível de 5\%.
+
+Conclusão
+
+Há evidências estatísticas de que a produtividade média do feijão é diferente de 800 kg/ha.  
+Observando o sinal da estatística ($T < 0$), conclui-se que a média é **inferior** a 800 kg/ha.
+
+(b) Intervalo de confiança (95%)
+
+O intervalo de confiança para a média é dado por:
+
+$$
+IC(\mu,95\%)=\bar{X} \pm t_{0{,}025;8} \cdot \frac{s}{\sqrt{n}}
+$$
+
+$$
+IC(\mu,95\%)=740{,}1 \pm 2{,}306 \cdot 8{,}02
+$$
+
+$$
+IC(\mu,95\%)=740{,}1 \pm 18,49
+$$
+
+$$
+IC(\mu,95\%)=(721{,}61 \; ; \; 758{,}59)
+$$
+
+Interpretação
+
+Com 95\% de confiança, a produtividade média populacional está entre 721,61 kg/ha e 758,59 kg/ha.  
+
+Como o valor 800 kg/ha não pertence a esse intervalo, o resultado é consistente com a rejeição da hipótese nula.
+
+
+```r
+prod=c(767.8, 764.1, 716.8, 750.2, 756.0, 692.5, 736.1, 746.1, 731.4)
+
+# Verificando se os dados da amostra provém de uma população com distribuição normal.
+shapiro.test(prod)
+
+
+t.test(prod,mu = 800)
+```
+
+
+
+**Exercício**
+
+Foi retirada uma amostra de 10 bezerros da raça Nelore, aos 210 dias de idade, com o objetivo de verificar se o peso médio desses animais atingiu ou não $186 \, kg$.
+
+Os valores observados (em kg) foram:
+
+$$
+178 \quad 199 \quad 182 \quad 186 \quad 188 \quad 191 \quad 189 \quad 185 \quad 174 \quad 158
+$$
+
+Teste as hipóteses:
+
+$$
+H_0: \mu = 186 \quad \text{vs} \quad H_1: \mu < 186
+$$
+
+ao nível de significância de 5\%.
+
+
+
+```r
+peso <- c(178, 199, 182, 186, 188, 191, 189, 185, 174, 158)
+
+shapiro.test(peso)
+
+t.test(peso, mu = 186, alternative = "less")
+``` 
+
+## Teste de hipótese para proporção
+
+
+Para testar hipóteses sobre a proporção populacional, utiliza-se a seguinte estatística:
+
+$$
+Z = \frac{\hat{p} - \pi_0}{\sqrt{\frac{\pi_0(1 - \pi_0)}{n}}}
+$$
+
+em que:
+
+- $\hat{p}$: proporção amostral  
+- $\pi_0$: proporção sob hipótese nula  
+- $n$: tamanho da amostra  
+
+Sob a hipótese nula, essa estatística segue aproximadamente uma distribuição normal padrão:
+
+$$
+Z \sim N(0,1)
+$$
+
+
+Os testes de hipótese para proporção são sempre construídos a partir da hipótese nula, que assume um valor específico para a proporção populacional.
+
+As hipóteses podem ser formuladas de três formas:
+
+$$
+H_0: \pi = \pi_0 \qquad \text{vs} \qquad
+H_1:
+\begin{cases}
+\pi < \pi_0 & \text{(teste unilateral à esquerda)} \\
+\pi \neq \pi_0 & \text{(teste bilateral)} \\
+\pi > \pi_0 & \text{(teste unilateral à direita)}
+\end{cases}
+$$
+
+A escolha da hipótese alternativa depende do problema em estudo e da suspeita do pesquisador.
+
+### Exemplo
+
+Um produtor precisa decidir pela compra de sementes de milho. O fornecedor afirma que a proporção de germinação é $\pi = 0{,}94$.
+
+O produtor testa uma amostra de 100 sementes e observa $\hat{p} = 0{,}91$.
+
+Com base nesse resultado, deve-se discordar do fornecedor? Considere $\alpha = 5\%$.
+
+
+1) Hipóteses
+
+Como deseja-se verificar se a proporção difere do valor informado:
+
+$$
+H_0: \pi = 0{,}94 \quad \text{vs} \quad H_1: \pi \neq 0{,}94
+$$
+
+2) Estatística de teste
+
+$$
+Z = \frac{\hat{p} - \pi_0}{\sqrt{\frac{\pi_0(1 - \pi_0)}{n}}}
+\quad \sim \quad N(0,1)
+$$
+
+3) Região crítica
+
+Para $\alpha = 5\%$ (teste bilateral):
+
+$$
+Z < -1{,}96 \quad \text{ou} \quad Z > 1{,}96
+$$
+
+4) Cálculo da estatística
+
+$$
+\hat{p} = 0{,}91 \quad ; \quad \pi_0 = 0{,}94 \quad ; \quad n = 100
+$$
+
+$$
+Z = \frac{0{,}91 - 0{,}94}{\sqrt{\frac{0{,}94(1 - 0{,}94)}{100}}}
+= \frac{-0{,}03}{\sqrt{0{,}000564}}
+= \frac{-0{,}03}{0{,}0238}
+= -1{,}26
+$$
+
+5) Decisão
+
+Como:
+
+$$
+-1{,}96 < -1{,}26 < 1{,}96
+$$
+
+o valor da estatística **não pertence à região crítica**.
+
+**Decisão:** não se rejeita $H_0$ ao nível de 5\%.
+
+
+Conclusão
+
+Não há evidências estatísticas suficientes para discordar da afirmação do fornecedor.  
+Assim, a proporção de germinação pode ser considerada igual a 0,94.
+
+```r
+LearningStats::proportion.test(x=0.91,n = 100,p0 = 0.94,alternative = "less")
+```
+
+**Exercício**
+
+Um biólogo afirma que a proporção ($\pi$) de forófitos sem bromélias é igual a 0,47.
+
+Em uma amostra de 35 forófitos, 24 não apresentaram bromélias.
+
+Teste essa afirmativa ao nível de significância de 5\%.
+
+
+```r
+LearningStats::proportion.test(x=24,n = 35,p0 = 0.47,alternative = "two.sided")
+```
+
+

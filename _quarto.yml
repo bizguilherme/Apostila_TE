@@ -17,6 +17,7 @@ book:
     - va_tecnicas.qmd
     - Dist_amostrais.qmd
     - Estimacao_TE.qmd
+    - TH_TE.qmd
     - references.qmd 
     
 
