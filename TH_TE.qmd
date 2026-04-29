@@ -532,11 +532,7 @@ A escolha da hipótese alternativa depende do problema em estudo e da suspeita d
 
 ### Exemplo
 
-Um produtor precisa decidir pela compra de sementes de milho. O fornecedor afirma que a proporção de germinação é $\pi = 0{,}94$.
-
-O produtor testa uma amostra de 100 sementes e observa $\hat{p} = 0{,}91$.
-
-Com base nesse resultado, deve-se discordar do fornecedor? Considere $\alpha = 5\%$.
+Um produtor precisa decidir pela compra ou não de sementes de milho fornecidas por um distribuidor, que afirma que a proporção de germinação das sementes é $\pi=0,94$. Para tanto ele observou a proporção de germinação de uma amostra aleatória simples de 100 sementes e encontrou o valor $\hat{p}=0,91$. Com base nesse resultado o produtor deveria discordar do distribuidor? Use $\alpha=0,05$.
 
 
 1) Hipóteses
@@ -544,7 +540,7 @@ Com base nesse resultado, deve-se discordar do fornecedor? Considere $\alpha = 5
 Como deseja-se verificar se a proporção difere do valor informado:
 
 $$
-H_0: \pi = 0{,}94 \quad \text{vs} \quad H_1: \pi \neq 0{,}94
+H_0: \pi = 0{,}94 \quad \text{vs} \quad H_1: \pi < 0{,}94
 $$
 
 2) Estatística de teste
@@ -556,10 +552,10 @@ $$
 
 3) Região crítica
 
-Para $\alpha = 5\%$ (teste bilateral):
+Para $\alpha = 5\%$ (teste unilateral):
 
 $$
-Z < -1{,}96 \quad \text{ou} \quad Z > 1{,}96
+Z < -1{,}64
 $$
 
 4) Cálculo da estatística
@@ -580,7 +576,7 @@ $$
 Como:
 
 $$
--1{,}96 < -1{,}26 < 1{,}96
+-1{,}64 < -1{,}26 
 $$
 
 o valor da estatística **não pertence à região crítica**.
@@ -591,7 +587,7 @@ o valor da estatística **não pertence à região crítica**.
 Conclusão
 
 Não há evidências estatísticas suficientes para discordar da afirmação do fornecedor.  
-Assim, a proporção de germinação pode ser considerada igual a 0,94.
+
 
 ```r
 LearningStats::proportion.test(x=0.91,n = 100,p0 = 0.94,alternative = "less")
@@ -599,15 +595,842 @@ LearningStats::proportion.test(x=0.91,n = 100,p0 = 0.94,alternative = "less")
 
 **Exercício**
 
-Um biólogo afirma que a proporção ($\pi$) de forófitos sem bromélias é igual a 0,47.
-
-Em uma amostra de 35 forófitos, 24 não apresentaram bromélias.
-
-Teste essa afirmativa ao nível de significância de 5\%.
-
+Um biólogo, com base em conhecimentos teóricos e práticos afirma que a proporção ($\pi$) de forófitos sem bromélias, no estádio arbóreo pioneiro da Floresta Ombrófila, na Ilha de Santa Catarina, é igual a 0,47. Em uma amostra de 35 forófitos, 24 não apresentaram bromélias. Teste a afirmativa do biólogo ao nível de significância de 5\%.
 
 ```r
 LearningStats::proportion.test(x=24,n = 35,p0 = 0.47,alternative = "two.sided")
 ```
 
+## Inferência para duas médias
+
+Até o momento, o foco esteve na inferência sobre um único parâmetro populacional, em particular a média $\mu$. Nessa situação, o interesse é verificar se uma média populacional assume um determinado valor de referência.
+
+Em muitas aplicações experimentais, no entanto, o interesse recai sobre a \textbf{comparação entre dois tratamentos}, o que leva naturalmente à análise de \textbf{duas médias populacionais}, $\mu_1$ e $\mu_2$. 
+
+Nesse contexto, o problema deixa de ser a avaliação de um valor específico e passa a ser a investigação da \textbf{diferença entre médias}. Assim, o parâmetro de interesse torna-se:
+$$
+\mu_1 - \mu_2
+$$
+
+A partir disso, o teste de hipótese é formulado, em geral, como:
+$$
+H_0: \mu_1 = \mu_2 \quad \Longleftrightarrow \quad H_0: \mu_1 - \mu_2 = 0
+$$
+
+As hipóteses alternativas podem assumir três formas, dependendo do objetivo do estudo:
+$$
+H_1: 
+\begin{cases}
+\mu_1 < \mu_2 & \text{(unilateral à esquerda)} \\
+\mu_1 \neq \mu_2 & \text{(bilateral)} \\
+\mu_1 > \mu_2 & \text{(unilateral à direita)}
+\end{cases}
+$$
+
+**Tipos de amostras**
+
+Ao comparar duas médias, é fundamental identificar a natureza das amostras, pois isso determina a forma da análise. Existem dois casos principais:
+
+\begin{itemize}
+\item \textbf{Amostras independentes:} as observações de um grupo não possuem relação com as do outro grupo.
+\item \textbf{Amostras dependentes (pareadas):} existe uma correspondência natural entre as observações dos dois grupos.
+\end{itemize}
+
+## Teste para duas médias - Amostras pareadas
+
+No caso de amostras dependentes, cada observação de um grupo está diretamente relacionada a uma observação do outro grupo. Esse tipo de situação é comum em experimentos do tipo “antes e depois” ou quando unidades experimentais são avaliadas sob duas condições.
+
+Nesses casos, não se analisa diretamente $\mu_1$ e $\mu_2$, mas sim a \textbf{diferença entre os pares de observações}. Define-se, para cada unidade:
+$$
+D_i = A_i - B_i
+$$
+
+Assim, o problema é reduzido a um teste sobre a média das diferenças, $\mu_D$.
+
+**Hipóteses para dados pareados**
+
+O teste passa a ser formulado como:
+$$
+H_0: \mu_D = 0
+$$
+
+com as alternativas:
+$$
+H_1:
+\begin{cases}
+\mu_D < 0 & \text{(unilateral à esquerda)} \\
+\mu_D \neq 0 & \text{(bilateral)} \\
+\mu_D > 0 & \text{(unilateral à direita)}
+\end{cases}
+$$
+
+**Estatística do teste**
+
+Considerando uma amostra de tamanho $n$ das diferenças, a estatística de teste é dada por:
+$$
+t = \frac{\bar{D} - 0}{\frac{S_D}{\sqrt{n}}} \sim t(n-1)
+$$
+
+Ou seja, o problema retorna a uma estrutura análoga ao teste para uma única média, porém aplicado às diferenças.
+
+### Exemplo 
+
+Com o objetivo de verificar a influência de um fungicida no progresso da ferrugem em soja, foi conduzido um experimento no qual se avaliou a incidência foliar (IF) em plantas doentes antes e após a aplicação do fungicida.
+
+Os dados observados foram:
+
+$$
+\begin{tabular}{c|ccccccccc}\hline
+Planta & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\\hline
+Antes  & 32 & 33 & 31 & 32 & 35 & 37 & 35 & 31 & 36 \\
+Depois & 31 & 30 & 28 & 28 & 31 & 30 & 31 & 26 & 33\\\hline
+D = A - B & 1 & 3 & 3 & 4 & 4 & 7 & 4 & 5 & 3\\\hline
+\end{tabular}
+$$
+
+Deseja-se verificar se houve redução na incidência foliar após a aplicação do fungicida.
+
+
+Como as observações são feitas nas mesmas plantas, trata-se de um caso de \textbf{amostras pareadas}. Define-se, para cada planta:
+$$
+D_i = \text{Antes}_i - \text{Depois}_i
+$$
+
+Assim, o problema é reduzido a testar a média das diferenças, $\mu_D$.
+
+
+\textbf{1) Hipóteses}
+
+Como o interesse é verificar se houve redução da IF após o tratamento:
+$$
+H_0: \mu_D = 0 \quad \text{vs} \quad H_1: \mu_D > 0
+$$
+
+\textbf{2) Estatística de teste}
+
+Calculando:
+$$
+\bar{D} = \frac{1+3+3+4+4+7+4+5+3}{9} = \frac{34}{9} \approx 3{,}78
+$$
+
+O desvio padrão amostral das diferenças é:
+$$
+S_D \approx 1{,}64
+$$
+
+Logo, a estatística de teste é:
+$$
+t = \frac{\bar{D} - 0}{S_D/\sqrt{n}} = \frac{3{,}78}{1{,}64/\sqrt{9}} = \frac{3{,}78}{0{,}547} \approx 6{,}9
+$$
+
+com $gl = n - 1 = 8$.
+
+\textbf{3) Região crítica ou p-valor}
+
+Para $\alpha = 0{,}05$ e teste unilateral à direita:
+$$
+t_{0{,}05,8} \approx 1{,}86
+$$
+
+Como:
+$$
+t_{calc} = 6{,}60 > 1{,}86
+$$
+
+equivalentemente, o p-valor é muito menor que 0,05.
+
+\textbf{4) Decisão}
+
+Rejeita-se $H_0$ ao nível de 5\%.
+
+\textbf{5) Conclusão}
+
+Há evidências estatísticas de que a incidência foliar diminui após a aplicação do fungicida.
+
+
+
+Uma suposição importante do teste t pareado é que as diferenças $D_i$ sigam, aproximadamente, uma distribuição normal. Isso pode ser avaliado pelo teste de Shapiro-Wilk.
+
+
+```r
+antes=c(32,33,31,32,35,37,35,31,36)
+depois=c(31, 30, 28, 28, 31, 30, 31, 26, 33)
+
+shapiro.test(antes-depois)
+
+t.test(antes,depois,paired = T,alternative = "greater")
+```
+
+
+**Exercício**
+
+Foi conduzido um experimento com o objetivo de avaliar o efeito da aplicação de niacina no conteúdo de hemoglobina no sangue de suínos com deficiência dessa vitamina. 
+
+Em oito suínos, foram administrados 20 mg de niacina, e os níveis de hemoglobina foram mensurados antes e após a aplicação.
+
+Os dados observados foram:
+
+
+$$
+\begin{tabular}{c|cccccccc}\hline
+Suínos & 1    & 2    & 3    & 4    & 5    & 6    & 7    & 8 \\\hline
+Antes  & 13,6 & 13,6 & 14,7 & 12,1 & 12,3 & 13,2 & 11,0 & 12,4 \\
+Depois & 11,4 & 12,5 & 14,6 & 13,0 & 11,7 & 10,3 &  9,8 & 10,4 \\\hline
+An-De  & 2,2  & 1,1  & 0,1  & -0,9 & 0,6  & 2,9  & 1,2  & 2,0\\\hline
+\end{tabular}
+$$
+
+
+Considerando um nível de significância de 5\%, teste se o conteúdo de hemoglobina no sangue diminuiu após a aplicação de niacina.
+
+
+```r
+antes=c(13.6, 13.6, 14.7, 12.1, 12.3, 13.2, 11.0, 12.4)
+depois=c(11.4, 12.5, 14.6, 13.0, 11.7, 10.3,  9.8, 10.4)
+
+
+shapiro.test(antes-depois)
+
+t.test(antes,depois,paired = T,alternative = "greater")
+```
+
+## Teste para duas Médias - Amostras independentes
+
+Até aqui, consideramos situações em que as observações estavam relacionadas dois a dois (dados pareados). No entanto, em muitos experimentos, as amostras são obtidas de forma independente.
+
+Nesse caso, as observações de um grupo não possuem qualquer correspondência com as do outro grupo.
+
+\begin{itemize}
+\item \textbf{Amostras independentes:} não há relação entre as observações dos dois grupos;
+\item Deve haver independência \textbf{dentro} e \textbf{entre} as amostras;
+\item Cada amostra é proveniente de uma população com média $\mu_1$ e $\mu_2$.
+\end{itemize}
+
+O interesse está em comparar as médias populacionais, isto é, testar:
+$$
+\mu_1 - \mu_2
+$$
+
+
+Consideram-se duas amostras independentes:
+$$
+X_1, \dots, X_{n_1} \sim N(\mu_1, \sigma_1^2), \quad
+Y_1, \dots, Y_{n_2} \sim N(\mu_2, \sigma_2^2)
+$$
+
+A formulação do teste é:
+$$
+H_0: \mu_1 = \mu_2
+$$
+
+com alternativas:
+$$
+H_1:
+\begin{cases}
+\mu_1 < \mu_2 \\
+\mu_1 \neq \mu_2 \\
+\mu_1 > \mu_2
+\end{cases}
+$$
+
+
+O teste depende de uma suposição adicional:
+
+\begin{itemize}
+\item \textbf{Variâncias iguais:} $\sigma_1^2 = \sigma_2^2$ (teste t clássico com variância combinada)
+\item \textbf{Variâncias diferentes:} $\sigma_1^2 \neq \sigma_2^2$ (teste t de Welch)
+\end{itemize}
+
+
+### Teste para duas Médias - Variâncias Iguais
+
+Quando se assume que as variâncias populacionais são iguais ($\sigma_1^2 = \sigma_2^2$), utiliza-se a variância combinada (ou variância pooled), dada por:
+$$
+S_p^2 = \frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2}{n_1 + n_2 - 2}
+$$
+
+A estatística do teste é:
+$$
+t = \frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+$$
+
+Sob a hipótese nula ($H_0: \mu_1 = \mu_2$), a estatística se reduz a:
+$$
+t = \frac{\bar{X}_1 - \bar{X}_2}{S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+$$
+
+e segue uma distribuição t de Student com:
+$$
+gl = n_1 + n_2 - 2
+$$
+
+### Exemplo
+
+Com o objetivo de comparar as produções médias (t/ha) de duas variedades de milho, foram avaliadas cinco unidades experimentais para cada variedade:
+
+$$
+\begin{tabular}{c|ccccc}\hline
+Variedade A & 1{,}3 & 1{,}4 & 1{,}1 & 1{,}4 & 1{,}5 \\
+Variedade B & 1{,}8 & 1{,}6 & 1{,}9 & 1{,}9 & 1{,}8 \\\hline
+\end{tabular}
+$$
+
+Ao nível de significância de 5\%, deseja-se verificar se as variedades apresentam produções médias diferentes.
+
+
+\textbf{1) Hipóteses}
+
+Deseja-se verificar se há diferença entre as médias das duas variedades:
+$$
+H_0: \mu_1 = \mu_2 \quad \text{vs} \quad H_1: \mu_1 \neq \mu_2
+$$
+
+\textbf{2) Estatísticas amostrais}
+
+Para a variedade A:
+$$
+\bar{X}_1 = \frac{1{,}3 + 1{,}4 + 1{,}1 + 1{,}4 + 1{,}5}{5} = 1{,}34
+$$
+
+$$
+S_1^2 = 0{,}023 \quad \Rightarrow \quad S_1 \approx 0{,}152
+$$
+
+Para a variedade B:
+$$
+\bar{X}_2 = \frac{1{,}8 + 1{,}6 + 1{,}9 + 1{,}9 + 1{,}8}{5} = 1{,}80
+$$
+
+$$
+S_2^2 = 0{,}015 \quad \Rightarrow \quad S_2 \approx 0{,}122
+$$
+
+\textbf{3) Estatística de teste}
+
+Assumindo variâncias iguais, calcula-se a variância combinada:
+$$
+S_p^2 = \frac{(5-1)0{,}023 + (5-1)0{,}015}{5+5-2}
+= \frac{0{,}092 + 0{,}060}{8}
+= 0{,}019
+$$
+
+$$
+S_p = \sqrt{0{,}019} \approx 0{,}138
+$$
+
+A estatística do teste é:
+$$
+t = \frac{1{,}34 - 1{,}80}{0{,}138\sqrt{\frac{1}{5} + \frac{1}{5}}}
+= \frac{-0{,}46}{0{,}138 \times 0{,}632}
+= \frac{-0{,}46}{0{,}087} \approx -5{,}29
+$$
+
+com graus de liberdade:
+$$
+gl = 5 + 5 - 2 = 8
+$$
+
+\textbf{4) Região crítica}
+
+Para $\alpha = 0{,}05$ (teste bilateral) e $gl = 8$:
+$$
+t_{0{,}025,8} \approx 2{,}306
+$$
+
+Região crítica:
+$$
+|t| > 2{,}306
+$$
+
+Como:
+$$
+|t_{calc}| = 5{,}29 > 2{,}306
+$$
+
+\textbf{5) Decisão e conclusão}
+
+Rejeita-se $H_0$ ao nível de 5\%.
+
+Conclui-se que há evidências estatísticas de que as produções médias das duas variedades de milho são diferentes.
+
+```r
+A=c(1.3,1.4,1.1,1.4,1.5)
+B=c(1.8,1.6,1.9,1.9,1.8)
+
+shapiro.test(A)
+shapiro.test(B)
+
+t.test(A,B,var.equal = T)
+```
+
+**Exercício**
+
+Foi realizado um experimento com o objetivo de comparar os tempos gastos, em minutos, na manobra com os arados Fuçador e Erechim, ambos de tração animal.
+
+Foram realizadas 11 repetições para cada arado, obtendo-se os seguintes dados:
+
+$$\hspace{-1.2cm}\begin{tabular}{c|ccccccccccc}\hline
+Fu & 0,20 & 0,22 & 0,18 & 0,23 & 0,12 & 0,20 & 0,13 & 0,12 & 0,13 & 0,22 & 0,17 \\
+Ere & 0,36 & 0,48 & 0,33 & 0,43 & 0,40 & 0,43 & 0,33 & 0,36 & 0,35 & 0,40 & 0,35\\\hline
+\end{tabular}$$
+
+Ao nível de significância de 5\%, teste a hipótese de que o tempo médio gasto com o arado Fuçador é menor do que o tempo médio com o arado Erechim.
+
+
+
+```r
+fu=c(0.20, 0.22, 0.18, 0.23, 0.12, 0.20, 0.13, 0.12, 0.13, 0.22, 0.17)
+ere=c(0.36, 0.48, 0.33, 0.43, 0.40, 0.43, 0.33, 0.36, 0.35, 0.40, 0.35)
+
+shapiro.test(fu)
+shapiro.test(ere)
+
+t.test(fu,ere,var.equal=T,alternative="less")
+```
+
+### Teste para duas médias com variâncias desiguais
+
+Quando não se pode assumir que as variâncias populacionais são iguais, utiliza-se o teste t para variâncias desiguais, também conhecido como \textbf{teste de Welch}.
+
+Sejam duas amostras independentes:
+$$
+X_1, \dots, X_{n_1} \sim N(\mu_1, \sigma_1^2), \quad
+Y_1, \dots, Y_{n_2} \sim N(\mu_2, \sigma_2^2)
+$$
+
+A estatística do teste é dada por:
+$$
+t = \frac{(\bar{X}_1 - \bar{X}_2)}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
+$$
+
+que segue aproximadamente uma distribuição t de Student com:
+$$
+\nu = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}
+{\frac{\left(\frac{S_1^2}{n_1}\right)^2}{n_1 - 1} + \frac{\left(\frac{S_2^2}{n_2}\right)^2}{n_2 - 1}}
+$$
+
+Na prática, quando $\nu$ não é inteiro, pode-se utilizar diretamente seu valor ou, de forma conservadora, arredondá-lo para baixo.
+
+### Exemplo
+
+Para avaliar o efeito de um fertilizante na produção de trigo, foram utilizadas 24 parcelas, sendo 12 com fertilizante e 12 sem fertilizante (controle).
+
+As estatísticas amostrais observadas foram:
+
+\begin{itemize}
+\item Sem fertilizante: $\bar{X}_1 = 1260$, $S_1 = 730$, $n_1 = 12$
+\item Com fertilizante: $\bar{X}_2 = 1710$, $S_2 = 280$, $n_2 = 12$
+\end{itemize}
+
+Ao nível de significância de 5\%, deseja-se verificar se houve aumento na produção devido ao uso do fertilizante.
+
+
+\textbf{1) Hipóteses}
+
+$$
+H_0: \mu_1 = \mu_2 \quad \text{vs} \quad H_1: \mu_1 < \mu_2
+$$
+
+\textbf{2) Estatística de teste}
+
+$$
+t = \frac{1260 - 1710}{\sqrt{\frac{730^2}{12} + \frac{280^2}{12}}}
+$$
+
+$$
+= \frac{-450}{\sqrt{\frac{532900}{12} + \frac{78400}{12}}}
+= \frac{-450}{\sqrt{44408{,}33 + 6533{,}33}}
+$$
+
+$$
+= \frac{-450}{\sqrt{50941{,}66}} = \frac{-450}{225{,}7} \approx -1{,}99
+$$
+
+\textbf{Graus de liberdade}
+
+$$
+\nu = \frac{(44408{,}33 + 6533{,}33)^2}
+{\frac{(44408{,}33)^2}{11} + \frac{(6533{,}33)^2}{11}} \approx 14{,}5
+$$
+
+Adotando $\nu \approx 14$.
+
+\textbf{3) Região crítica}
+
+Para $\alpha = 0{,}05$ (unilateral à esquerda) e $gl = 14$:
+$$
+t_{0{,}05,14} \approx -1{,}761
+$$
+
+\textbf{4) Decisão}
+
+Como:
+$$
+t_{calc} = -1{,}99 < -1{,}761
+$$
+
+Rejeita-se $H_0$.
+
+\textbf{5) Conclusão}
+
+Há evidências estatísticas de que a produção média com fertilizante é superior à produção sem fertilizante, ao nível de 5\% de significância.
+
+```r
+LearningStats::diffmean.test(x1=1260,x2=1710,sc1=730,sc2=280,n1=12,n2=12,
+var.equal = F,alternative = "less")
+```
+
+**Exercício**
+
+Em um estudo com machos de peixes \textit{Periplaneta}, foram obtidas medidas da atividade da enzima \textit{Cytochrome oxidase} (em $mm^3$ por 10 minutos por miligrama), com o objetivo de comparar dois tratamentos: grupo controle e grupo avaliado 24 horas após a aplicação de methoxyclor.
+
+
+$$
+\begin{tabular}{lcccc}\hline
+Tratamento & Tamanho da amostra & Média & Desvio padrão & Variância \\\hline
+24 horas  & 5 & 24,8 & 0,9 & 0,81 \\
+Controle  & 3 & 19,7 & 2,8 & 7,84 \\\hline
+\end{tabular}
+$$
+
+Ao nível de significância de 5\%, teste se há evidência de efeito do methoxyclor sobre a média da atividade de \textit{Cytochrome oxidase}.
+
+
+
+## Teste para duas proporções
+
+Em muitos estudos, deseja-se comparar duas proporções populacionais
+associadas a uma característica de interesse em dois grupos independentes.
+
+Sejam $\pi_1$ e $\pi_2$ as proporções populacionais dos grupos 1 e 2,
+respectivamente. O interesse está em testar hipóteses sobre a diferença
+$\pi_1 - \pi_2$.
+
+As proporções amostrais são dadas por:
+$$
+p_1 = \frac{x_1}{n_1}, \qquad p_2 = \frac{x_2}{n_2}.
+$$
+
+Sob a hipótese nula $H_0: \pi_1 = \pi_2$, utiliza-se a proporção combinada:
+$$
+p_p = \frac{x_1 + x_2}{n_1 + n_2}.
+$$
+
+A estatística do teste é:
+$$
+Z = \frac{p_1 - p_2}{\sqrt{p_p(1 - p_p)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
+\sim N(0,1).
+$$
+
+As hipóteses podem ser formuladas como:
+$$
+H_0: \pi_1 = \pi_2 \qquad \text{vs} \qquad
+H_1:
+\begin{cases}
+\pi_1 < \pi_2 \\
+\pi_1 \neq \pi_2 \\
+\pi_1 > \pi_2
+\end{cases}
+$$
+
+### Exemplo
+
+Um método de semeadura foi bem-sucedido em 57 dentre 150 tentativas,
+enquanto outro método foi eficaz em 33 dentre 100 tentativas.
+
+Ao nível de significância de 5\%, teste se o primeiro método apresenta
+proporção de sucesso maior que o segundo.
+
+
+\textbf{1) Hipóteses}
+
+$$
+H_0: \pi_1 = \pi_2 \qquad \text{vs} \qquad H_1: \pi_1 > \pi_2
+$$
+
+\textbf{2) Nível de significância}
+
+$$
+\alpha = 0{,}05
+$$
+
+\textbf{3) Estatística do teste}
+
+Proporções amostrais:
+$$
+p_1 = \frac{57}{150} = 0{,}38, \qquad
+p_2 = \frac{33}{100} = 0{,}33
+$$
+
+Proporção combinada:
+$$
+p_p = \frac{57 + 33}{150 + 100} = \frac{90}{250} = 0{,}36
+$$
+
+Erro padrão:
+$$
+EP = \sqrt{0{,}36 \cdot 0{,}64 \cdot \left(\frac{1}{150} + \frac{1}{100}\right)}
+$$
+
+$$
+EP \approx \sqrt{0{,}2304 \cdot 0{,}01667} \approx 0{,}062
+$$
+
+Estatística do teste:
+$$
+Z = \frac{0{,}38 - 0{,}33}{0{,}062} \approx 0{,}81
+$$
+
+\textbf{4) Região crítica}
+
+Teste unilateral à direita:
+$$
+Z_{0{,}05} = 1{,}645
+$$
+
+Região crítica:
+$$
+(1{,}645, +\infty)
+$$
+
+\textbf{5) Decisão}
+
+Como $Z_{calc} = 0{,}81 < 1{,}645$, não rejeitamos $H_0$.
+
+\textbf{Conclusão}
+
+Ao nível de 5\% de significância, não há evidência suficiente para afirmar que o primeiro método apresenta proporção de sucesso maior que o segundo.
+
+```r
+LearningStats::diffproportion.test(x1=57,x2=33,n1=150,n2=100,alternative = "greater")
+```
+
+**Exercício**
+Um pesquisador deseja comparar as proporções de germinação de dois híbridos de milho. Para isso, foram selecionadas aleatoriamente 100 sementes de cada híbrido, obtendo-se as seguintes proporções amostrais de germinação:
+$$
+\hat{p}_1 = 0{,}93 \quad \text{(Híbrido A)} \qquad \text{e} \qquad \hat{p}_2 = 0{,}90 \quad \text{(Híbrido B)}.
+$$
+
+Ao nível de significância de 5\%, verifique se há evidência de diferença entre as proporções de germinação dos dois híbridos.
+
+```r
+LearningStats::diffproportion.test(x1=0.93,x2=0.90,n1=100,n2=100)
+```
+
+## Teste para igualdade de duas variâncias
+
+Em estudos envolvendo comparação de duas médias populacionais, é comum a necessidade de verificar previamente se as variâncias das populações podem ser consideradas iguais.
+
+Para isso, utiliza-se o teste F para comparação de variâncias, considerando duas amostras independentes provenientes de populações com distribuição normal.
+
+\textbf{Hipóteses}
+
+As hipóteses do teste podem ser formuladas como:
+$$
+H_0: \sigma_1^2 = \sigma_2^2 \qquad \text{vs} \qquad H_1: \sigma_1^2 > \sigma_2^2
+$$
+
+em que $\sigma_1^2$ e $\sigma_2^2$ representam as variâncias populacionais dos grupos 1 e 2, respectivamente.
+
+\textbf{Estatística do teste}
+
+A estatística utilizada é dada por:
+$$
+F = \frac{S_1^2}{S_2^2}
+$$
+
+em que $S_1^2$ e $S_2^2$ são as variâncias amostrais.
+
+Adota-se, por convenção, $S_1^2$ como a maior variância amostral, garantindo que $F \geq 1$.
+
+\textbf{Distribuição da estatística}
+
+Sob a hipótese nula e assumindo normalidade, a estatística $F$ segue uma distribuição F com:
+$$
+gl_1 = n_1 - 1 \quad \text{(numerador)} \qquad \text{e} \qquad gl_2 = n_2 - 1 \quad \text{(denominador)}.
+$$
+
+\textbf{Regra de decisão}
+
+Para um teste unilateral à direita, rejeita-se $H_0$ se:
+$$
+F_{obs} > F_{gl_1, gl_2; \alpha}
+$$
+
+
+```{r echo=F, fig.width=10, fig.height=7}
+d=function(x)df(x,20,10)
+plot(d,0,5,xlim=c(-.5,5.5),ylim=c(-.5,1),lwd=2,xaxt="n",yaxt="n",axes=F, ylab="",xlab="")
+legend(4.8,0,c("F"),col=c(1,4),text.col="black",box.col="white")
+legend(-.7,1,c("P(F)"),col=c(1,4),text.col="black",box.col="white")
+legend(1.7,0,c("Ftab(5%)"),col=c(1,4),text.col="black",box.col="white")
+legend(2.7,0,c("Ftab(1%)"),col=c(1,4),text.col="black",box.col="white")
+arrows(0,0,5.2,0,length=.1,lwd=1.7)
+arrows(0,0,0,1,length=.1,lwd=1.7)
+
+
+s=seq(2.2008,5,.05)
+ss=seq(qf(.97,20,10),5,.001)
+n0=length(s)
+n1=length(ss)
+n=n0+n1
+segments(c(s,ss),0,c(s,ss),d(c(s,ss)),col=2)
+
+segments(2.3,.1,2.4,.8,col=1,lty=3)
+segments(2.4,.8,3,.8,col=1,lty=3)
+segments(3.5,.01,3.6,.312,col=1,lty=3)
+
+
+segments(qf(.90,20,10),-0.01,qf(.90,20,10),df(qf(.90,20,10),20,10),lwd=2)
+segments(qf(.97,20,10),-0.01,qf(.97,20,10),df(qf(.97,20,10),20,10),lwd=2)
+legend(.5,0.3,c("Região de","aceitação"),col=c(1,4),text.col="black",box.col="white")
+legend(3,.9,c("Região de rejeição de","Ho no nível de 5%"),col=c(1,4),text.col="black",box.col="black")
+legend(3.24,.5,c("Região de rejeião de","Ho no nível de 1%"),col=c(1,4),text.col="black",box.col="black")
+
+```
+
+### Exemplo
+
+Com o objetivo de comparar as produções médias, em t/ha, de duas variedades de milho, foram observadas cinco unidades experimentais para cada uma:
+
+$$
+\begin{tabular}{c|ccccc}\hline
+Variedade A & 1,3 & 1,4 & 1,1 & 1,4 & 1,5 \\
+Variedade B & 1,8 & 1,6 & 1,9 & 1,9 & 1,8\\\hline
+\end{tabular}
+$$
+
+Antes de verificar as produções médias, deve-se testar se as variâncias são iguais. Com base nestes resultados, qual é sua conclusão sobre a igualdade das variâncias? Utilizar $\alpha=0,05$.
+
+\vspace{0.5cm}
+
+Hipóteses
+
+$$
+H_0: \sigma_A^2 = \sigma_B^2
+$$
+
+$$
+H_1: \sigma_A^2 > \sigma_B^2
+$$
+
+\vspace{0.3cm}
+
+Estatísticas amostrais
+
+Médias:
+
+$$
+\bar{x}_A = 1,34 \quad ; \quad \bar{x}_B = 1,80
+$$
+
+Variâncias amostrais:
+
+$$
+s_A^2 = 0,023 \quad ; \quad s_B^2 = 0,015
+$$
+
+\vspace{0.3cm}
+
+Estatística do teste
+
+Como $s_A^2 > s_B^2$, temos:
+
+$$
+F_{calc} = \frac{s_A^2}{s_B^2} = \frac{0,023}{0,015} = 1,53
+$$
+
+\vspace{0.3cm}
+
+Região crítica
+
+Graus de liberdade:
+
+$$
+gl_1 = 5 - 1 = 4 \quad ; \quad gl_2 = 5 - 1 = 4
+$$
+
+Para $\alpha = 0,05$ :
+
+$$
+F_{sup} = F_{0,95}(4,4) \approx 6,39
+$$
+
+
+Região crítica:
+
+$$
+F > 6,39
+$$
+
+\vspace{0.3cm}
+
+Decisão
+
+$$
+1,53 < 6,39
+$$
+
+Portanto, a estatística do teste não pertence à região crítica.
+
+\vspace{0.3cm}
+
+Conclusão
+
+Não se rejeita $H_0$ ao nível de 5% de significância. Assim, não há evidências de que as variâncias sejam diferentes, podendo-se assumir homogeneidade de variâncias.
+
+```r
+A=c(1.3,1.4,1.1,1.4,1.5)
+B=c(1.8,1.6,1.9,1.9,1.8)
+
+shapiro.test(A)
+shapiro.test(B)
+var(A)
+var(B)
+var.test(A,B,alternative = "greater")
+```
+
+**Exercício**
+
+Foi realizado um experimento com o objetivo de comparar os tempos gastos (em minutos) na execução de manobras com dois arados de tração animal: Fuçador (Fu) e Erechim (Ere). Para cada arado, foram observadas 11 repetições, cujos resultados são apresentados a seguir:
+
+
+$$
+\begin{tabular}{c|ccccccccccc}\hline
+Fu & 0,20 & 0,22 & 0,18 & 0,23 & 0,12 & 0,20 & 0,13 & 0,12 & 0,13 & 0,22 & 0,17 \\
+Ere & 0,36 & 0,48 & 0,33 & 0,43 & 0,40 & 0,43 & 0,33 & 0,36 & 0,35 & 0,40 & 0,35\\\hline
+\end{tabular}
+$$
+
+
+Verifique, ao nível de significância de 5%, se as variâncias dos tempos de execução dos dois arados podem ser consideradas iguais.
+```r
+fu=c(0.20, 0.22, 0.18, 0.23, 0.12, 0.20, 0.13, 0.12, 0.13, 0.22, 0.17)
+ere=c(0.36, 0.48, 0.33, 0.43, 0.40, 0.43, 0.33, 0.36, 0.35, 0.40, 0.35)
+
+shapiro.test(fu)
+shapiro.test(ere)
+
+var.test(ere,fu,alternative="greater")
+
+```
+
+**Exercício 2**
+
+As seguintes medidas da enzima \textit{Cytochrome oxidase} foram obtidas em machos de peixes do gênero *Periplaneta*, em um estudo cujo objetivo foi comparar dois tratamentos: controle e 24 horas após a aplicação de methoxyclor. Os dados resumidos são apresentados a seguir:
+
+
+$$
+\begin{tabular}{lcccc}\hline
+Tratamento & Tamanho da amostra & Média & Desvio padrão & Variância \\\hline
+24 horas  & 5 & 24,8 & 0,9 & 0,81 \\
+Controle & 3 & 19,7 & 2,8 & 7,84 \\\hline
+\end{tabular}
+$$
+
+Ao nível de significância de 5%, verifique se há evidências de que a variabilidade da atividade de \textit{Cytochrome oxidase} diminui após a aplicação de methoxyclor.
+
+```r
+LearningStats::diffvariance.test(sc1=2.8,sc2=0.9,n1=3,n2=5,alternative = "greater")
+```
 
