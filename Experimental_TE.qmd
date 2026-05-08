@@ -1,0 +1,610 @@
+# Planejamento de Experimentos 
+
+## Introdução à experimentação.
+
+A experimentação tem como objetivo planejar, conduzir, analisar e interpretar experimentos, de modo a gerar conclusões confiáveis sobre o fenômeno em estudo. Nesse contexto, a qualidade dos resultados não depende apenas das técnicas de análise, mas principalmente da forma como o experimento é estruturado.
+
+Dessa forma, maior ênfase deve ser dada ao **planejamento experimental** e à interpretação dos resultados, pois são essas etapas que garantem a validade das inferências realizadas. Uma análise estatística adequada não corrige falhas de planejamento, enquanto um experimento bem planejado permite extrair informações consistentes e relevantes, mesmo com métodos analíticos mais simples.
+
+**Dados experimentais** são aqueles obtidos a partir de estudos conduzidos de forma planejada, em condições previamente definidas, com o objetivo de investigar um fenômeno específico. Diferentemente de dados observacionais, esses dados resultam de intervenções deliberadas do pesquisador.
+
+Nesse contexto, um experimento (ou ensaio) pode ser definido como um estudo previamente planejado, que segue princípios básicos da experimentação e no qual se realiza a comparação entre tratamentos. Essa comparação é essencial para avaliar os efeitos dos fatores de interesse, permitindo estabelecer conclusões com base em evidências controladas.
+
+Em experimentação, **tratamento** é o termo genérico utilizado para designar o método, material, condição ou intervenção cujo efeito se deseja avaliar ou comparar. Os tratamentos correspondem aos diferentes níveis ou combinações dos fatores em estudo e constituem a base das comparações realizadas no experimento. Como exemplos, podem-se citar: variedades de cana-de-açúcar, cultivares de soja, tipos de recipientes para produção de mudas de espécies florestais, entre outros.
+
+A **unidade experimental**, também chamada de **parcela**, é a menor unidade à qual um tratamento é aplicado de forma independente e que fornece os dados utilizados na análise. É fundamental que as unidades experimentais sejam definidas de modo que possam refletir adequadamente o efeito dos tratamentos. Dependendo do experimento, uma unidade experimental pode ser, por exemplo, uma planta, um conjunto de plantas, uma área de terreno cultivada, um vaso com plantas, uma amostra de solo ou um lote de sementes.
+
+O **delineamento experimental** corresponde ao plano de condução do experimento, definindo como os tratamentos serão atribuídos às unidades experimentais e como as fontes de variação serão controladas. Envolve, portanto, a escolha da estrutura do experimento, o número de repetições, a forma de alocação dos tratamentos (como a aleatorização e o uso de blocos) e o planejamento das análises estatísticas a serem realizadas. Um delineamento bem definido é fundamental para garantir a validade das inferências obtidas.
+
+Mesmo em experimentos bem planejados, as observações estão sujeitas a variações decorrentes de fatores não controláveis, como pequenas diferenças ambientais ou biológicas entre as unidades experimentais. Essa variabilidade é denominada **variação do acaso** (ou erro experimental) e está presente em todas as medições. Sua existência justifica o uso de métodos estatísticos, que permitem avaliar se as diferenças observadas entre tratamentos são reais ou podem ser atribuídas a essa variabilidade aleatória.
+
+O pesquisador deve planejar o experimento de forma a minimizar a variação do acaso, buscando controlar, sempre que possível, as fontes de variação conhecidas. O objetivo é isolar o efeito dos tratamentos, garantindo que as diferenças observadas sejam atribuídas aos fatores de interesse, e não a influências externas.
+
+Fatores não controláveis, ou de difícil controle, contribuem para a variabilidade experimental e devem ser considerados no planejamento. Exemplos incluem:
+
+- Diferenças na fertilidade do solo
+- Variações ambientais (umidade, temperatura, luminosidade)
+- Diferenças biológicas entre unidades experimentais
+
+Por outro lado, existem fatores que devem ser controlados para reduzir a variabilidade desnecessária. Entre eles, destacam-se:
+
+- Manter uniforme o espaçamento entre linhas
+- Padronizar a profundidade de semeadura
+- Utilizar a mesma pessoa ou equipe treinada na aplicação dos tratamentos
+- Garantir a calibração e uniformidade dos equipamentos utilizados
+
+O controle adequado dessas fontes de variação contribui para aumentar a precisão experimental e a confiabilidade dos resultados.
+
+
+O **tamanho da parcela** deve ser definido de forma a proporcionar maior precisão experimental, isto é, minimizar a variabilidade entre parcelas dentro de um mesmo bloco. Em geral, busca-se um equilíbrio entre parcelas suficientemente grandes para representar bem o fenômeno estudado e suficientemente pequenas para permitir maior número de repetições.
+
+A definição do tamanho e da forma das parcelas depende de diversos fatores, entre os quais se destacam:
+
+- Material experimental (espécie, cultura, variabilidade biológica)
+- Número de tratamentos
+- Área disponível
+- Custos e tempo de execução do experimento
+- Presença de bordadura (distinção entre área total e área útil)
+- Condições experimentais (campo, casa de vegetação ou laboratório)
+
+No que se refere à forma das parcelas, estudos conduzidos com diferentes culturas indicam que, para aumentar a precisão experimental, parcelas mais compridas e estreitas tendem a ser mais eficientes, especialmente em condições de campo, pois permitem melhor controle de gradientes ambientais. Para parcelas de tamanho reduzido, no entanto, o efeito da forma sobre a precisão é geralmente pouco relevante.
+
+
+Em alguns experimentos, é necessário o uso de **bordaduras** para evitar que os tratamentos aplicados em parcelas vizinhas influenciem as unidades experimentais, o que poderia comprometer a avaliação dos efeitos dos tratamentos.
+
+Quando se utilizam bordaduras, distingue-se a área total da parcela da sua área útil. A área total inclui toda a parcela experimental, enquanto a área útil corresponde à porção central, livre de interferências externas, de onde são coletados os dados.
+
+Para fins de análise estatística, devem ser considerados apenas os dados provenientes da área útil, pois são esses que melhor refletem o efeito dos tratamentos sob condições controladas.
+
+Em ensaios conduzidos em laboratório, uma única amostra do material experimental pode constituir a unidade experimental (parcela). Em algumas situações, podem ser utilizadas amostras compostas, sendo a média das determinações adotada como valor representativo da parcela.
+
+É importante não confundir repetições experimentais com determinações realizadas sobre a mesma amostra. Múltiplas medições em uma mesma unidade experimental não configuram repetições, mas sim subamostragens, não contribuindo para o aumento do número de graus de liberdade do erro experimental.
+
+Em experimentos conduzidos em casa de vegetação, a unidade experimental pode ser constituída por um único vaso ou por um conjunto de vasos, dependendo do objetivo do estudo. Em alguns casos, um vaso contendo duas ou três plantas pode ser considerado uma unidade experimental, desde que o tratamento seja aplicado de forma uniforme a esse conjunto.
+
+
+## Princípios básicos da experimentação
+
+Para a condução adequada de experimentos, é necessário atender a alguns princípios básicos, de modo que as conclusões obtidas sejam válidas e confiáveis. Esses princípios estão diretamente relacionados ao controle da variabilidade experimental e à garantia da independência das observações.
+
+Os principais princípios da experimentação são:
+
+- Repetição
+- Casualização (aleatorização)
+- Controle local
+
+Cada um desses princípios atua de forma complementar, contribuindo para a redução do erro experimental e para o aumento da precisão das comparações entre tratamentos.
+
+
+### Princípio da Repetição
+
+O princípio da repetição consiste na aplicação de um mesmo tratamento em várias unidades experimentais independentes, isto é, na utilização de várias parcelas para cada tratamento.
+
+A repetição pode ser entendida como a reprodução do experimento básico e tem como principal finalidade possibilitar a estimação do erro experimental, isto é, da variabilidade associada à variação do acaso. Essa estimativa é essencial para a realização de testes de hipóteses e construção de intervalos de confiança.
+
+Além disso, o aumento do número de repetições contribui para:
+
+- Maior precisão na comparação entre tratamentos
+- Redução da influência de fatores não controlados
+- Aumento da confiabilidade das conclusões
+
+\begin{center}
+\tikz{
+\foreach \b in {1,2}
+\draw (-.5,\b) +(-.5,-.5) rectangle ++(.5,.5) ;
+\draw (-.5,2) node{A};
+\draw (-.5,1) node{B};
+\draw (-.5,.2) node{Ex. básico};
+\draw (.5,1.5) node{$\Longrightarrow$};
+}
+\tikz{
+\foreach \a in {1,...,5}
+\foreach \b in {1,2}
+\draw (\a,\b) +(-.5,-.5) rectangle ++(.5,.5) ;
+\draw (1,2) node{A};
+\draw (1,1) node{B};
+\draw (2,2) node{A};
+\draw (2,1) node{B};
+\draw (3,2) node{A};
+\draw (3,1) node{B};
+\draw (4,2) node{A};
+\draw (4,1) node{B};
+\draw (5,2) node{A};
+\draw (5,1) node{B};
+\draw (3,.2) node{Repetições};
+}
+\end{center}
+
+::: {.callout-warning}
+Pseudorrepetição e o uso de “repetição” e “réplica”
+
+
+É importante distinguir os conceitos de repetição e réplica em experimentação.
+
+- Repetição: corresponde à aplicação independente de um mesmo tratamento em diferentes unidades experimentais. É a verdadeira repetição experimental e permite estimar o erro experimental.
+
+- Réplica: refere-se a múltiplas observações realizadas dentro da mesma unidade experimental, ou seja, medições que não são independentes entre si.
+
+A pseudorrepetição ocorre quando réplicas são tratadas, incorretamente, como se fossem repetições, inflando o número de observações independentes e comprometendo a validade da análise estatística.
+Deve-se ter atenção à terminologia em inglês: “replication” corresponde à repetição (no sentido correto, com independência), enquanto termos como “repetition” ou medições múltiplas podem se referir a réplicas, dependendo do contexto.
+:::
+
+
+
+### Princípio da Casualização
+
+O princípio da casualização (aleatorização) consiste na distribuição dos tratamentos às unidades experimentais por meio de um processo aleatório, como sorteios ou uso de algoritmos de randomização.
+
+Com a casualização, garante-se que todos os tratamentos tenham a mesma probabilidade de serem atribuídos a qualquer parcela, evitando vieses sistemáticos na condução do experimento. Esse procedimento é fundamental para assegurar a independência dos erros e a validade das inferências estatísticas.
+
+A principal finalidade da casualização é garantir que a variabilidade não controlada (variação do acaso) seja distribuída de forma aleatória entre os tratamentos, permitindo uma estimativa não viesada do erro experimental.
+
+Além disso, a casualização contribui para:
+
+- Evitar tendências associadas à posição das parcelas
+- Reduzir a influência de fatores não controlados
+- Justificar o uso dos métodos estatísticos inferenciais
+
+\begin{center}
+\tikz{
+\foreach \b in {1,2}
+\draw (-.5,\b) +(-.5,-.5) rectangle ++(.5,.5) ;
+\draw (-.5,2) node{A};
+\draw (-.5,1) node{B};
+\draw (-.5,.2) node{Ex. básico};
+\draw (.5,1.5) node{$\Longrightarrow$};
+}
+\tikz{
+\foreach \a in {1,...,5}
+\foreach \b in {1,2}
+\draw (\a,\b) +(-.5,-.5) rectangle ++(.5,.5) ;
+\draw (1,2) node{B};
+\draw (1,1) node{B};
+\draw (2,2) node{A};
+\draw (2,1) node{A};
+\draw (3,2) node{B};
+\draw (3,1) node{A};
+\draw (4,2) node{B};
+\draw (4,1) node{B};
+\draw (5,2) node{A};
+\draw (5,1) node{A};
+\draw (3,.2) node{Repetições + Casualização};
+}
+\end{center}
+
+
+### Princípio do Controle Local
+
+O princípio do controle local consiste em reduzir a variabilidade experimental por meio da formação de grupos homogêneos de unidades experimentais. Idealmente, os experimentos devem ser conduzidos em áreas uniformes; no entanto, quando a área experimental apresenta heterogeneidade, torna-se necessário adotar estratégias para controlá-la.
+
+Uma forma clássica de controle local é a divisão da área experimental em blocos, de modo que cada bloco seja o mais homogêneo possível internamente. As diferenças existentes entre blocos (por exemplo, gradientes de solo, umidade ou relevo) são, assim, isoladas do erro experimental.
+
+Dentro de cada bloco, os tratamentos devem ser alocados, preferencialmente, em igual número e de forma casualizada. Dessa maneira, a comparação entre tratamentos é realizada sob condições mais homogêneas.
+
+A principal finalidade do controle local é aumentar a eficiência do experimento, por meio da redução do erro experimental, o que resulta em maior precisão na comparação entre tratamentos.
+
+\begin{center}
+\tikz{
+\foreach \b in {1.4,2}
+\draw (-.5,\b) +(-.3,-.3) rectangle ++(.3,.3) ;
+\draw (-.5,2) node{A};
+\draw (-.5,1.4) node{B};
+\draw (-.5,0.7) node{Ex. básico};
+\draw (.5,1.7) node{$\Longrightarrow$};
+}
+\tikz{
+\foreach \a in {.9,1.5,2.1,2.7,3.3}
+\foreach \b in {1.4,2}
+\draw (\a,\b) +(-.3,-.3) rectangle ++(.3,.3) ;
+\draw (.9,2.5) node{$\Downarrow$};
+\draw (1.5,2.5) node{$\Downarrow$};
+\draw (2.1,2.5) node{$\Downarrow$};
+\draw (2.7,2.5) node{$\Downarrow$};
+\draw (3.3,2.5) node{$\Downarrow$};
+\draw (.9,3) node{bl.1};
+\draw (1.5,2.9) node{bl.2};
+\draw (2.1,3) node{bl.3};
+\draw (2.7,2.9) node{bl.4};
+\draw (3.3,3) node{bl.5};
+\draw (.9,2) node{A};
+\draw (.9,1.4) node{B};
+\draw (1.5,2) node{B};
+\draw (1.5,1.4) node{A};
+\draw (2.1,2) node{B};
+\draw (2.1,1.4) node{A};
+\draw (2.7,2) node{A};
+\draw (2.7,1.4) node{B};
+\draw (3.3,2) node{B};
+\draw (3.3,1.4) node{A};
+\draw (2,.7) node{Rep. + Cas. + Controle local};
+}
+\end{center}
+
+
+### Condução do experimento
+
+A condução adequada do experimento é fundamental para garantir a qualidade dos dados obtidos. Não se deve permitir que falhas na execução comprometam os resultados, tornando a técnica experimental a principal fonte de variação do erro experimental.
+
+Nesse sentido, todas as etapas devem ser realizadas com o máximo de rigor possível. Isso inclui a pesagem de materiais, a calibração de equipamentos e a realização das medições, sempre buscando precisão e padronização.
+
+Uma falha comum na condução experimental é a aplicação não uniforme dos tratamentos entre as repetições. Por exemplo, ao utilizar equipamentos para aplicação de fertilizantes, a falta de limpeza adequada entre aplicações pode gerar diferenças que não são devidas aos tratamentos em si, mas sim à quantidade efetivamente aplicada em cada parcela.
+
+Outro ponto crítico refere-se à participação de diferentes operadores. Quando mais de uma pessoa está envolvida na aplicação dos tratamentos, deve-se garantir que possíveis variações entre elas não sejam confundidas com os efeitos dos tratamentos. Uma forma de contornar esse problema é planejar o experimento de modo que todos os operadores atuem sobre todos os tratamentos, distribuindo esse efeito de maneira equilibrada.
+
+### Planejamento do Experimento
+
+Antes da instalação do experimento, é fundamental realizar um planejamento cuidadoso, no qual são definidas todas as etapas e componentes essenciais do estudo. Um planejamento adequado é decisivo para garantir a qualidade dos dados e a validade das conclusões.
+
+Para que o experimento seja corretamente planejado, devem ser definidos:
+
+
+
+\begin{center}
+\begin{tikzpicture}[
+node distance=1.8cm,
+every node/.style={draw, rectangle, rounded corners, align=center, minimum width=6cm, minimum height=0.8cm},
+arrow/.style={->, thick}
+]
+
+\node (inicio) {Planejamento do experimento};
+
+\node (trat) [below of=inicio] {Definição dos tratamentos};
+\node (area) [below of=trat] {Área e unidade experimental};
+\node (design) [below of=area] {Designação dos tratamentos \\ (casualização / blocos)};
+\node (var) [below of=design] {Variável resposta e mensuração};
+\node (del) [below of=var] {Escolha do delineamento experimental};
+
+\draw[arrow] (inicio) -- (trat);
+\draw[arrow] (trat) -- (area);
+\draw[arrow] (area) -- (design);
+\draw[arrow] (design) -- (var);
+\draw[arrow] (var) -- (del);
+
+\end{tikzpicture}
+\end{center}
+
+- **Os tratamentos a serem comparados**
+
+Especificação clara dos fatores e seus níveis, que serão objeto de estudo.
+
+- **A área experimental e a unidade experimental**
+
+Definição do local de condução e da menor unidade que receberá os tratamentos.
+
+- **A forma de designação dos tratamentos às unidades experimentais**
+
+Estabelecimento do processo de casualização e, quando necessário, do uso de blocos.
+
+- **A variável resposta e a forma de mensuração**
+
+Definição da característica a ser avaliada, bem como dos métodos e instrumentos de medição.
+
+- **O delineamento experimental**
+
+Escolha do tipo de delineamento mais adequado às condições do experimento e aos objetivos do estudo.
+
+
+Um planejamento bem estruturado permite controlar fontes de variação, aumentar a precisão experimental e garantir que a análise estatística produza inferências confiáveis.
+
+
+### Análise dos dados experimentais
+
+Uma vez realizado o planejamento e a condução adequada do experimento, a etapa seguinte consiste na análise dos dados obtidos. Essa análise deve estar em consonância com o delineamento experimental adotado, de modo a permitir inferências válidas sobre os efeitos dos tratamentos.
+
+Nesse contexto, a principal ferramenta estatística utilizada é a análise de variância (ANOVA).
+
+A ideia básica da análise de variância é decompor a variabilidade total observada nos dados em componentes associados a causas conhecidas e independentes, como os efeitos dos tratamentos e, quando for o caso, dos blocos, e uma parte residual, de origem desconhecida, atribuída à variação do acaso.
+
+::: {.callout-note}
+**Ideia básica da ANOVA**
+
+A ideia básica da análise de variância é decompor a variabilidade total observada nos dados em partes atribuídas a causas conhecidas e independentes e uma parte residual, de origem desconhecida e de natureza aleatória.
+:::
+
+Essa decomposição permite avaliar se as diferenças observadas entre tratamentos são significativas ou se podem ser explicadas pela variabilidade aleatória presente no experimento.
+
+A forma como essa decomposição é realizada depende diretamente do delineamento experimental adotado, que define as fontes de variação a serem consideradas no modelo estatístico.
+
+
+## Principais delineamentos Experimentais
+
+### Delineamento Inteiramente Casualizado (DIC)
+
+O delineamento inteiramente casualizado (DIC) é o mais simples entre os delineamentos experimentais. Nesse delineamento, os tratamentos são atribuídos às unidades experimentais de forma completamente aleatória, sendo indicado para situações em que a área experimental é homogênea.
+
+O DIC considera apenas os princípios da repetição e da casualização, não incorporando controle local (blocos).
+
+Esse delineamento é amplamente utilizado em condições experimentais mais controladas, como:
+- Laboratórios
+- Casas de vegetação
+- Viveiros
+
+Nessas situações, a variabilidade entre unidades experimentais tende a ser menor, o que justifica a ausência de blocos.
+
+::: {.callout-example}
+**Exemplo: DIC com 5 tratamentos e 4 repetições**
+
+Croqui do ensaio considerando 5 tratamentos (A, B, C, D, E) com 4 repetições cada:
+:::
+
+
+\begin{center}
+\begin{tikzpicture}
+\foreach \i in {1,...,20} {
+    \pgfmathtruncatemacro{\x}{mod(\i-1,5)}
+    \pgfmathtruncatemacro{\y}{int((\i-1)/5)}
+    \draw (\x,\y) rectangle ++(1,1);
+}
+
+% Exemplo de distribuição aleatória
+\node at (0.5,3.5) {A};
+\node at (1.5,3.5) {C};
+\node at (2.5,3.5) {B};
+\node at (3.5,3.5) {E};
+\node at (4.5,3.5) {D};
+
+\node at (0.5,2.5) {D};
+\node at (1.5,2.5) {A};
+\node at (2.5,2.5) {E};
+\node at (3.5,2.5) {C};
+\node at (4.5,2.5) {B};
+
+\node at (0.5,1.5) {B};
+\node at (1.5,1.5) {D};
+\node at (2.5,1.5) {A};
+\node at (3.5,1.5) {B};
+\node at (4.5,1.5) {C};
+
+\node at (0.5,0.5) {E};
+\node at (1.5,0.5) {B};
+\node at (2.5,0.5) {C};
+\node at (3.5,0.5) {D};
+\node at (4.5,0.5) {A};
+
+\end{tikzpicture}
+\end{center}
+
+::: {.callout-note}
+**Esboço da ANOVA para o DIC**
+:::
+
+
+$$\begin{array}{lcc}
+\hline
+\text{Causa de variação} & \text{Graus de liberdade} \\
+\hline
+\text{Tratamentos} & I - 1 = 4\\
+\text{Erro} & I(J - 1) = 15\\\hline
+\text{Total} & IJ - 1 = 19\\
+\hline
+\end{array}$$
+
+em que
+$$
+I = 5 \text{ tratamentos} \quad\quad J = 4 \text{ repetições}
+$$
+
+### Delineamento Casualizado em Blocos (DBC)
+
+O delineamento casualizado em blocos (DBC) é utilizado quando a área experimental apresenta heterogeneidade, sendo necessário aplicar o princípio do controle local.
+
+Nesse delineamento, a área experimental é dividida em grupos mais homogêneos, denominados blocos. Cada bloco deve reunir unidades experimentais com características semelhantes, de modo a isolar a variabilidade entre blocos do erro experimental.
+
+Situações comuns que justificam o uso de blocos incluem:
+
+- Diferenças de solo em áreas extensas
+- Uso de diferentes equipamentos ou operadores
+- Variações entre indivíduos
+- Avaliações realizadas em diferentes dias
+
+Na forma mais simples, cada bloco contém todos os tratamentos, caracterizando um bloco completo. Dentro de cada bloco, os tratamentos são distribuídos de forma casualizada.
+
+Quando não é possível alocar todos os tratamentos em cada bloco, tem-se os blocos incompletos, que exigem abordagens específicas de análise.
+
+::: {.callout-example}
+**Exemplo: DBC com 5 tratamentos e 4 blocos**
+
+Cada bloco contém todos os tratamentos, distribuídos de forma casualizada.
+:::
+
+\begin{center}
+\begin{tikzpicture}
+
+% Bloco 1
+\foreach \i in {1,...,5} {
+    \filldraw[fill=white!15, draw=black, thick] (\i,4) rectangle ++(1,1);
+}
+
+% Bloco 2
+\foreach \i in {1,...,5} {
+    \filldraw[fill=blue!15, draw=blue, thick] (\i,3) rectangle ++(1,1);
+}
+
+% Bloco 3
+\foreach \i in {1,...,5} {
+    \filldraw[fill=green!15, draw=green!70!black, thick] (\i,2) rectangle ++(1,1);
+}
+
+% Bloco 4
+\foreach \i in {1,...,5} {
+    \filldraw[fill=gray!15, draw=gray, thick] (\i,1) rectangle ++(1,1);
+}
+
+% Rótulos dos blocos
+\node at (0.5,4.5) {B1};
+\node at (0.5,3.5) {B2};
+\node at (0.5,2.5) {B3};
+\node at (0.5,1.5) {B4};
+
+% Exemplo de casualização dentro de cada bloco
+\node at (1.5,4.5) {A};
+\node at (2.5,4.5) {C};
+\node at (3.5,4.5) {B};
+\node at (4.5,4.5) {E};
+\node at (5.5,4.5) {D};
+
+\node at (1.5,3.5) {D};
+\node at (2.5,3.5) {A};
+\node at (3.5,3.5) {E};
+\node at (4.5,3.5) {C};
+\node at (5.5,3.5) {B};
+
+\node at (1.5,2.5) {B};
+\node at (2.5,2.5) {D};
+\node at (3.5,2.5) {A};
+\node at (4.5,2.5) {B};
+\node at (5.5,2.5) {C};
+
+\node at (1.5,1.5) {E};
+\node at (2.5,1.5) {B};
+\node at (3.5,1.5) {C};
+\node at (4.5,1.5) {D};
+\node at (5.5,1.5) {A};
+
+\end{tikzpicture}
+\end{center}
+
+
+
+::: {.callout-note}
+**Esboço da ANOVA para o DBC**
+:::
+
+$$
+\begin{array}{lcc}
+\hline
+\text{Causa de variação} & \text{Graus de liberdade} \\
+\hline
+\text{Tratamentos} & I - 1 = 4 \\
+\text{Blocos} & J - 1 = 3 \\
+\text{Erro} & (I - 1)(J - 1) = 12 \\
+\hline
+\text{Total} & IJ - 1 = 19 \\
+\hline
+\end{array}
+$$
+No DBC, parte da variabilidade que, no DIC, seria incorporada ao erro experimental, passa a ser explicada pelos blocos, aumentando a precisão das comparações entre tratamentos.
+
+
+### Delineamento em Quadrado Latino (DQL)
+
+O delineamento em quadrado latino (DQL) é utilizado quando a área experimental apresenta heterogeneidade em duas direções, sendo necessário aplicar o princípio do controle local em dois sentidos.
+
+Diferentemente do delineamento em blocos casualizados, onde o controle é realizado em apenas um sentido, no DQL o controle ocorre:
+
+- nas linhas
+- nas colunas
+
+Nesse caso, os blocos em um sentido são chamados de linhas e, no outro, de colunas.
+
+Uma característica fundamental desse delineamento é que:
+- o número de linhas = colunas = tratamentos
+
+Além disso:
+- Cada tratamento aparece uma única vez em cada linha e uma única vez em cada coluna.
+
+::: {.callout-example}
+**Exemplo: Quadrado Latino com 5 tratamentos**
+
+Cada tratamento aparece exatamente uma vez em cada linha e uma vez em cada coluna.
+:::
+
+\begin{center}
+\begin{tikzpicture}
+
+% Cores das linhas
+\definecolor{linha1}{RGB}{255,230,230}
+\definecolor{linha2}{RGB}{230,240,255}
+\definecolor{linha3}{RGB}{230,255,230}
+\definecolor{linha4}{RGB}{245,230,255}
+\definecolor{linha5}{RGB}{255,245,230}
+
+% Cores das colunas
+\definecolor{col1}{RGB}{200,0,0}
+\definecolor{col2}{RGB}{0,0,200}
+\definecolor{col3}{RGB}{0,150,0}
+\definecolor{col4}{RGB}{120,0,150}
+\definecolor{col5}{RGB}{200,120,0}
+
+% Tamanho da célula
+\def\tam{1}
+
+% MATRIZ (linhas de cima para baixo)
+% Linha 1
+\foreach \j/\corcol/\val in {
+1/col1/C, 2/col2/A, 3/col3/E, 4/col4/B, 5/col5/D} {
+    \filldraw[fill=linha1, draw=\corcol, thick]
+    (\j*\tam,5*\tam) rectangle ++(\tam,\tam);
+    \node at (\j*\tam+0.5,5*\tam+0.5) {\val};
+}
+
+% Linha 2
+\foreach \j/\corcol/\val in {
+1/col1/A, 2/col2/D, 3/col3/B, 4/col4/E, 5/col5/C} {
+    \filldraw[fill=linha2, draw=\corcol, thick]
+    (\j*\tam,4*\tam) rectangle ++(\tam,\tam);
+    \node at (\j*\tam+0.5,4*\tam+0.5) {\val};
+}
+
+% Linha 3
+\foreach \j/\corcol/\val in {
+1/col1/E, 2/col2/B, 3/col3/D, 4/col4/C, 5/col5/A} {
+    \filldraw[fill=linha3, draw=\corcol, thick]
+    (\j*\tam,3*\tam) rectangle ++(\tam,\tam);
+    \node at (\j*\tam+0.5,3*\tam+0.5) {\val};
+}
+
+% Linha 4
+\foreach \j/\corcol/\val in {
+1/col1/B, 2/col2/C, 3/col3/A, 4/col4/D, 5/col5/E} {
+    \filldraw[fill=linha4, draw=\corcol, thick]
+    (\j*\tam,2*\tam) rectangle ++(\tam,\tam);
+    \node at (\j*\tam+0.5,2*\tam+0.5) {\val};
+}
+
+% Linha 5
+\foreach \j/\corcol/\val in {
+1/col1/D, 2/col2/E, 3/col3/C, 4/col4/A, 5/col5/B} {
+    \filldraw[fill=linha5, draw=\corcol, thick]
+    (\j*\tam,1*\tam) rectangle ++(\tam,\tam);
+    \node at (\j*\tam+0.5,1*\tam+0.5) {\val};
+}
+
+% Rótulos das linhas
+\node at (0.5,5.5) {L1};
+\node at (0.5,4.5) {L2};
+\node at (0.5,3.5) {L3};
+\node at (0.5,2.5) {L4};
+\node at (0.5,1.5) {L5};
+
+% Rótulos das colunas
+\node at (1.5,6.5) {C1};
+\node at (2.5,6.5) {C2};
+\node at (3.5,6.5) {C3};
+\node at (4.5,6.5) {C4};
+\node at (5.5,6.5) {C5};
+
+\end{tikzpicture}
+\end{center}
+
+
+
+::: {.callout-note}
+**Esboço da ANOVA para o DQL**
+:::
+$$
+\begin{array}{lcc}
+\hline
+\text{Causa de variação} & \text{Graus de liberdade} \\
+\hline
+\text{Tratamentos} & p - 1 = 4 \\
+\text{Linhas} & p - 1 = 4 \\
+\text{Colunas} & p - 1 = 4 \\
+\text{Erro} & (p - 1)(p - 2) = 12 \\
+\hline
+\text{Total} & p^2 - 1 = 24 \\
+\hline
+\end{array}
+$$
+
+No quadrado latino, a variabilidade é controlada simultaneamente em duas direções, aumentando a precisão experimental quando há duas fontes sistemáticas de heterogeneidade.

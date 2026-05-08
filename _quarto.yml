@@ -18,6 +18,7 @@ book:
     - Dist_amostrais.qmd
     - Estimacao_TE.qmd
     - TH_TE.qmd
+    - Experimental_TE.qmd
     - references.qmd 
     
 
@@ -40,6 +41,8 @@ format:
         \usepackage{makecell}
         \usepackage{longtable}
         \usepackage{tikz}
+        \usepackage{xcolor}
+        \usetikzlibrary{matrix, positioning}
         \usepackage{pdfpages}
         \usepackage{tablefootnote}
 
