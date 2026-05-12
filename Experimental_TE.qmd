@@ -1,4 +1,4 @@
-# Planejamento de Experimentos 
+# Planejamento de Experimentos
 
 ## Introdução à experimentação.
 
@@ -22,33 +22,31 @@ O pesquisador deve planejar o experimento de forma a minimizar a variação do a
 
 Fatores não controláveis, ou de difícil controle, contribuem para a variabilidade experimental e devem ser considerados no planejamento. Exemplos incluem:
 
-- Diferenças na fertilidade do solo
-- Variações ambientais (umidade, temperatura, luminosidade)
-- Diferenças biológicas entre unidades experimentais
+-   Diferenças na fertilidade do solo
+-   Variações ambientais (umidade, temperatura, luminosidade)
+-   Diferenças biológicas entre unidades experimentais
 
 Por outro lado, existem fatores que devem ser controlados para reduzir a variabilidade desnecessária. Entre eles, destacam-se:
 
-- Manter uniforme o espaçamento entre linhas
-- Padronizar a profundidade de semeadura
-- Utilizar a mesma pessoa ou equipe treinada na aplicação dos tratamentos
-- Garantir a calibração e uniformidade dos equipamentos utilizados
+-   Manter uniforme o espaçamento entre linhas
+-   Padronizar a profundidade de semeadura
+-   Utilizar a mesma pessoa ou equipe treinada na aplicação dos tratamentos
+-   Garantir a calibração e uniformidade dos equipamentos utilizados
 
 O controle adequado dessas fontes de variação contribui para aumentar a precisão experimental e a confiabilidade dos resultados.
-
 
 O **tamanho da parcela** deve ser definido de forma a proporcionar maior precisão experimental, isto é, minimizar a variabilidade entre parcelas dentro de um mesmo bloco. Em geral, busca-se um equilíbrio entre parcelas suficientemente grandes para representar bem o fenômeno estudado e suficientemente pequenas para permitir maior número de repetições.
 
 A definição do tamanho e da forma das parcelas depende de diversos fatores, entre os quais se destacam:
 
-- Material experimental (espécie, cultura, variabilidade biológica)
-- Número de tratamentos
-- Área disponível
-- Custos e tempo de execução do experimento
-- Presença de bordadura (distinção entre área total e área útil)
-- Condições experimentais (campo, casa de vegetação ou laboratório)
+-   Material experimental (espécie, cultura, variabilidade biológica)
+-   Número de tratamentos
+-   Área disponível
+-   Custos e tempo de execução do experimento
+-   Presença de bordadura (distinção entre área total e área útil)
+-   Condições experimentais (campo, casa de vegetação ou laboratório)
 
 No que se refere à forma das parcelas, estudos conduzidos com diferentes culturas indicam que, para aumentar a precisão experimental, parcelas mais compridas e estreitas tendem a ser mais eficientes, especialmente em condições de campo, pois permitem melhor controle de gradientes ambientais. Para parcelas de tamanho reduzido, no entanto, o efeito da forma sobre a precisão é geralmente pouco relevante.
-
 
 Em alguns experimentos, é necessário o uso de **bordaduras** para evitar que os tratamentos aplicados em parcelas vizinhas influenciem as unidades experimentais, o que poderia comprometer a avaliação dos efeitos dos tratamentos.
 
@@ -62,19 +60,17 @@ Em ensaios conduzidos em laboratório, uma única amostra do material experiment
 
 Em experimentos conduzidos em casa de vegetação, a unidade experimental pode ser constituída por um único vaso ou por um conjunto de vasos, dependendo do objetivo do estudo. Em alguns casos, um vaso contendo duas ou três plantas pode ser considerado uma unidade experimental, desde que o tratamento seja aplicado de forma uniforme a esse conjunto.
 
-
 ## Princípios básicos da experimentação
 
 Para a condução adequada de experimentos, é necessário atender a alguns princípios básicos, de modo que as conclusões obtidas sejam válidas e confiáveis. Esses princípios estão diretamente relacionados ao controle da variabilidade experimental e à garantia da independência das observações.
 
 Os principais princípios da experimentação são:
 
-- Repetição
-- Casualização (aleatorização)
-- Controle local
+-   Repetição
+-   Casualização (aleatorização)
+-   Controle local
 
 Cada um desses princípios atua de forma complementar, contribuindo para a redução do erro experimental e para o aumento da precisão das comparações entre tratamentos.
-
 
 ### Princípio da Repetição
 
@@ -84,9 +80,9 @@ A repetição pode ser entendida como a reprodução do experimento básico e te
 
 Além disso, o aumento do número de repetições contribui para:
 
-- Maior precisão na comparação entre tratamentos
-- Redução da influência de fatores não controlados
-- Aumento da confiabilidade das conclusões
+-   Maior precisão na comparação entre tratamentos
+-   Redução da influência de fatores não controlados
+-   Aumento da confiabilidade das conclusões
 
 \begin{center}
 \tikz{
@@ -115,21 +111,17 @@ Além disso, o aumento do número de repetições contribui para:
 }
 \end{center}
 
-::: {.callout-warning}
+::: callout-warning
 Pseudorrepetição e o uso de “repetição” e “réplica”
-
 
 É importante distinguir os conceitos de repetição e réplica em experimentação.
 
-- Repetição: corresponde à aplicação independente de um mesmo tratamento em diferentes unidades experimentais. É a verdadeira repetição experimental e permite estimar o erro experimental.
+-   Repetição: corresponde à aplicação independente de um mesmo tratamento em diferentes unidades experimentais. É a verdadeira repetição experimental e permite estimar o erro experimental.
 
-- Réplica: refere-se a múltiplas observações realizadas dentro da mesma unidade experimental, ou seja, medições que não são independentes entre si.
+-   Réplica: refere-se a múltiplas observações realizadas dentro da mesma unidade experimental, ou seja, medições que não são independentes entre si.
 
-A pseudorrepetição ocorre quando réplicas são tratadas, incorretamente, como se fossem repetições, inflando o número de observações independentes e comprometendo a validade da análise estatística.
-Deve-se ter atenção à terminologia em inglês: “replication” corresponde à repetição (no sentido correto, com independência), enquanto termos como “repetition” ou medições múltiplas podem se referir a réplicas, dependendo do contexto.
+A pseudorrepetição ocorre quando réplicas são tratadas, incorretamente, como se fossem repetições, inflando o número de observações independentes e comprometendo a validade da análise estatística. Deve-se ter atenção à terminologia em inglês: “replication” corresponde à repetição (no sentido correto, com independência), enquanto termos como “repetition” ou medições múltiplas podem se referir a réplicas, dependendo do contexto.
 :::
-
-
 
 ### Princípio da Casualização
 
@@ -141,9 +133,9 @@ A principal finalidade da casualização é garantir que a variabilidade não co
 
 Além disso, a casualização contribui para:
 
-- Evitar tendências associadas à posição das parcelas
-- Reduzir a influência de fatores não controlados
-- Justificar o uso dos métodos estatísticos inferenciais
+-   Evitar tendências associadas à posição das parcelas
+-   Reduzir a influência de fatores não controlados
+-   Justificar o uso dos métodos estatísticos inferenciais
 
 \begin{center}
 \tikz{
@@ -171,7 +163,6 @@ Além disso, a casualização contribui para:
 \draw (3,.2) node{Repetições + Casualização};
 }
 \end{center}
-
 
 ### Princípio do Controle Local
 
@@ -220,7 +211,6 @@ A principal finalidade do controle local é aumentar a eficiência do experiment
 }
 \end{center}
 
-
 ### Condução do experimento
 
 A condução adequada do experimento é fundamental para garantir a qualidade dos dados obtidos. Não se deve permitir que falhas na execução comprometam os resultados, tornando a técnica experimental a principal fonte de variação do erro experimental.
@@ -236,8 +226,6 @@ Outro ponto crítico refere-se à participação de diferentes operadores. Quand
 Antes da instalação do experimento, é fundamental realizar um planejamento cuidadoso, no qual são definidas todas as etapas e componentes essenciais do estudo. Um planejamento adequado é decisivo para garantir a qualidade dos dados e a validade das conclusões.
 
 Para que o experimento seja corretamente planejado, devem ser definidos:
-
-
 
 \begin{center}
 \begin{tikzpicture}[
@@ -263,29 +251,27 @@ arrow/.style={->, thick}
 \end{tikzpicture}
 \end{center}
 
-- **Os tratamentos a serem comparados**
+-   **Os tratamentos a serem comparados**
 
 Especificação clara dos fatores e seus níveis, que serão objeto de estudo.
 
-- **A área experimental e a unidade experimental**
+-   **A área experimental e a unidade experimental**
 
 Definição do local de condução e da menor unidade que receberá os tratamentos.
 
-- **A forma de designação dos tratamentos às unidades experimentais**
+-   **A forma de designação dos tratamentos às unidades experimentais**
 
 Estabelecimento do processo de casualização e, quando necessário, do uso de blocos.
 
-- **A variável resposta e a forma de mensuração**
+-   **A variável resposta e a forma de mensuração**
 
 Definição da característica a ser avaliada, bem como dos métodos e instrumentos de medição.
 
-- **O delineamento experimental**
+-   **O delineamento experimental**
 
 Escolha do tipo de delineamento mais adequado às condições do experimento e aos objetivos do estudo.
 
-
 Um planejamento bem estruturado permite controlar fontes de variação, aumentar a precisão experimental e garantir que a análise estatística produza inferências confiáveis.
-
 
 ### Análise dos dados experimentais
 
@@ -295,7 +281,7 @@ Nesse contexto, a principal ferramenta estatística utilizada é a análise de v
 
 A ideia básica da análise de variância é decompor a variabilidade total observada nos dados em componentes associados a causas conhecidas e independentes, como os efeitos dos tratamentos e, quando for o caso, dos blocos, e uma parte residual, de origem desconhecida, atribuída à variação do acaso.
 
-::: {.callout-note}
+::: callout-note
 **Ideia básica da ANOVA**
 
 A ideia básica da análise de variância é decompor a variabilidade total observada nos dados em partes atribuídas a causas conhecidas e independentes e uma parte residual, de origem desconhecida e de natureza aleatória.
@@ -305,7 +291,6 @@ Essa decomposição permite avaliar se as diferenças observadas entre tratament
 
 A forma como essa decomposição é realizada depende diretamente do delineamento experimental adotado, que define as fontes de variação a serem consideradas no modelo estatístico.
 
-
 ## Principais delineamentos Experimentais
 
 ### Delineamento Inteiramente Casualizado (DIC)
@@ -314,19 +299,31 @@ O delineamento inteiramente casualizado (DIC) é o mais simples entre os delinea
 
 O DIC considera apenas os princípios da repetição e da casualização, não incorporando controle local (blocos).
 
-Esse delineamento é amplamente utilizado em condições experimentais mais controladas, como:
-- Laboratórios
-- Casas de vegetação
-- Viveiros
+Esse delineamento é amplamente utilizado em condições experimentais mais controladas, como: - Laboratórios - Casas de vegetação - Viveiros
 
 Nessas situações, a variabilidade entre unidades experimentais tende a ser menor, o que justifica a ausência de blocos.
 
-::: {.callout-example}
+::: callout-example
 **Exemplo: DIC com 5 tratamentos e 4 repetições**
+
+Avaliar o efeito de diferentes herbicidas no controle de plantas daninhas na cultura da soja.
+
+Os tratamentos são:
+
+- A: Herbicida 1
+
+- B: Herbicida 2
+
+- C: Herbicida 3
+
+- D: Herbicida 4
+
+- E: Testemunha (sem aplicação)
+
+Cada tratamento é repetido 4 vezes, totalizando 20 parcelas, distribuídas de forma inteiramente casualizada na área experimental.
 
 Croqui do ensaio considerando 5 tratamentos (A, B, C, D, E) com 4 repetições cada:
 :::
-
 
 \begin{center}
 \begin{tikzpicture}
@@ -364,10 +361,17 @@ Croqui do ensaio considerando 5 tratamentos (A, B, C, D, E) com 4 repetições c
 \end{tikzpicture}
 \end{center}
 
-::: {.callout-note}
+Utilizando o R para realizar o sorteio aleatório dos tratamentos nas parcelas e gerar o croqui do experimento.
+
+```r
+tratamento=LETTERS[1:5]
+AgroR::sketch(tratamento,r=4)
+
+```
+
+::: callout-note
 **Esboço da ANOVA para o DIC**
 :::
-
 
 $$\begin{array}{lcc}
 \hline
@@ -379,8 +383,7 @@ $$\begin{array}{lcc}
 \hline
 \end{array}$$
 
-em que
-$$
+em que $$
 I = 5 \text{ tratamentos} \quad\quad J = 4 \text{ repetições}
 $$
 
@@ -392,17 +395,35 @@ Nesse delineamento, a área experimental é dividida em grupos mais homogêneos,
 
 Situações comuns que justificam o uso de blocos incluem:
 
-- Diferenças de solo em áreas extensas
-- Uso de diferentes equipamentos ou operadores
-- Variações entre indivíduos
-- Avaliações realizadas em diferentes dias
+-   Diferenças de solo em áreas extensas
+-   Uso de diferentes equipamentos ou operadores
+-   Variações entre indivíduos
+-   Avaliações realizadas em diferentes dias
 
 Na forma mais simples, cada bloco contém todos os tratamentos, caracterizando um bloco completo. Dentro de cada bloco, os tratamentos são distribuídos de forma casualizada.
 
 Quando não é possível alocar todos os tratamentos em cada bloco, tem-se os blocos incompletos, que exigem abordagens específicas de análise.
 
-::: {.callout-example}
+::: callout-example
 **Exemplo: DBC com 5 tratamentos e 4 blocos**
+
+Avaliar o desempenho de cinco cultivares de soja em uma área com variação de fertilidade no sentido do terreno.
+
+Os tratamentos são:
+
+- A: Cultivar 1
+
+- B: Cultivar 2
+
+- C: Cultivar 3
+
+- D: Cultivar 4
+
+- E: Cultivar 5
+
+A área experimental é dividida em 4 blocos, de forma a controlar a variabilidade existente. Cada bloco é considerado homogêneo internamente e contém todos os tratamentos.
+
+Dentro de cada bloco, os tratamentos são distribuídos de forma casualizada.
 
 Cada bloco contém todos os tratamentos, distribuídos de forma casualizada.
 :::
@@ -465,8 +486,15 @@ Cada bloco contém todos os tratamentos, distribuídos de forma casualizada.
 \end{center}
 
 
+Utilizando o R para realizar o sorteio aleatório dos tratamentos nas parcelas e gerar o croqui do experimento.
 
-::: {.callout-note}
+```r
+tratamento=LETTERS[1:5]
+AgroR::sketch(tratamento,r=4,design = "DBC")
+
+```
+
+::: callout-note
 **Esboço da ANOVA para o DBC**
 :::
 
@@ -482,9 +510,7 @@ $$
 \text{Total} & IJ - 1 = 19 \\
 \hline
 \end{array}
-$$
-No DBC, parte da variabilidade que, no DIC, seria incorporada ao erro experimental, passa a ser explicada pelos blocos, aumentando a precisão das comparações entre tratamentos.
-
+$$ No DBC, parte da variabilidade que, no DIC, seria incorporada ao erro experimental, passa a ser explicada pelos blocos, aumentando a precisão das comparações entre tratamentos.
 
 ### Delineamento em Quadrado Latino (DQL)
 
@@ -492,19 +518,36 @@ O delineamento em quadrado latino (DQL) é utilizado quando a área experimental
 
 Diferentemente do delineamento em blocos casualizados, onde o controle é realizado em apenas um sentido, no DQL o controle ocorre:
 
-- nas linhas
-- nas colunas
+-   nas linhas
+-   nas colunas
 
 Nesse caso, os blocos em um sentido são chamados de linhas e, no outro, de colunas.
 
-Uma característica fundamental desse delineamento é que:
-- o número de linhas = colunas = tratamentos
+Uma característica fundamental desse delineamento é que: - o número de linhas = colunas = tratamentos
 
-Além disso:
-- Cada tratamento aparece uma única vez em cada linha e uma única vez em cada coluna.
+Além disso: - Cada tratamento aparece uma única vez em cada linha e uma única vez em cada coluna.
 
-::: {.callout-example}
+::: callout-example
 **Exemplo: Quadrado Latino com 5 tratamentos**
+
+Avaliar o efeito de cinco dietas sobre o consumo alimentar de bovinos.
+
+Os tratamentos são:
+
+- A: Dieta 1
+- B: Dieta 2
+- C: Dieta 3
+- D: Dieta 4
+- E: Dieta 5
+
+O experimento é conduzido com 5 animais e 5 períodos experimentais, controlando duas fontes de variação:
+
+- Linhas: animais (diferenças individuais)
+- Colunas: períodos (efeito do tempo)
+
+Cada dieta é fornecida uma única vez para cada animal e em cada período.
+
+Assim, cada tratamento aparece exatamente uma vez em cada linha e uma vez em cada coluna.
 
 Cada tratamento aparece exatamente uma vez em cada linha e uma vez em cada coluna.
 :::
@@ -578,20 +621,29 @@ Cada tratamento aparece exatamente uma vez em cada linha e uma vez em cada colun
 \node at (0.5,1.5) {L5};
 
 % Rótulos das colunas
-\node at (1.5,6.5) {C1};
-\node at (2.5,6.5) {C2};
-\node at (3.5,6.5) {C3};
-\node at (4.5,6.5) {C4};
-\node at (5.5,6.5) {C5};
+\node at (1.5,6.4) {C1};
+\node at (2.5,6.4) {C2};
+\node at (3.5,6.4) {C3};
+\node at (4.5,6.4) {C4};
+\node at (5.5,6.4) {C5};
 
 \end{tikzpicture}
 \end{center}
 
 
 
-::: {.callout-note}
+Utilizando o R para realizar o sorteio aleatório dos tratamentos nas parcelas e gerar o croqui do experimento.
+
+```r
+tratamento=LETTERS[1:5]
+AgroR::sketch(tratamento,r=5,design = "DQL")
+```
+
+
+::: callout-note
 **Esboço da ANOVA para o DQL**
 :::
+
 $$
 \begin{array}{lcc}
 \hline
@@ -608,3 +660,345 @@ $$
 $$
 
 No quadrado latino, a variabilidade é controlada simultaneamente em duas direções, aumentando a precisão experimental quando há duas fontes sistemáticas de heterogeneidade.
+
+### Experimentos Fatoriais
+
+Os experimentos fatoriais são utilizados quando dois ou mais fatores são estudados simultaneamente.
+
+Cada subdivisão de um fator é denominada nível do fator, e os tratamentos consistem de todas as combinações possíveis entre os fatores, considerando seus diferentes níveis.
+
+Diferentemente dos delineamentos experimentais (DIC, DBC, DQL), os experimentos fatoriais não constituem um delineamento, mas sim um esquema de arranjo dos tratamentos, que devem ser alocados em um delineamento apropriado.
+
+Esse tipo de experimento permite:
+- avaliar efeitos principais dos fatores
+- avaliar a interação entre fatores
+
+Assim, os experimentos fatoriais são mais eficientes e possibilitam conclusões mais amplas.
+
+::: callout-example
+**Exemplo: Fatorial 2×3 em DBC com 4 blocos**
+
+Avaliar o efeito de dois fatores sobre o desenvolvimento de uma cultura agrícola.
+
+Os fatores são:
+
+- Fator A: duas cultivares ($a_1$, $a_2$)
+
+- Fator B: três níveis de adubação ($b_1$, $b_2$, $b_3$)
+
+Os tratamentos são formados por todas as combinações entre os fatores, totalizando 6 tratamentos:
+($a_1b_1$, $a_1b_2$, $a_1b_3$, $a_2b_1$, $a_2b_2$, $a_2b_3$).
+
+O experimento é conduzido em delineamento em blocos casualizados, com 4 blocos, utilizados para controlar a variabilidade da área experimental (por exemplo, diferenças de fertilidade do solo).
+
+Cada bloco contém todos os tratamentos, distribuídos de forma casualizada, constituindo uma repetição completa do experimento.
+
+Croqui do ensaio considerando 6 tratamentos em 4 blocos.
+:::
+
+\begin{center}
+\begin{tikzpicture}
+
+% Cores dos tratamentos
+\definecolor{tA}{RGB}{255,200,200} % A1B1
+\definecolor{tB}{RGB}{200,220,255} % A1B2
+\definecolor{tC}{RGB}{200,255,200} % A1B3
+\definecolor{tD}{RGB}{255,220,180} % A2B1
+\definecolor{tE}{RGB}{220,200,255} % A2B2
+\definecolor{tF}{RGB}{255,255,180} % A2B3
+
+% Dimensões
+\def\tamx{1.5}
+\def\tamy{1}
+
+% Tratamentos
+\def\tA{a1b1}
+\def\tB{a1b2}
+\def\tC{a1b3}
+\def\tD{a2b1}
+\def\tE{a2b2}
+\def\tF{a2b3}
+
+% ---------------- BLOCO 1 ----------------
+\node at (0.5,4.5) {B1};
+
+\foreach \x/\t/\cor in {
+1/\tC/tC,
+2/\tA/tA,
+3/\tF/tF,
+4/\tD/tD,
+5/\tB/tB,
+6/\tE/tE} {
+
+\filldraw[fill=\cor, draw=black]
+(\x*\tamx,4) rectangle ++(\tamx,\tamy);
+
+\node at (\x*\tamx+0.75,4.5) {\t};
+}
+
+% ---------------- BLOCO 2 ----------------
+\node at (0.5,3.3) {B2};
+
+\foreach \x/\t/\cor in {
+1/\tE/tE,
+2/\tB/tB,
+3/\tD/tD,
+4/\tA/tA,
+5/\tF/tF,
+6/\tC/tC} {
+
+\filldraw[fill=\cor, draw=black]
+(\x*\tamx,2.8) rectangle ++(\tamx,\tamy);
+
+\node at (\x*\tamx+0.75,3.3) {\t};
+}
+
+% ---------------- BLOCO 3 ----------------
+\node at (0.5,2.1) {B3};
+
+\foreach \x/\t/\cor in {
+1/\tB/tB,
+2/\tF/tF,
+3/\tA/tA,
+4/\tE/tE,
+5/\tC/tC,
+6/\tD/tD} {
+
+\filldraw[fill=\cor, draw=black]
+(\x*\tamx,1.6) rectangle ++(\tamx,\tamy);
+
+\node at (\x*\tamx+0.75,2.1) {\t};
+}
+
+% ---------------- BLOCO 4 ----------------
+\node at (0.5,0.9) {B4};
+
+\foreach \x/\t/\cor in {
+1/\tD/tD,
+2/\tC/tC,
+3/\tE/tE,
+4/\tB/tB,
+5/\tA/tA,
+6/\tF/tF} {
+
+\filldraw[fill=\cor, draw=black]
+(\x*\tamx,0.4) rectangle ++(\tamx,\tamy);
+
+\node at (\x*\tamx+0.75,0.9) {\t};
+}
+
+\end{tikzpicture}
+\end{center}
+
+
+Utilizando o R para realizar o sorteio aleatório dos tratamentos nas parcelas e gerar o croqui do experimento.
+
+```r
+AgroR::sketch(trat=c("a1","a2"),trat1 = c("b1","b2","b3"),r=4,design = "FAT2DBC")
+
+```
+
+::: callout-note
+**Esboço da ANOVA para o fatorial $2 \times 3$ em DBC**
+:::
+
+$$
+\begin{array}{lcc}
+\hline
+\text{Causa de variação} & \text{Graus de liberdade} \\
+\hline
+\text{Fator A} & a-1=1\\
+\text{Fator B} & b-1=2\\
+\text{A x B} & (a-1)(b-1)=2\\ \hline
+\text{Tratamentos} & ab - 1 = 5 \\\hline
+\text{Blocos} & n - 1 = 3 \\
+\text{Erro} & (ab-1)(n-1) = 15 \\
+\hline
+\text{Total} & abn - 1 = 23 \\
+\hline
+\end{array}
+$$
+
+No experimento fatorial, além dos efeitos principais, avalia-se a interação entre fatores.
+
+- Quando a interação é significativa, a interpretação deve ser feita por meio do desdobramento.
+- Caso contrário, analisam-se apenas os efeitos principais.
+
+### Experimentos em Parcelas Subdivididas
+
+Os experimentos em parcelas subdivididas (split-plot) também são utilizados quando dois ou mais fatores são estudados simultaneamente, porém em condições experimentais diferentes daquelas dos experimentos fatoriais.
+
+Nesses experimentos, cada parcela é dividida em subparcelas.
+
+A principal diferença em relação ao esquema fatorial está na casualização dos tratamentos:
+- o fator aplicado nas parcelas é casualizado primeiro
+- dentro de cada parcela, realiza-se a casualização do segundo fator
+
+Assim, cada parcela funciona como um “bloco” para o segundo fator.
+
+Define-se:
+- Fator A (parcelas): tratamentos primários ou principais
+- Fator B (subparcelas): tratamentos secundários ou subtratamentos
+
+
+:::  callout-example
+**Exemplo: Parcelas subdivididas (2×3) em DBC com 4 blocos**
+
+Avaliar o efeito de dois fatores sobre o desenvolvimento de uma cultura agrícola.
+
+Os fatores são:
+
+- Fator A: duas formas de preparo do solo ($a_1$, $a_2$) — aplicadas nas parcelas
+
+- Fator B: três níveis de adubação ($b_1$, $b_2$, $b_3$) — aplicados nas subparcelas
+
+O experimento é conduzido em delineamento em blocos casualizados, com 4 blocos, para controlar a variabilidade da área experimental.
+
+Dentro de cada bloco:
+
+- As parcelas recebem os níveis do fator A
+- Cada parcela é subdividida, recebendo os níveis do fator B
+
+::: callout-note
+**Por que não usar um fatorial em DBC simples?**
+
+O fator A (preparo do solo) exige operações em área maior, sendo difícil, custoso e operacionalmente inviável aplicar de forma independente em parcelas pequenas.
+
+Já o fator B (adubação) é de fácil aplicação e pode ser conduzido em unidades menores.
+
+Assim, utiliza-se parcelas subdivididas para:
+
+- facilitar a condução do experimento
+
+- reduzir custo e esforço operacional
+
+- respeitar a natureza dos fatores
+:::
+
+Cada bloco contém todas as parcelas (níveis de A), e dentro de cada parcela estão presentes todas as subparcelas (níveis de B).
+
+Croqui do ensaio considerando 2 níveis de A nas parcelas e 3 níveis de B nas subparcelas, em 4 blocos.
+:::
+
+\begin{center}
+\begin{tikzpicture}
+
+% Cores fator A (parcelas)
+\definecolor{a1}{RGB}{220,235,255}
+\definecolor{a2}{RGB}{255,230,230}
+
+% Cores fator B (bordas)
+\definecolor{b1}{RGB}{0,0,200}
+\definecolor{b2}{RGB}{0,150,0}
+\definecolor{b3}{RGB}{200,0,0}
+
+% Cores dos tratamentos (texto)
+\definecolor{a1b1}{RGB}{0,0,150}
+\definecolor{a1b2}{RGB}{0,120,0}
+\definecolor{a1b3}{RGB}{150,0,0}
+\definecolor{a2b1}{RGB}{0,0,0}
+\definecolor{a2b2}{RGB}{120,0,120}
+\definecolor{a2b3}{RGB}{180,120,0}
+
+% Dimensões
+\def\tamx{1.2}
+\def\tamy{1}
+
+% ---------------- BLOCO 1 ----------------
+\node at (0.5,5) {Bl 1};
+
+\foreach \i/\b/\corb in {1/b1/b1,2/b2/b2,3/b3/b3} {
+\filldraw[fill=a2, draw=\corb, thick]
+(\i*\tamx,4.5) rectangle ++(\tamx,\tamy);
+\node[text=a2\b] at (\i*\tamx+0.6,5) {a2\ \b};
+}
+
+\foreach \i/\b/\corb in {4/b2/b2,5/b3/b3,6/b1/b1} {
+\filldraw[fill=a1, draw=\corb, thick]
+(\i*\tamx,4.5) rectangle ++(\tamx,\tamy);
+\node[text=a1\b] at (\i*\tamx+0.6,5) {a1\ \b};
+}
+
+% ---------------- BLOCO 2 ----------------
+\node at (0.5,3.5) {Bl 2};
+
+\foreach \i/\b/\corb in {1/b2/b2,2/b1/b1,3/b3/b3} {
+\filldraw[fill=a1, draw=\corb, thick]
+(\i*\tamx,3) rectangle ++(\tamx,\tamy);
+\node[text=a1\b] at (\i*\tamx+0.6,3.5) {a1\ \b};
+}
+
+\foreach \i/\b/\corb in {4/b1/b1,5/b3/b3,6/b2/b2} {
+\filldraw[fill=a2, draw=\corb, thick]
+(\i*\tamx,3) rectangle ++(\tamx,\tamy);
+\node[text=a2\b] at (\i*\tamx+0.6,3.5) {a2\ \b};
+}
+
+% ---------------- BLOCO 3 ----------------
+\node at (0.5,2) {Bl 3};
+
+\foreach \i/\b/\corb in {1/b3/b3,2/b2/b2,3/b1/b1} {
+\filldraw[fill=a1, draw=\corb, thick]
+(\i*\tamx,1.5) rectangle ++(\tamx,\tamy);
+\node[text=a1\b] at (\i*\tamx+0.6,2) {a1\ \b};
+}
+
+\foreach \i/\b/\corb in {4/b2/b2,5/b1/b1,6/b3/b3} {
+\filldraw[fill=a2, draw=\corb, thick]
+(\i*\tamx,1.5) rectangle ++(\tamx,\tamy);
+\node[text=a2\b] at (\i*\tamx+0.6,2) {a2\ \b};
+}
+
+% ---------------- BLOCO 4 ----------------
+\node at (0.5,0.5) {Bl 4};
+
+\foreach \i/\b/\corb in {1/b1/b1,2/b3/b3,3/b2/b2} {
+\filldraw[fill=a2, draw=\corb, thick]
+(\i*\tamx,0) rectangle ++(\tamx,\tamy);
+\node[text=a2\b] at (\i*\tamx+0.6,0.5) {a2\ \b};
+}
+
+\foreach \i/\b/\corb in {4/b3/b3,5/b2/b2,6/b1/b1} {
+\filldraw[fill=a1, draw=\corb, thick]
+(\i*\tamx,0) rectangle ++(\tamx,\tamy);
+\node[text=a1\b] at (\i*\tamx+0.6,0.5) {a1\ \b};
+}
+
+\end{tikzpicture}
+\end{center}
+
+Utilizando o R para realizar o sorteio aleatório dos tratamentos nas parcelas e gerar o croqui do experimento.
+
+```r
+AgroR::sketch(trat=c("a1","a2"),trat1 =c("b1","b2","b3") ,r=4,design = "PSUBDBC")
+```
+
+::: callout-note
+**Esboço da ANOVA para o fatorial $2 \times 3$ em DBC**
+:::
+
+$$
+\begin{array}{lcc}
+\hline
+\text{Causa de variação} & \text{Graus de liberdade} \\
+\hline
+\text{Blocos} & n-1=3\\
+\text{Fator A} & a-1=1\\
+\text{Resíduo (a)} & (a-1)(n-1)=3\\ \hline
+\text{Parcelas} & an - 1 = 7 \\\hline
+\text{Fator B} & b - 1 = 2 \\
+\text{A x B} & (a-1)(b-1) = 2 \\
+\text{Resíduo (b)} & a(b-1)(n-1) = 12 \\
+\hline
+\text{Total} & abn - 1 = 23 \\
+\hline
+\end{array}
+$$
+
+
+Nos experimentos fatoriais e em parcelas subdivididas, ambos permitem estudar dois ou mais fatores simultaneamente e avaliar interações. No entanto, diferem fundamentalmente na forma de casualização e na precisão experimental.
+No esquema fatorial, todos os tratamentos são casualizados da mesma forma, e o experimento possui um único erro experimental, garantindo a mesma precisão para todos os efeitos avaliados.
+
+Já nos experimentos em parcelas subdivididas, a casualização ocorre em duas etapas: primeiro para o fator das parcelas (A) e depois, dentro destas, para o fator das subparcelas (B). Como consequência, surgem dois erros experimentais, sendo o fator A estimado com menor precisão e o fator B (e a interação) com maior precisão.
+
+Assim, enquanto o fatorial é mais simples e estatisticamente mais eficiente quando aplicável, o delineamento em parcelas subdivididas é preferido quando há restrições práticas, como dificuldade de aplicação, custo elevado ou necessidade de áreas maiores para um dos fatores.
