@@ -19,6 +19,8 @@ book:
     - Estimacao_TE.qmd
     - TH_TE.qmd
     - Experimental_TE.qmd
+    - DIC_TE.qmd
+    - TCM_TE.qmd
     - references.qmd 
     
 

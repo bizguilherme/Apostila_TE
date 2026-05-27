@@ -1,0 +1,382 @@
+# Delineamento Inteiramente Casuzalido
+
+O delineamento inteiramente casualizado (DIC) é o mais simples entre os delineamentos experimentais, sendo amplamente utilizado em situações nas quais as unidades experimentais apresentam elevada homogeneidade. Nesse delineamento, os tratamentos são distribuídos de forma totalmente aleatória entre as unidades experimentais, sem a necessidade de formação de blocos ou outros mecanismos de controle local.
+
+Do ponto de vista dos princípios básicos da experimentação, o DIC incorpora a repetição e a casualização. A repetição permite estimar o erro experimental e aumentar a precisão das comparações, enquanto a casualização garante que os efeitos de fatores não controlados sejam distribuídos aleatoriamente entre os tratamentos, evitando vieses sistemáticos.
+
+Por exigir condições de relativa uniformidade, o delineamento inteiramente casualizado é mais indicado para experimentos conduzidos em ambientes controlados, como laboratórios e casas de vegetação. Nessas situações, a variabilidade entre as unidades experimentais é reduzida, tornando desnecessário o uso de delineamentos mais complexos, como aqueles que envolvem blocos.
+
+
+## Modelo Estatístico e pressupostos para validade da anova
+
+
+O modelo estatístico do delineamento inteiramente casualizado (DIC) é dado por:
+
+$$
+y_{ij} = \mu + \tau_i + \epsilon_{ij}
+$$
+
+em que:
+
+- ($i = 1, 2, \ldots, I$) representa os tratamentos;  
+- ($j = 1, 2, \ldots, J$) representa as repetições;  
+- $\mu$ é a média geral;  
+- $\tau_i$ é o efeito do i-ésimo tratamento;  
+- $\epsilon_{ij}$ é o erro aleatório associado à observação ($y_{ij}$).  
+
+O objetivo da análise é testar hipóteses sobre os efeitos dos tratamentos, bem como estimá-los adequadamente. A análise de variância (ANOVA) só é válida quando determinados pressupostos são atendidos.
+
+
+### Pressupostos do modelo
+
+
+1. **Aditividade**  
+   Os efeitos dos tratamentos são aditivos, ou seja, não há interação com fatores não considerados no modelo.  
+
+2. **Independência**  
+   Os erros ($\epsilon_{ij}$) são independentes entre si.  
+
+3. **Normalidade**  
+   Os erros ($\epsilon_{ij}$) seguem distribuição normal.  
+
+4. **Homocedasticidade**  
+   Os erros apresentam variância constante, isto é:  
+
+   $$
+   \epsilon_{ij} \sim N(0, \sigma^2)
+   $$
+
+
+
+**Verificação dos pressupostos**
+
+
+A verificação dos pressupostos é essencial para garantir a validade dos resultados da ANOVA.
+
+
+- **Normalidade dos erros**  
+  Pode ser avaliada por testes como Lilliefors e Shapiro–Wilk, além da análise gráfica dos resíduos.  
+
+- **Homogeneidade de variâncias**  
+  Pode ser verificada pelos testes de Bartlett, Cochran, F máximo e Levene.  
+  O teste de Bartlett é sensível à falta de normalidade, devendo ser evitado quando essa suposição é questionável.  
+
+- **Independência dos erros**  
+  Pode ser investigada por meio da análise gráfica dos resíduos ou pelo teste de Durbin–Watson.  
+
+- **Aditividade do modelo**  
+  Pode ser avaliada pelo teste de não aditividade de Tukey, especialmente em delineamentos com estrutura adicional, como o DBC.  
+  
+
+### Análise do modelo
+
+Após a verificação dos pressupostos, procede-se à análise de variância (ANOVA), cujo objetivo é avaliar a existência de diferenças entre os tratamentos.
+
+No delineamento inteiramente casualizado, busca-se verificar se há evidência estatística de que as médias dos tratamentos diferem entre si. Para isso, são formuladas as seguintes hipóteses:
+
+$$
+H_0: \mu_1 = \mu_2 = \cdots = \mu_I
+$$
+
+$$
+H_1: \mu_i \ne \mu_j \quad \text{para pelo menos um par } (i,j)
+$$
+
+De forma equivalente, essas hipóteses podem ser expressas em termos dos efeitos dos tratamentos:
+
+$$
+H_0: \tau_1 = \tau_2 = \cdots = \tau_I = 0
+$$
+
+$$
+H_1: \tau_i \ne 0 \quad \text{para pelo menos um } i
+$$
+
+A decisão sobre a rejeição ou não de $H_0$ baseia-se na estatística $F$, obtida a partir da decomposição da variabilidade total observada, conforme apresentado no quadro da análise de variância.
+
+Para isso, constrói-se o seguinte quadro:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\caption{Quadro da Análise de Variância.}
+\begin{tabular}{lccccc} \hline
+Causa de variação & S.Q. & g.l.   & Q.M.       & $F_{cal}$           & $F_{tab}$               \\ \hline
+Tratamentos & SQTrat & $I - 1$  & $\dfrac{SQTrat}{I-1}$   & $\dfrac{QMTrat}{QMRes}$ & $F_{\alpha; I-1, I(J-1)}$ \\
+Resíduo     & SQRes  & $I(J-1)$ & $\dfrac{SQRes}{I(J-1)}$ &                        &                           \\ \hline
+Total       & SQTotal & $IJ - 1$ &                        &                        &                           \\
+\end{tabular}
+\end{table}
+
+A estatística do teste é dada por:
+
+$$
+F_{cal} = \frac{QMTrat}{QMRes}
+$$
+
+em que $QMTrat$ é o quadrado médio dos tratamentos e $QMRes$ é o quadrado médio do resíduo.
+
+O critério de decisão é o seguinte:
+
+- Se $F_{cal} > F_{\alpha; (I-1), I(J-1)}$, rejeita-se $H_0$, concluindo que há diferença significativa entre pelo menos dois tratamentos em média;
+- Caso contrário, não se rejeita $H_0$, indicando que não há evidência estatística de diferença entre as médias dos tratamentos.
+
+
+**Notação dos dados**
+
+Para o desenvolvimento das expressões das somas de quadrados, considere um experimento com ${I}$ tratamentos (ou níveis de um fator), cada um com ${J}$ repetições.
+
+A observação correspondente ao $i$-ésimo tratamento na $j$-ésima repetição é representada por $y_{ij}$. Os dados podem ser organizados da seguinte forma:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|cccc|cc} \hline
+Tratamentos & \multicolumn{4}{c|}{Observações} & Totais & Médias \\ \hline
+1 & $y_{11}$ & $y_{12}$ & $\cdots$ & $y_{1J}$ & $y_{1\cdot}$ & $\bar{y}_{1\cdot}$ \\
+2 & $y_{21}$ & $y_{22}$ & $\cdots$ & $y_{2J}$ & $y_{2\cdot}$ & $\bar{y}_{2\cdot}$ \\
+$\vdots$ & $\vdots$ & $\vdots$ & $\cdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+$I$ & $y_{I1}$ & $y_{I2}$ & $\cdots$ & $y_{IJ}$ & $y_{I\cdot}$ & $\bar{y}_{I\cdot}$ \\ \hline
+ &  &  &  &  & $y_{\cdot\cdot}$ & $\bar{y}_{\cdot\cdot}$
+\end{tabular}
+\end{table}
+
+em que:
+
+- $y_{ij}$: observação da $j$-ésima repetição do $i$-ésimo tratamento;
+- $y_{i\cdot} = \sum_{j=1}^{J} y_{ij}$: total do $i$-ésimo tratamento;
+- $\bar{y}_{i\cdot} = \dfrac{1}{J} \sum_{j=1}^{J} y_{ij}$: média do $i$-ésimo tratamento;
+- $y_{\cdot\cdot} = \sum_{i=1}^{I} \sum_{j=1}^{J} y_{ij}$: total geral;
+- $\bar{y}_{\cdot\cdot} = \dfrac{y_{\cdot\cdot}}{IJ}$: média geral.
+
+**Somas de quadrados**
+
+A variabilidade total dos dados pode ser decomposta em componentes associados aos tratamentos e ao erro experimental.
+
+A soma de quadrados total é dada por:
+
+$$
+SQ_{Total} = \sum_{i=1}^{I} \sum_{j=1}^{J} y_{ij}^2 - C
+$$
+
+A soma de quadrados de tratamentos é:
+
+$$
+SQ_{Trat} = \frac{1}{J} \sum_{i=1}^{I} y_{i\cdot}^2 - C
+$$
+
+A soma de quadrados do resíduo é obtida por:
+
+$$
+SQ_{Res} = SQ_{Total} - SQ_{Trat}
+$$
+
+em que o termo de correção $C$ é dado por:
+
+$$
+C = \frac{\left( \sum_{i=1}^{I} \sum_{j=1}^{J} y_{ij} \right)^2}{IJ}
+$$
+
+Essas expressões permitem calcular os componentes do quadro da ANOVA apresentado anteriormente.
+
+
+**Considerações sobre o delineamento inteiramente casualizado**
+
+A partir da formulação da análise de variância e da decomposição das somas de quadrados, observa-se que toda a inferência no delineamento inteiramente casualizado baseia-se na comparação entre a variabilidade entre tratamentos e a variabilidade residual.
+
+Nesse contexto, é importante destacar que, como não há controle local (por exemplo, blocos), toda a variabilidade não explicada pelos tratamentos é incorporada ao erro experimental. Essa característica influencia diretamente a eficiência do delineamento e deve ser considerada no seu planejamento e utilização.
+
+Dessa forma, o delineamento inteiramente casualizado apresenta as seguintes vantagens e desvantagens:
+
+### Vantagens
+
+- Permite grande flexibilidade na condução do experimento, podendo-se utilizar qualquer número de tratamentos e repetições;
+- O número de repetições pode variar entre tratamentos (casos desbalanceados), sem comprometer a análise;
+- O número de repetições depende apenas da disponibilidade de unidades experimentais;
+- Apresenta maior número de graus de liberdade associados ao erro, em comparação com delineamentos que utilizam controle local.
+
+### Desvantagens
+
+- Exige homogeneidade das condições experimentais, sendo mais adequado para situações como experimentos em laboratório ou casa de vegetação;
+- Na ausência de controle local, variações ambientais ou não controladas são incorporadas ao erro experimental;
+- Como consequência, pode apresentar estimativas elevadas da variância residual quando utilizado em condições heterogêneas, reduzindo a sensibilidade dos testes estatísticos.
+
+
+
+## Exemplo 1
+
+Considere um experimento inteiramente casualizado conduzido para avaliar a produtividade de cultivares de mandioca, em uma área considerada homogênea quanto às condições experimentais.
+
+Foram avaliados $I = 5$ cultivares, com $J = 5$ repetições por tratamento. Os cultivares utilizados foram:
+
+- A: IAC 5  
+- B: IAC 7  
+- C: IAC 11  
+- D: Iracema  
+- E: Mantiqueira  
+
+**Hipóteses**
+
+As hipóteses testadas são:
+
+$$
+H_0: \tau_A = \tau_B = \tau_C = \tau_D = \tau_E = 0
+$$
+
+$$
+H_1: \tau_i \ne 0 \quad \text{para pelo menos um } i
+$$
+
+**Dados experimentais**
+
+\begin{table}[H]
+\centering
+\caption{Produtividade dos cultivares de mandioca, em t/ha}
+\vspace{-.5cm}
+\begin{tabular}{ccccccc}\\\hline
+\multirow{2}{*}{Tratamentos}& \multicolumn{5}{c}{Repetições}&\multirow{2}{*}{Totais}\\\cline{2-6}
+  & 1 & 2 & 3 & 4 & 5 & \\\hline
+A & 38,9 & 25,4 & 20,3 & 25,7 & 29,3 & 139,6 \\
+B & 20,9 & 26,2 & 32,3 & 28,3 & 28,7 & 136,4 \\
+C & 28,1 & 27,0 & 25,8 & 26,9 & 22,3 & 130,1 \\
+D & 38,7 & 43,2 & 41,7 & 39,0 & 40,3 & 202,9 \\
+E & 47,8 & 47,8 & 44,7 & 50,5 & 56,4 & 247,2 \\\hline
+
+\end{tabular}
+\end{table}
+
+**Cálculo das somas de quadrados**
+
+O termo de correção é dado por:
+
+$$
+C = \frac{\left( \sum_{i=1}^{I} \sum_{j=1}^{J} y_{ij} \right)^2}{IJ}
+= \frac{(856{,}2)^2}{25} = 29323{,}1376
+$$
+
+A soma de quadrados total:
+
+$$
+SQ_{Total} = \sum y_{ij}^2 - C = 2509{,}4624
+$$
+
+A soma de quadrados de tratamentos:
+
+$$
+SQ_{Trat} = \frac{1}{5} \sum y_{i\cdot}^2 - C = 2135{,}9384
+$$
+
+A soma de quadrados do resíduo:
+
+$$
+SQ_{Res} = SQ_{Total} - SQ_{Trat} = 2509{,}4624 - 2135{,}9384 = 373{,}524
+$$
+
+**Quadro da análise de variância**
+
+\begin{table}[H]
+\centering
+\caption{Quadro da análise de variância}
+\begin{tabular}{lccccc} \hline
+Fonte de variação & SQ & GL & QM & $F_{cal}$ & $F_{tab}$ \\ \hline
+Tratamentos & 2135,9384 & 4 & 533,9846 & 28,5917 & 2,87 \\
+Resíduo     & 373,524   & 20 & 18,6762  &         &      \\ \hline
+Total       & 2509,4624 & 24 &          &         &      \\
+\end{tabular}
+\end{table}
+
+**Conclusão**
+
+Como $F_{cal} = 28{,}5917$ é maior que $F_{tab} = 2{,}87$, rejeita-se $H_0$ ao nível de 5\% de significância.
+
+Portanto, rejeita-se a hipótese de igualdade entre as médias, concluindo-se que pelo menos duas médias diferem entre si.
+
+
+```r
+resp=scan(dec=",",nmax = 25)
+38,9 25,4 20,3 25,7 29,3 20,9 26,2 32,3 28,3 28,7
+28,1 27,0 25,8 26,9 22,3 38,7 43,2 41,7 39,0 40,3
+47,8 47,8 44,7 50,5 56,4
+
+trat=rep(LETTERS[1:5],each=5)
+
+
+#### Modelo estatístico
+mod=aov(resp~trat)
+
+### Pressupostos
+### Normalidade dos erros
+shapiro.test(mod$residuals)
+
+### Homogeneidade das variâncias
+bartlett.test(mod$residuals~trat)
+
+### Independência dos erros
+lmtest::dwtest(mod)
+```
+
+
+
+## Exercício 1
+
+Um experimento foi conduzido no delineamento inteiramente casualizado com o objetivo de comparar os efeitos de cinco tratamentos no crescimento de mudas de *Pinus oocarpa*, aos 60 dias após a semeadura.
+
+Os tratamentos avaliados foram:
+
+- A: Solo de cerrado  
+- B: Solo de cerrado + esterco  
+- C: Solo de cerrado + esterco + NPK  
+- D: Solo de cerrado + vermiculita  
+- E: Solo de cerrado + vermiculita + NPK  
+
+Os dados observados (em cm) são apresentados a seguir:
+
+\begin{table}[H]
+\centering
+\caption{Alturas médias de \textit{Pinus oocarpa, em cm, 60 dias após a semeadura}}\label{tab3}
+\begin{tabular}{cccccc}\hline
+\multirow{2}{*}{Tratamentos} & \multicolumn{4}{c}{Repetições} & \multirow{2}{*}{Totais}\\\cline{2-5}
+   & 1 & 2 & 3 & 4 & \\\hline
+	A & 4,6 & 5,1 & 5,8 & 5,5 & 21,0\\
+	B & 6,0 & 7,1 & 7,2 & 6,8 & 27,1\\
+	C & 5,8 & 7,2 & 6,9 & 6,7 & 26,6\\
+	D & 5,6 & 4,9 & 5,9 & 5,7 & 22,1\\
+	E & 5,8 & 6,4 & 6,6 & 6,8 & 25,6\\\hline
+\end{tabular}
+\end{table}
+
+**Solicita-se:**
+
+1. Apresentar o quadro da análise de variância (ANOVA);  
+2. Verificar os pressupostos do modelo;  
+3. Concluir sobre as hipóteses testadas ao nível de 5\% de significância.  
+
+**Resolução no R**
+
+```r
+# Dados
+trat <- factor(rep(c("A","B","C","D","E"), each = 4))
+
+y <- c(
+  4.6, 5.1, 5.8, 5.5,   # A
+  6.0, 7.1, 7.2, 6.8,   # B
+  5.8, 7.2, 6.9, 6.7,   # C
+  5.6, 4.9, 5.9, 5.7,   # D
+  5.8, 6.4, 6.6, 6.8    # E
+)
+
+# Modelo
+mod <- aov(y ~ trat, data = dados)
+
+# ANOVA
+anova(mod)
+
+# Pressupostos
+shapiro.test(mod$res)
+
+bartlett.test(mod$res ~ trat)
+
+lmtest::dwtest(mod)
+
+```
+

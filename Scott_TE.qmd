@@ -1,0 +1,103 @@
+## Teste de Scott-Knott
+
+Diferentemente dos testes de comparações múltiplas tradicionais, como Tukey e Duncan, que realizam comparações par a par entre médias, o teste de Scott-Knott tem como objetivo agrupar tratamentos em conjuntos homogêneos, maximizando a diferença entre grupos e minimizando a variação dentro de cada grupo.
+
+O procedimento consiste em particionar o conjunto de médias em dois grupos distintos, de forma a maximizar a soma de quadrados entre grupos. Em seguida, verifica-se se essa partição é estatisticamente significativa. Caso seja, o processo é repetido dentro de cada grupo formado, de maneira recursiva, até que não haja mais divisões significativas.
+
+**Estatística do teste**
+
+Para um conjunto de $k$ médias ordenadas, considera-se todas as possíveis divisões em dois grupos. Para cada partição, calcula-se a soma de quadrados entre grupos:
+
+$$
+SQ_{Entre} = \frac{n_1 n_2}{n_1 + n_2} (\bar{y}_1 - \bar{y}_2)^2,
+$$
+
+em que:
+
+\begin{itemize}
+\item $n_1$ e $n_2$ são os números de observações em cada grupo;
+\item $\bar{y}_1$ e $\bar{y}_2$ são as médias dos grupos formados.
+\end{itemize}
+
+A partição escolhida é aquela que maximiza $SQ_{Entre}$. Em seguida, testa-se:
+
+$$
+H_0: \text{os grupos não diferem} 
+\qquad \text{vs} \qquad
+H_1: \text{os grupos diferem}.
+$$
+
+A decisão é baseada em uma estatística $F$, comparando-se com o valor crítico ao nível de significância adotado.
+
+\subsubsection*{Aplicação}
+
+Considere as médias dos tratamentos (kg), já ordenadas em ordem decrescente:
+
+\begin{center}
+49,44 \quad (E) \\
+40,58 \quad (D) \\
+27,92 \quad (A) \\
+27,28 \quad (B) \\
+26,02 \quad (C)
+\end{center}
+
+\textbf{Etapa 1: Divisão inicial}
+
+Testam-se todas as possíveis partições. A divisão que maximiza a soma de quadrados entre grupos é:
+
+\begin{itemize}
+\item Grupo 1: (E), (D)
+\item Grupo 2: (A), (B), (C)
+\end{itemize}
+
+Essa divisão separa claramente tratamentos com médias mais altas dos demais.
+
+Realizado o teste, a divisão é significativa ao nível de 5\%. Portanto, procede-se à subdivisão dos grupos.
+
+\textbf{Etapa 2: Avaliação do Grupo 1}
+
+Grupo 1: (E), (D)
+
+Como há apenas duas médias, verifica-se diretamente a diferença entre elas. A diferença não é suficiente para justificar nova divisão significativa. Assim, permanecem no mesmo grupo.
+
+\textbf{Etapa 3: Avaliação do Grupo 2}
+
+Grupo 2: (A), (B), (C)
+
+Testam-se as possíveis divisões, sendo a mais relevante:
+
+\begin{itemize}
+\item Subgrupo 2.1: (A)
+\item Subgrupo 2.2: (B), (C)
+\end{itemize}
+
+Essa divisão é significativa, indicando que o tratamento (A) difere dos demais dentro desse grupo.
+
+\textbf{Etapa 4: Avaliação final}
+
+No subgrupo (B), (C), não há diferença significativa entre as médias, encerrando o processo.
+
+\subsubsection*{Resultado do agrupamento}
+
+Os tratamentos são agrupados da seguinte forma:
+
+\begin{center}
+(E), (D) \quad — Grupo A \\
+(A) \quad — Grupo B \\
+(B), (C) \quad — Grupo C
+\end{center}
+
+\subsubsection*{Interpretação}
+
+Os tratamentos (E) e (D) formam o grupo com maiores médias, não diferindo entre si. O tratamento (A) apresenta desempenho intermediário, diferindo dos demais grupos. Já os tratamentos (B) e (C) possuem as menores médias, sendo estatisticamente semelhantes entre si.
+
+\subsubsection*{Observações}
+
+O teste de Scott-Knott apresenta as seguintes características:
+
+\begin{itemize}
+\item realiza agrupamento de médias, e não comparações par a par;
+\item evita a sobreposição de grupos, comum em testes como Tukey;
+\item é bastante utilizado em experimentos agronômicos;
+\item controla o erro do tipo I de forma global no processo de particionamento.
+\end{itemize}

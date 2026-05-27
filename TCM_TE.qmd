@@ -1,0 +1,537 @@
+# Testes de Comparações Múltiplas
+
+Após a análise de variância, rejeita-se a hipótese de que todas as médias dos tratamentos sejam iguais. No entanto, esse resultado não indica quais médias diferem entre si, apenas que pelo menos uma delas é distinta.
+
+Para identificar quais tratamentos apresentam diferenças, é necessário realizar procedimentos adicionais de comparação múltipla de médias.
+
+Esses métodos permitem comparar as médias duas a duas ou em grupos, controlando o erro do tipo I associado a múltiplas comparações. Em geral, tais procedimentos baseiam-se na definição de um critério de diferença entre médias, frequentemente expresso por meio de uma diferença mínima necessária para declarar duas médias estatisticamente distintas.
+
+Existem diversos testes de comparações múltiplas que utilizam diferentes critérios e níveis de rigor para estabelecer essas diferenças, os quais serão apresentados a seguir.
+
+Dentre os principais métodos de comparações múltiplas, destacam-se:
+
+\begin{itemize}
+\item \textbf{Contrastes ortogonais:} teste t, teste F e teste de Scheffé;
+\item \textbf{Comparações múltiplas duas a duas:} testes de Tukey, Duncan, Bonferroni e Newman-Keuls;
+\item \textbf{Agrupamento de médias:} teste de Scott-Knott;
+\item \textbf{Comparação de tratamentos com um controle:} teste de Dunnett.
+\end{itemize}
+
+A escolha do método depende dos objetivos do experimento, do número de tratamentos e do controle do erro do tipo I desejado pelo pesquisador.
+
+Por fim, quando os tratamentos são de natureza quantitativa, não é recomendada a aplicação de testes de comparações múltiplas. Nesses casos, a abordagem mais adequada consiste no ajuste de modelos de regressão, que permitem descrever o comportamento da variável resposta em função dos níveis do fator estudado.
+
+
+## Contrastes de médias
+
+Uma forma sistemática de investigar diferenças entre tratamentos consiste na utilização de contrastes de médias.
+
+Define-se um contraste como uma combinação linear das médias dos tratamentos, do tipo:
+$$
+Y = c_1 m_1 + c_2 m_2 + \cdots + c_a m_a,
+$$
+em que os coeficientes $c_i$ satisfazem a condição:
+$$c_1+c_2+\cdots+c_a=0\ \ \ \mbox{ou}\ \ \ \sum_{i=1}^ac_i=0.$$
+
+Essa restrição garante que o contraste represente uma comparação entre médias.
+
+Por exemplo, considerando três tratamentos com médias $m_1$, $m_2$ e $m_3$, são contrastes válidos:
+$$
+\begin{aligned}
+Y_1 &= m_1 - m_2, \\
+Y_2 &= m_1 - m_3, \\
+Y_3 &= m_1 + m_2 - 2m_3.
+\end{aligned}
+$$
+
+Em um experimento, existe um grande número possível de contrastes. No entanto, devem ser formulados apenas aqueles que sejam de interesse do pesquisador, preferencialmente definidos antes da análise dos dados.
+
+**Contrastes ortogonais**
+
+Dois contrastes são ditos ortogonais quando:
+$$
+\sum_{i=1}^{a} c_i c_i' = 0,
+$$
+em que $c_i$ e $c_i'$ são os coeficientes dos contrastes.
+
+Ex:
+\begin{eqnarray*}
+Y_1&=&m_1-m_2+0m_3\\
+Y_3&=&m_1+m_2-2m_3\\
+\end{eqnarray*}
+
+A ortogonalidade implica que as comparações são independentes entre si, ou seja, cada contraste avalia um aspecto distinto das diferenças entre tratamentos.
+
+Algumas propriedades importantes:
+
+- Um conjunto de contrastes é ortogonal se todos forem ortogonais dois a dois;
+- O número máximo de contrastes ortogonais é igual ao número de graus de liberdade dos tratamentos;
+- Contrastes ortogonais permitem decompor a soma de quadrados de tratamentos em partes independentes.
+
+**Variância de um contraste**
+
+Considere o estimador de um contraste:
+$$
+\hat{Y} = c_1 \hat{m}_1 + c_2 \hat{m}_2 + \cdots + c_a \hat{m}_a.
+$$
+
+Se as médias são independentes, a variância desse estimador é dada por:
+\begin{eqnarray*}
+V(\hat{Y})&=&\sum_{i=1}^{a} c_i^2 \, \mathrm{Var}(\hat{m}_i)\\
+            &=& c^2_1V(\hat{m}_1)+c^2_2V(\hat{m}_2)+\cdots+c^2_IV(\hat{m}_a)\\
+            &=&c^2_1\frac{\sigma^2_1}{r_1}+c^2_2\frac{\sigma^2_2}{r_2}+\cdots+c^2_a\frac{\sigma^2_a}{r_a}
+\end{eqnarray*}
+
+
+Como, em geral, $\mathrm{Var}(\hat{m}_i) = \frac{\sigma^2}{r_i}$, tem-se:
+$$
+\mathrm{Var}(\hat{Y}) = \sum_{i=1}^{a} \frac{c_i^2}{r_i} \sigma^2.
+$$
+Uma estimativa da variância da estimativa do contraste é:
+$$\hat{V}(\hat{Y})=c^2_1\frac{S^2_1}{r_1}+c^2_2\frac{S^2_2}{r_2}+\cdots+c^2_a\frac{S^2_a}{r_a}$$
+em que $S_i^2$, com $i=1,2,\cdots,a$, são estimativas de variâncias.
+
+Na prática, substitui-se $\sigma^2$ pelo quadrado médio do resíduo ($QM_{res}$), obtido na ANOVA, resultando em:
+$$
+\widehat{\mathrm{Var}}(\hat{Y}) = \sum_{i=1}^{a} \frac{c_i^2}{r_i} \, QM_{res}.
+$$
+
+**Interpretação e escolha dos contrastes**
+
+A escolha dos coeficientes dos contrastes deve refletir os objetivos do experimento. Comparações de interesse biológico ou agronômico devem ser priorizadas.
+
+Idealmente, os contrastes devem ser definidos antes da análise dos dados. Isso evita a seleção de comparações baseada em diferenças observadas, o que pode inflar a probabilidade de erro do tipo I.
+
+
+Os contrastes fornecem uma estrutura geral para comparar médias. No entanto, quando o interesse é realizar comparações sem hipóteses previamente especificadas, como todas as comparações entre tratamentos, utilizam-se testes de comparações múltiplas.
+
+Esses testes podem ser interpretados como casos particulares de contrastes, especialmente aqueles que envolvem diferenças entre médias duas a duas, associados a critérios que ajustam o nível de significância no conjunto de comparações.
+
+Essa construção conduz naturalmente a procedimentos como o teste de Tukey, que será apresentado a seguir.
+
+
+## Teste de Tukey
+
+Como visto anteriormente, as comparações entre médias podem ser formuladas por meio de contrastes. Em particular, quando se deseja comparar médias duas a duas, os contrastes assumem a forma:
+$$
+Y = m_i - m_j.
+$$
+
+Nesse contexto, um dos procedimentos mais utilizados é o teste de Tukey, que permite avaliar todas as comparações entre pares de médias, controlando o nível de significância no conjunto dessas comparações.
+
+O teste de Tukey é especialmente adequado quando todas as médias são obtidas com o mesmo número de repetições, situação em que o teste é exato. Em casos desbalanceados, o procedimento pode ser adaptado, mas perde essa propriedade.
+
+Por se tratar de um teste relativamente rigoroso, é comum sua aplicação ao nível de 5\% de probabilidade.
+
+
+**Estatística do teste**
+
+O teste de Tukey baseia-se na definição de uma diferença mínima significativa (d.m.s.), dada por:
+$$
+\Delta = q \sqrt{\frac{1}{2}\widehat{\mathrm{Var}}(\hat{Y})},
+$$
+em que:
+
+- $\Delta$ representa a diferença mínima significativa;
+- $q$ é o valor da amplitude total estudentizada, obtido em tabelas em função do número de tratamentos e dos graus de liberdade do resíduo;
+- $\widehat{\mathrm{Var}}(\hat{Y})$ é a estimativa da variância do contraste entre duas médias.
+
+Quando o experimento é balanceado, isto é, quando todas as médias são obtidas com o mesmo número de repetições ($r$), a expressão se simplifica para:
+$$
+\Delta = q \sqrt{\frac{QM_{res}}{r}}.
+$$
+
+**Procedimento de aplicação**
+
+Para aplicar o teste de Tukey, seguem-se os seguintes passos:
+
+**a)** Calcular a diferença mínima significativa $\Delta$;
+
+**b)** Calcular as estimativas dos contrastes entre duas médias:
+$$
+\hat{Y} = m_i - m_j;
+$$
+
+**c)** Comparar o valor absoluto do contraste com $\Delta$:
+
+- Se $|\hat{Y}| \geq \Delta$, conclui-se que as médias diferem significativamente;
+- Se $|\hat{Y}| < \Delta$, conclui-se que não há diferença significativa entre as médias.
+
+
+
+O teste de Tukey permite identificar quais pares de tratamentos diferem entre si, mantendo o controle do nível de significância no conjunto de comparações realizadas.
+
+Dessa forma, ele complementa a análise de variância, fornecendo uma interpretação detalhada das diferenças entre tratamentos.
+
+**Exemplo**
+
+Considere um experimento inteiramente casualizado conduzido para avaliar a produtividade de cultivares de mandioca, em uma área considerada homogênea quanto às condições experimentais.
+
+Foram avaliados $I = 5$ cultivares, com $J = 5$ repetições por tratamento. Os cultivares utilizados foram:
+
+- A: IAC 5  
+- B: IAC 7  
+- C: IAC 11  
+- D: Iracema  
+- E: Mantiqueira  
+
+**Hipóteses**
+
+As hipóteses testadas são:
+
+$$
+H_0: \tau_A = \tau_B = \tau_C = \tau_D = \tau_E = 0
+$$
+
+$$
+H_1: \tau_i \ne 0 \quad \text{para pelo menos um } i
+$$
+
+**Conclusão da ANOVA**
+
+Como $F_{cal} = 28{,}5917$ é maior que $F_{tab} = 2{,}87$, rejeita-se $H_0$ ao nível de 5\% de significância.
+
+Portanto, conclui-se que pelo menos duas médias de tratamentos diferem entre si. Entretanto, a análise de variância não identifica quais médias são diferentes, sendo necessário aplicar um procedimento de comparações múltiplas.
+
+
+**Teste de Tukey**
+
+Para identificar quais médias diferem entre si, aplica-se o teste de Tukey ao nível de 5\% de significância.
+
+Tem-se:
+
+$$
+QM_{Res} = 18{,}68 \quad ; \quad q_{(5;20)} = 4{,}231857 \quad ; \quad r = 5
+$$
+
+A diferença mínima significativa (DMS) é dada por:
+
+$$
+\Delta = q \sqrt{\frac{QM_{Res}}{r}} = 4{,}23 \sqrt{\frac{18{,}68}{5}} = 8{,}18 \ \text{t/ha}
+$$
+
+**Médias dos tratamentos**
+
+As médias dos tratamentos são:
+
+- Mantiqueira: $49{,}44$
+- Iracema: $40{,}58$
+- IAC 5: $27{,}92$
+- IAC 7: $27{,}28$
+- IAC 11: $26{,}02$
+
+Ordenando em ordem decrescente e aplicando o critério de Tukey:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lc}
+\hline
+Tratamento & Média (t/ha) \\ \hline
+Mantiqueira & 49,44 a \\
+Iracema     & 40,58 b \\
+IAC 5       & 27,92 c \\
+IAC 7       & 27,28 c \\
+IAC 11      & 26,02 c \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent Médias seguidas pela mesma letra não diferem entre si pelo teste de Tukey a 5\% de significância.
+
+
+Observa-se que o cultivar Mantiqueira apresentou a maior média de produtividade, diferindo estatisticamente dos demais. O cultivar Iracema apresenta desempenho intermediário, diferindo dos cultivares do grupo inferior. Já os cultivares IAC 5, IAC 7 e IAC 11 não diferem entre si.
+
+```r
+resp=scan(dec=",",nmax = 25)
+38,9 25,4 20,3 25,7 29,3 20,9 26,2 32,3 28,3 28,7
+28,1 27,0 25,8 26,9 22,3 38,7 43,2 41,7 39,0 40,3
+47,8 47,8 44,7 50,5 56,4
+
+trat=rep(LETTERS[1:5],each=5)
+
+AgroR::DIC(trat,resp,mcomp = "tukey")
+```
+
+
+## Exercício 1
+
+Um experimento foi conduzido no delineamento inteiramente casualizado com o objetivo de comparar os efeitos de cinco tratamentos no crescimento de mudas de *Pinus oocarpa*, aos 60 dias após a semeadura.
+
+Os tratamentos avaliados foram:
+
+- A: Solo de cerrado  
+- B: Solo de cerrado + esterco  
+- C: Solo de cerrado + esterco + NPK  
+- D: Solo de cerrado + vermiculita  
+- E: Solo de cerrado + vermiculita + NPK  
+
+Os dados observados (em cm) são apresentados a seguir:
+
+\begin{table}[H]
+\centering
+\caption{Alturas médias de \textit{Pinus oocarpa, em cm, 60 dias após a semeadura}}\label{tab3}
+\begin{tabular}{cccccc}\hline
+\multirow{2}{*}{Tratamentos} & \multicolumn{4}{c}{Repetições} & \multirow{2}{*}{Totais}\\\cline{2-5}
+   & 1 & 2 & 3 & 4 & \\\hline
+	A & 4,6 & 5,1 & 5,8 & 5,5 & 21,0\\
+	B & 6,0 & 7,1 & 7,2 & 6,8 & 27,1\\
+	C & 5,8 & 7,2 & 6,9 & 6,7 & 26,6\\
+	D & 5,6 & 4,9 & 5,9 & 5,7 & 22,1\\
+	E & 5,8 & 6,4 & 6,6 & 6,8 & 25,6\\\hline
+\end{tabular}
+\end{table}
+
+**Solicita-se:**
+
+1. Apresentar o quadro da análise de variância (ANOVA);  
+2. Verificar os pressupostos do modelo;  
+3. Concluir sobre as hipóteses testadas ao nível de 5\% de significância.  
+
+**Resolução no R**
+
+```r
+# Dados
+trat <- factor(rep(c("A","B","C","D","E"), each = 4))
+
+y <- c(
+  4.6, 5.1, 5.8, 5.5,   # A
+  6.0, 7.1, 7.2, 6.8,   # B
+  5.8, 7.2, 6.9, 6.7,   # C
+  5.6, 4.9, 5.9, 5.7,   # D
+  5.8, 6.4, 6.6, 6.8    # E
+)
+
+AgroR::DIC(trat,resp,mcomp = "tukey")
+
+```
+
+
+## Teste de Duncan
+
+
+O teste de Duncan, também conhecido como teste da amplitude múltipla de Duncan, é um procedimento de comparações múltiplas utilizado para identificar quais médias de tratamentos diferem entre si, após a rejeição da hipótese nula na análise de variância.
+
+Assim como outros testes baseados na amplitude studentizada, o teste de Duncan requer que as médias dos tratamentos sejam inicialmente ordenadas, geralmente em ordem decrescente.
+
+Considerando tratamentos com igual número de repetições, a diferença mínima significativa entre duas médias é dada por:
+
+$$
+R_p = D_p \sqrt{\frac{QM_{Res}}{r}}
+$$
+
+em que:
+
+\begin{itemize}
+\item $QM_{Res}$ é o quadrado médio do resíduo obtido na análise de variância;
+\item $r$ é o número de repetições por tratamento;
+\item $D_p$ é um valor tabelado da distribuição da amplitude studentizada, que depende do número de médias abrangidas na comparação ($p$), dos graus de liberdade do resíduo ($GL_{Res}$) e do nível de significância adotado.
+\end{itemize}
+
+O valor $R_p$ representa a diferença mínima necessária para que duas médias sejam consideradas estatisticamente diferentes, quando estas estão separadas por $p-1$ posições na ordenação.
+
+O procedimento do teste consiste em comparar, de forma sequencial, as diferenças entre médias ordenadas. Para médias adjacentes, utiliza-se $R_2$; para médias mais distantes, utiliza-se o valor correspondente de $R_p$. Duas médias são consideradas diferentes quando a diferença entre elas excede o valor crítico $R_p$.
+
+É importante destacar que o teste de Duncan é menos conservador que o teste de Tukey, apresentando maior poder para detectar diferenças entre médias. Por outro lado, esse aumento de sensibilidade implica maior probabilidade de ocorrência de erro do tipo I, ou seja, maior chance de indicar diferenças quando elas não existem.
+
+Dessa forma, o teste de Duncan tende a formar um número maior de grupos distintos de médias, sendo frequentemente utilizado em experimentos agronômicos quando se deseja maior discriminação entre tratamentos.
+
+**Exemplo**
+
+Considere os dados do experimento anteriormente analisado, no qual a análise de variância indicou a existência de diferenças significativas entre as médias dos tratamentos.
+
+Para identificar quais médias diferem entre si, aplica-se o teste de Duncan ao nível de 5\% de significância.
+
+Inicialmente, ordenam-se as médias dos tratamentos em ordem decrescente:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lc}
+\hline
+Tratamento & Média (t/ha) \\ \hline
+(E) Mantiqueira & 49,44 \\
+(D) Iracema     & 40,58 \\
+(A) IAC 5       & 27,92 \\
+(B) IAC 7       & 27,28 \\
+(C) IAC 11      & 26,02 \\
+\hline
+\end{tabular}
+\end{table}
+
+Os valores tabelados da constante $D_p$, ao nível de 5\% de significância e com $GL_{Res} = 20$, são:
+
+$$
+D_2 = 2{,}95 \quad ; \quad D_3 = 3{,}10 \quad ; \quad D_4 = 3{,}19 \quad ; \quad D_5 = 3{,}26
+$$
+
+Considerando $QM_{Res} = 18{,}68$ e $r = 5$, obtêm-se as diferenças mínimas significativas:
+
+$$
+R_2 = 2{,}95 \sqrt{\frac{18{,}68}{5}} = 5{,}70
+$$
+
+$$
+R_3 = 3{,}10 \sqrt{\frac{18{,}68}{5}} = 5{,}99
+$$
+
+$$
+R_4 = 3{,}19 \sqrt{\frac{18{,}68}{5}} = 6{,}17
+$$
+
+$$
+R_5 = 3{,}26 \sqrt{\frac{18{,}68}{5}} = 6{,}30
+$$
+
+A seguir, comparam-se as diferenças entre as médias, considerando a distância entre elas na ordenação:
+
+- $49{,}44 - 40{,}58 = 8{,}86 > R_2$ → diferem  
+- $49{,}44 - 27{,}92 = 21{,}52 > R_3$ → diferem  
+- $49{,}44 - 27{,}28 = 22{,}16 > R_4$ → diferem  
+- $49{,}44 - 26{,}02 = 23{,}42 > R_5$ → diferem  
+
+- $40{,}58 - 27{,}92 = 12{,}66 > R_2$ → diferem  
+- $40{,}58 - 27{,}28 = 13{,}30 > R_3$ → diferem  
+- $40{,}58 - 26{,}02 = 14{,}56 > R_4$ → diferem  
+
+- $27{,}92 - 27{,}28 = 0{,}64 < R_2$ → não diferem  
+- $27{,}92 - 26{,}02 = 1{,}90 < R_3$ → não diferem  
+
+- $27{,}28 - 26{,}02 = 1{,}26 < R_2$ → não diferem  
+
+Com base nesses resultados, obtém-se o seguinte agrupamento:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lc}
+\hline
+Tratamento & Média (t/ha) \\ \hline
+Mantiqueira & 49,44 a \\
+Iracema     & 40,58 b \\
+IAC 5       & 27,92 c \\
+IAC 7       & 27,28 c \\
+IAC 11      & 26,02 c \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent Médias seguidas pela mesma letra não diferem entre si ao nível de 5\% de significância, segundo o teste de Duncan.
+
+Observa-se que o cultivar Mantiqueira apresentou a maior média de produtividade, diferindo estatisticamente de todos os demais tratamentos. O cultivar Iracema apresenta desempenho intermediário, diferindo tanto do grupo superior quanto do grupo inferior. Por sua vez, os cultivares IAC 5, IAC 7 e IAC 11 não diferem entre si, formando um grupo homogêneo de menor produtividade.
+
+```r
+resp=scan(dec=",",nmax = 25)
+38,9 25,4 20,3 25,7 29,3 20,9 26,2 32,3 28,3 28,7
+28,1 27,0 25,8 26,9 22,3 38,7 43,2 41,7 39,0 40,3
+47,8 47,8 44,7 50,5 56,4
+
+trat=rep(LETTERS[1:5],each=5)
+
+AgroR::DIC(trat,resp,mcomp = "duncan")
+```
+
+## Teste de Dunnett
+
+Em muitos experimentos, um dos tratamentos é definido como controle (ou testemunha), e o interesse do pesquisador está em comparar cada um dos demais tratamentos com esse controle, e não necessariamente comparar todas as médias entre si.
+
+Para esse tipo específico de comparação, Dunnett (1964) propôs um procedimento conhecido como teste de Dunnett, que é particularmente adequado para comparar múltiplos tratamentos com uma única testemunha, controlando o erro do tipo I no conjunto dessas comparações.
+
+Suponha que o tratamento $c$ represente o controle. O objetivo é testar, para cada tratamento $i$, as hipóteses:
+
+$$
+H_0: \mu_i = \mu_c
+\qquad \text{versus} \qquad
+H_1: \mu_i \ne \mu_c,
+$$
+
+para $i = 1, 2, \ldots, I-1$.
+
+O teste de Dunnett pode ser visto como uma modificação do teste $t$, no qual se consideram simultaneamente todas as comparações entre tratamentos e controle. Para cada comparação, calcula-se a diferença entre as médias amostrais:
+
+$$
+\bar{y}_{i.} - \bar{y}_{c.}.
+$$
+
+A hipótese nula é rejeitada quando:
+
+$$
+\left| \bar{y}_{i.} - \bar{y}_{c.} \right|
+>
+d \sqrt{QM_{Res} \left( \frac{1}{r_i} + \frac{1}{r_c} \right)},
+$$
+
+em que:
+
+\begin{itemize}
+\item $QM_{Res}$ é o quadrado médio do resíduo obtido na análise de variância;
+\item $r_i$ é o número de repetições do tratamento $i$;
+\item $r_c$ é o número de repetições do controle;
+\item $d$ é um valor crítico tabelado, que depende do número de comparações $(I-1)$, dos graus de liberdade do resíduo ($GL_{Res}$) e do nível de significância adotado.
+\end{itemize}
+
+O termo à direita da desigualdade representa a diferença mínima significativa entre um tratamento e o controle. Caso a diferença observada exceda esse valor crítico, conclui-se que o tratamento difere significativamente da testemunha.
+
+**Exemplo**
+
+Considere novamente os dados do experimento anterior, em que se deseja comparar os tratamentos com a testemunha. Supondo o tratamento Mantiqueira como controle, tem-se:
+
+$$
+d_{(5\%;\,4;\,20)} = 2{,}65, \quad QM_{Res} = 18{,}68, \quad r_i = r_c = 5.
+$$
+
+Assim, a diferença mínima significativa é:
+
+$$
+D = 2{,}65 \sqrt{18{,}68 \left( \frac{1}{5} + \frac{1}{5} \right)} = 7{,}24.
+$$
+
+As diferenças entre a média da testemunha e as demais são:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lc}
+\hline
+Comparação & $|\bar{y}_{i.} - \bar{y}_{c.}|$ \\ \hline
+Mantiqueira vs Iracema & 8,86 \\
+Mantiqueira vs IAC 5   & 21,52 \\
+Mantiqueira vs IAC 7   & 22,16 \\
+Mantiqueira vs IAC 11  & 23,42 \\
+\hline
+\end{tabular}
+\end{table}
+
+Comparando-se esses valores com $D = 7{,}24$, observa-se que todas as diferenças são superiores ao valor crítico. Portanto, todos os tratamentos diferem significativamente da testemunha.
+
+
+
+Os resultados indicam que o tratamento Mantiqueira difere estatisticamente de todos os demais tratamentos avaliados. Isso evidencia que seu desempenho é significativamente distinto dos demais, podendo ser superior ou inferior, dependendo do contexto da variável analisada.
+
+
+**Observações**
+
+O teste de Dunnett apresenta as seguintes características:
+
+\begin{itemize}
+\item é o procedimento mais adequado quando o interesse está exclusivamente na comparação de tratamentos com uma testemunha;
+\item controla o erro do tipo I no conjunto dessas comparações;
+\item não é apropriado para comparações entre todos os pares de médias, como ocorre nos testes de Tukey ou Duncan.
+\end{itemize}
+
+```r
+resp=scan(dec=",",nmax = 25)
+38,9 25,4 20,3 25,7 29,3 20,9 26,2 32,3 28,3 28,7
+28,1 27,0 25,8 26,9 22,3 38,7 43,2 41,7 39,0 40,3
+47,8 47,8 44,7 50,5 56,4
+
+trat=rep(LETTERS[1:5],each=5)
+
+AgroR::dunnett(trat,resp,control="E")
+```
+
+
+
+
+
+
