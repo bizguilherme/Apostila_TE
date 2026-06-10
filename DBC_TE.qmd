@@ -1,0 +1,337 @@
+# Delineamento casualizado em Blocos
+
+Os experimentos em blocos casualizados incorporam os três princípios básicos da experimentação: repetição, casualização e controle local, sendo este último implementado por meio da formação de blocos.
+
+O princípio do controle local consiste em reduzir a variabilidade experimental, agrupando unidades experimentais semelhantes em subambientes mais homogêneos, denominados blocos. Dessa forma, busca-se isolar fontes de variação conhecidas ou controláveis, que poderiam interferir na comparação entre os tratamentos.
+
+Assim, sempre que não houver homogeneidade das condições experimentais, recomenda-se a utilização desse delineamento. Nessa situação, o ambiente experimental é dividido em blocos internamente homogêneos, e dentro de cada bloco são alocados todos os tratamentos em estudo, de modo que cada tratamento ocorra exatamente uma vez por bloco. A casualização é realizada dentro de cada bloco, garantindo que a posição dos tratamentos seja definida ao acaso.
+
+Uma consequência direta dessa estrutura é o aumento da precisão experimental. Ao controlar parte da variabilidade ambiental por meio dos blocos, obtém-se, em geral, uma estimativa mais acurada da variância residual, tornando o delineamento em blocos casualizados mais eficiente que o delineamento inteiramente ao acaso, especialmente em condições de heterogeneidade.
+
+Entretanto, essa melhoria de precisão vem acompanhada de algumas limitações. A inclusão do efeito de blocos no modelo implica na redução dos graus de liberdade do resíduo, o que pode afetar a sensibilidade dos testes estatísticos, particularmente em experimentos com poucas repetições. Além disso, a exigência de homogeneidade dentro de cada bloco restringe o número de tratamentos que podem ser avaliados, uma vez que blocos muito grandes tendem a se tornar internamente heterogêneos.
+
+Deve-se ressaltar que bloco não é, necessariamente, sinônimo de repetição. O número de blocos coincide com o número de repetições apenas quando cada tratamento ocorre uma única vez em cada bloco, o que caracteriza a forma mais usual desse delineamento.
+
+A principal característica do DBC é, portanto, o controle da variabilidade entre blocos, permitindo que a comparação entre tratamentos seja realizada com maior precisão. Nesse contexto, a variabilidade total é decomposta em duas partes: uma associada às diferenças entre blocos e outra associada ao erro experimental.
+
+Esse delineamento é amplamente utilizado em experimentos agronômicos, especialmente em condições de campo, onde são comuns gradientes de fertilidade do solo, umidade, relevo ou outras fontes de heterogeneidade.
+
+Em termos estruturais, considerando-se $I$ tratamentos e $J$ blocos, o experimento é composto por $I \times J$ unidades experimentais, sendo que cada bloco contém exatamente $I$ parcelas, uma para cada tratamento.
+
+
+## Vantagens e desvantagens do DBC
+
+O delineamento em blocos casualizados apresenta como principal vantagem a capacidade de controlar a variabilidade ambiental existente na área experimental. Ao agrupar unidades experimentais semelhantes em blocos, torna-se possível isolar diferenças sistemáticas entre regiões do experimento, como gradientes de fertilidade do solo, umidade ou relevo, o que contribui para maior precisão na comparação entre os tratamentos.
+
+Como consequência desse controle, obtém-se, em geral, uma estimativa mais acurada da variância residual, uma vez que parte da variação que antes compunha o erro experimental passa a ser explicada pelas diferenças entre blocos. Esse aspecto confere ao delineamento maior eficiência em relação ao delineamento inteiramente ao acaso, sobretudo em condições de heterogeneidade do ambiente.
+
+Por outro lado, a utilização do princípio do controle local implica em uma redução no número de graus de liberdade associados ao resíduo, uma vez que parte desses graus de liberdade é utilizada para estimar o efeito de blocos. Essa redução pode afetar a sensibilidade dos testes estatísticos, especialmente em experimentos com número limitado de repetições.
+
+Além disso, a exigência de homogeneidade dentro de cada bloco impõe uma limitação prática ao número de tratamentos que podem ser avaliados. À medida que o número de tratamentos aumenta, torna-se mais difícil garantir que todas as parcelas dentro de um mesmo bloco sejam suficientemente homogêneas, o que pode comprometer a eficiência do delineamento.
+
+
+## Representação dos dados, modelo estatístico e análise de variância
+
+Considere um experimento conduzido segundo o delineamento em blocos casualizados, com $I$ tratamentos e $J$ blocos. Suponha que cada tratamento ocorra exatamente uma vez em cada bloco e que a alocação dos tratamentos dentro de cada bloco seja realizada de forma aleatória.
+
+Nessas condições, os dados experimentais podem ser representados por uma tabela de dupla entrada, em que as linhas correspondem aos tratamentos e as colunas aos blocos:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|cccc}\hline
+& Bloco 1 & Bloco 2 & $\cdots$ & Bloco $J$ \\ \hline
+Tratamento 1 & $y_{11}$ & $y_{12}$ & $\cdots$ & $y_{1J}$ \\
+Tratamento 2 & $y_{21}$ & $y_{22}$ & $\cdots$ & $y_{2J}$ \\
+Tratamento 3 & $y_{31}$ & $y_{32}$ & $\cdots$ & $y_{3J}$ \\
+$\vdots$     & $\vdots$ & $\vdots$ & $\cdots$ & $\vdots$ \\
+Tratamento $I$ & $y_{I1}$ & $y_{I2}$ & $\cdots$ & $y_{IJ}$ \\\hline
+\end{tabular}
+\end{table}
+
+**Modelo estatístico**
+
+O modelo estatístico associado a esse delineamento é dado por:
+
+$$
+y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij},
+\qquad i = 1,2,\ldots,I; \quad j = 1,2,\ldots,J,
+$$
+
+em que:
+
+\begin{itemize}
+\item $\mu$ é a média geral do experimento;
+\item $\tau_i$ é o efeito do $i$-ésimo tratamento;
+\item $\beta_j$ é o efeito do $j$-ésimo bloco;
+\item $\epsilon_{ij}$ é o erro aleatório associado à observação $y_{ij}$, assumindo-se que $\varepsilon_{ij} \sim \text{NID}(0,\sigma^2)$.
+\end{itemize}
+
+
+
+**Análise de variância**
+
+A variabilidade total observada nos dados pode ser decomposta em três componentes: tratamentos, blocos e erro experimental. O quadro da análise de variância é apresentado na Tabela a seguir.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\caption{Quadro da análise de variância para o delineamento em blocos casualizados}
+\begin{tabular}{lccccc} \hline
+Fonte de variação & Soma de quadrados & gl & Quadrado médio & $F$ \\ \hline
+Tratamentos & $SQ_{Trat}$ & $I-1$ & $\dfrac{SQ_{Trat}}{I-1}$ & $\dfrac{QM_{Trat}}{QM_{Res}}$ \\
+Blocos      & $SQ_{Blocos}$ & $J-1$ & $\dfrac{SQ_{Blocos}}{J-1}$ & \\
+Resíduo     & $SQ_{Res}$ & $(I-1)(J-1)$ & $\dfrac{SQ_{Res}}{(I-1)(J-1)}$ & \\ \hline
+Total       & $SQ_{Total}$ & $IJ-1$ & & \\
+\end{tabular}
+\end{table}
+
+O teste de hipóteses de interesse está associado ao efeito de tratamentos, sendo:
+
+$$
+H_0: \tau_1 = \tau_2 = \cdots = \tau_I = 0
+\qquad \text{vs} \qquad
+H_1: \text{existe pelo menos um } \tau_i \neq 0.
+$$
+
+A estatística de teste é dada por:
+
+$$
+F = \frac{QM_{Trat}}{QM_{Res}},
+$$
+
+que deve ser comparada com o valor crítico da distribuição $F$ ao nível de significância adotado.
+
+**Somas de quadrados**
+
+As somas de quadrados podem ser obtidas pelas seguintes expressões:
+
+$$
+SQ_{Total} = \sum_{i=1}^{I} \sum_{j=1}^{J} y_{ij}^2 - \frac{y_{\cdot\cdot}^2}{IJ},
+$$
+
+$$
+SQ_{Trat} = \sum_{i=1}^{I} \frac{y_{i\cdot}^2}{J} - \frac{y_{\cdot\cdot}^2}{IJ},
+\qquad
+SQ_{Blocos} = \sum_{j=1}^{J} \frac{y_{\cdot j}^2}{I} - \frac{y_{\cdot\cdot}^2}{IJ},
+$$
+
+$$
+SQ_{Res} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos},
+$$
+
+em que:
+
+\begin{itemize}
+\item $y_{i\cdot} = \sum_{j=1}^{J} y_{ij}$ é o total do $i$-ésimo tratamento;
+\item $y_{\cdot j} = \sum_{i=1}^{I} y_{ij}$ é o total do $j$-ésimo bloco;
+\item $y_{\cdot\cdot} = \sum_{i=1}^{I} \sum_{j=1}^{J} y_{ij}$ é o total geral.
+\end{itemize}
+
+
+
+## Exemplo 1
+
+No trabalho intitulado ``Estudos dos efeitos do Promalin sobre frutos de macieiras cultivares Brasil e Rainha'', Mestriner (1980) avaliou os efeitos de diferentes tratamentos com regulador de crescimento sobre o peso médio de frutos. Foram utilizados cinco tratamentos, com quatro repetições, no delineamento em blocos casualizados.
+
+Os tratamentos avaliados foram:
+
+\begin{itemize}
+\item[(A)] 12,5 ppm de Promalin em plena floração;
+\item[(B)] 25,0 ppm de Promalin em plena floração;
+\item[(C)] 50,0 ppm de Promalin em plena floração;
+\item[(D)] 12,5 ppm de Promalin em plena floração + 12,5 ppm no início da frutificação;
+\item[(E)] Testemunha.
+\end{itemize}
+
+As parcelas foram constituídas por quatro plantas, espaçadas de $6 \times 7$ m, com 12 anos de idade na instalação do experimento. A variável analisada foi o peso médio de 250 frutos por parcela (em gramas).
+
+**Dados experimentais**
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|cccc|c}\hline
+Tratamentos & B1 & B2 & B3 & B4 & Total \\ \hline
+A & 142,4 & 144,8 & 145,2 & 138,9 & 571,3 \\
+B & 139,3 & 137,8 & 144,4 & 130,6 & 552,1 \\
+C & 140,7 & 134,1 & 136,1 & 144,1 & 555,0 \\
+D & 150,9 & 135,8 & 137,0 & 136,4 & 560,1 \\
+E & 153,5 & 165,0 & 151,8 & 150,2 & 620,5 \\ \hline
+Total & 726,8 & 717,5 & 714,5 & 700,2 & 2859,0\\\hline
+\end{tabular}
+\end{table}
+
+**Cálculo das somas de quadrados**
+
+Inicialmente, calcula-se o fator de correção:
+
+$$
+C = \frac{( \sum y_{ij})^2}{IJ} = \frac{(2859,0)^2}{20} = 408,624,05
+$$
+
+\textbf{Soma de quadrados total:}
+
+$$
+SQ_{Total} = \sum y_{ij}^2 - C
+$$
+
+$$
+SQ_{Total} = (142,4^2 + \cdots + 150,2^2) - 408,624,05 = 1272,31
+$$
+
+\textbf{Soma de quadrados de tratamentos:}
+
+$$
+SQ_{Trat} = \frac{1}{J} \sum y_{i\cdot}^2 - C
+$$
+
+$$
+SQ_{Trat} = \frac{1}{4}(571,3^2 + 552,1^2 + 555,0^2 + 560,1^2 + 620,5^2) - 408,624,05
+$$
+
+$$
+SQ_{Trat} = 794,79
+$$
+
+\textbf{Soma de quadrados de blocos:}
+
+$$
+SQ_{Blocos} = \frac{1}{I} \sum y_{\cdot j}^2 - C
+$$
+
+$$
+SQ_{Blocos} = \frac{1}{5}(726,8^2 + 717,5^2 + 714,5^2 + 700,2^2) - 408,624,05
+$$
+
+$$
+SQ_{Blocos} = 72,91
+$$
+
+\textbf{Soma de quadrados do resíduo:}
+
+$$
+SQ_{Res} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos} = 404,61
+$$
+
+\paragraph{Análise de variância}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccccc} \hline
+Fonte & gl & SQ & QM & $F$ \\ \hline
+Tratamentos & 4 & 794,79 & 198,70 & 5,89** \\
+Blocos & 3 & 72,91 & 24,30 & 0,72 ns \\
+Resíduo & 12 & 404,61 & 33,72 & \\ \hline
+Total & 19 & 1272,31 & & \\
+\end{tabular}
+\end{table}
+
+Como:
+
+$$
+F_{calc} = 5,89 > F_{0,05;4,12} = 3,26,
+$$
+
+conclui-se que há diferença significativa entre os tratamentos.
+
+**Teste de comparação de médias (Tukey)**
+
+Calcula-se a diferença mínima significativa:
+
+$$
+\Delta= q_{0,05;5,12} \cdot \sqrt{\frac{QM_{Res}}{r}} = 4,20 \cdot \sqrt{\frac{33,72}{4}} = 12,18
+$$
+
+As médias dos tratamentos e o agrupamento pelo teste de Tukey são apresentados a seguir:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ccc}
+Tratamento & Média (g) & Grupo \\ \hline
+E & 155,13 & a \\
+A & 142,83 & b \\
+D & 140,03 & b \\
+C & 138,75 & b \\
+B & 138,03 & b \\\hline
+\end{tabular}
+\end{table}
+
+**Conclusão**
+
+O tratamento testemunha (E) apresentou o maior peso médio de frutos, diferindo estatisticamente dos demais tratamentos. Entre os tratamentos com aplicação de Promalin, não foram observadas diferenças significativas, indicando que, nas condições do experimento, as diferentes doses e formas de aplicação não influenciaram o peso médio dos frutos.
+
+```r
+rm(list=ls())
+resp=scan(dec=",",nmax=20)
+142,4 144,8 145,2 138,9
+139,3 137,8 144,4 130,6
+140,7 134,1 136,1 144,1
+150,9 135,8 137,0 136,4
+153,5 165,0 151,8 150,2
+
+trat=rep(LETTERS[1:5],each=4)
+bloco=rep(paste("b",1:4),5)
+
+AgroR::DBC(trat,bloco,resp,mcomp="tukey")
+AgroR::DBC(trat,bloco,resp,mcomp="duncan")
+AgroR::dunnett(trat,resp,control="E",model="DBC",block=bloco)
+```
+
+
+
+
+
+## Exercício
+
+Os dados apresentados a seguir referem-se ao número de cochonilhas vivas por parcela (média de 3 plantas), avaliadas 8 dias após a aplicação de diferentes inseticidas. O experimento foi conduzido no delineamento em blocos casualizados, com quatro blocos e seis tratamentos.
+
+Os tratamentos avaliados foram:
+
+\begin{itemize}
+\item[(A)] Folidol;
+\item[(B)] Malatol + Triona;
+\item[(C)] Triona;
+\item[(D)] Dimetoato;
+\item[(E)] Cyprolane;
+\item[(F)] Testemunha (sem aplicação de inseticida).
+\end{itemize}
+
+**Dados experimentais**
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|cccccc|c}\hline
+\multirow{2}{*}{Blocos} & \multicolumn{6}{c|}{Tratamentos} & \multirow{2}{*}{Total} \\ \cline{2-7}
+& A & B & C & D & E & F & \\ \hline
+1 & 15,2 & 22,4 & 21,5 & 24,5 & 15,4 & 41,1 & 140,1 \\
+2 & 11,2 & 27,6 & 19,1 & 25,5 & 17,2 & 42,3 & 142,9 \\
+3 & 12,4 & 22,5 & 21,0 & 24,1 & 18,1 & 46,4 & 144,5 \\
+4 & 13,4 & 26,8 & 23,6 & 26,3 & 16,7 & 45,0 & 151,8 \\ \hline
+Total & 52,2 & 99,3 & 85,2 & 100,4 & 67,4 & 174,8 & 579,3 \\ \hline
+\end{tabular}
+\end{table}
+
+
+Realize a análise de variância para o delineamento em blocos casualizados e, caso seja constatado efeito significativo de tratamentos, aplique um teste de comparação de médias adequado para identificar diferenças entre os inseticidas avaliados.
+
+```r
+rm(list=ls())
+resp=scan(dec=",",nmax=24)
+15,2 22,4 21,5 24,5 15,4 41,1
+11,2 27,6 19,1 25,5 17,2 42,3
+12,4 22,5 21,0 24,1 18,1 46,4
+13,4 26,8 23,6 26,3 16,7 45,0 
+
+trat=rep(LETTERS[1:6],4)
+bloco=rep(paste("B",1:4),each=6)
+
+AgroR::DBC(trat,bloco,resp,mcomp="tukey")
+AgroR::DBC(trat,bloco,resp,mcomp="duncan")
+AgroR::dunnett(trat,resp,control="F",model="DBC",block=bloco)
+```
+
+
+

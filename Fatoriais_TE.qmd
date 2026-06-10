@@ -1,0 +1,588 @@
+# Experimentos Fatoriais
+
+Muitos experimentos, especialmente na área agronômica, envolvem o estudo dos \textbf{\color{red} efeitos de dois ou mais fatores} sobre uma variável resposta. Nesses casos, a utilização de experimentos fatoriais é recomendada, pois permite avaliar, simultaneamente, os efeitos individuais de cada fator, bem como a possível interação entre eles.
+
+Cada fator pode assumir diferentes condições ou categorias, denominadas \textbf{\color{red} níveis do fator}. Os tratamentos, por sua vez, são formados por todas as combinações possíveis entre os níveis dos fatores considerados.
+
+O tipo mais simples de experimento fatorial é o $2 \times 2$, no qual são estudados \textbf{\color{red} dois fatores}, cada um com \textbf{\color{red} dois níveis}. Esse arranjo resulta em quatro combinações de tratamentos, permitindo avaliar tanto os efeitos principais quanto a interação entre os fatores.
+
+
+\textbf{Exemplo 1}: Considere um experimento em que se deseja estudar os efeitos de duas variedades e dois espaçamentos sobre uma variável resposta. Nesse caso, tem-se um experimento fatorial $2 \times 2$, no qual os fatores são variedades e espaçamento, cada um com dois níveis ($V_1$ e $V_2$; $E_1$ e $E_2$, respectivamente).
+
+Os tratamentos correspondem a todas as combinações possíveis entre os níveis dos fatores, totalizando $2 \times 2 = 4$ tratamentos:
+
+$$
+{\color{red}V_1}{\color{blue}E_1} \qquad
+{\color{red}V_1}{\color{blue}E_2} \qquad
+{\color{red}V_2}{\color{blue}E_1} \qquad
+{\color{red}V_2}{\color{blue}E_2}.
+$$
+
+
+\textbf{Exemplo 2}: Considere agora um experimento fatorial $3 \times 2$, no qual se avaliam três espécies ($E_1$, $E_2$, $E_3$) e dois níveis de adubação ($A_0$, $A_1$). Nesse caso, tem-se $3 \times 2 = 6$ tratamentos, resultantes de todas as combinações possíveis entre os níveis dos fatores:
+
+$$
+\begin{array}{cc}
+{\color{red}E_1}{\color{blue}A_0} & {\color{red}E_1}{\color{blue}A_1} \\
+{\color{red}E_2}{\color{blue}A_0} & {\color{red}E_2}{\color{blue}A_1} \\
+{\color{red}E_3}{\color{blue}A_0} & {\color{red}E_3}{\color{blue}A_1}
+\end{array}
+$$
+
+Suponha que as médias dos $3 \times 2 = 6$ tratamentos desse experimento sejam as apresentadas na Tabela \ref{tab:fatorial32}.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Médias de um experimento fatorial $3 \times 2$.}
+\label{tab:fatorial32}
+\begin{tabular}{c|cc}\hline
+\multirow{2}{*}{Espécies}& \multicolumn{2}{c}{Adubação} \\ \cline{2-3}
+ & $A_0$ & $A_1$ \\ \hline
+$E_1$ & 5  & 10 \\
+$E_2$ & 10 & 15 \\
+$E_3$ & 15 & 25 \\ \hline
+\end{tabular}
+\end{table}
+
+Na Tabela \ref{tab:fatorial32} podemos observar o comportamento de um fator dentro dos níveis do outro fator. Por exemplo, fixando o nível de adubação $A_0$, pode-se comparar as espécies:
+$$
+E_1 = 5, \quad E_2 = 10, \quad E_3 = 15,
+$$
+observando-se um aumento na resposta com a mudança de espécie.
+
+De forma análoga, para o nível de adubação $A_1$:
+$$
+E_1 = 10, \quad E_2 = 15, \quad E_3 = 25,
+$$
+também se verifica aumento da resposta entre as espécies.
+
+Por outro lado, fixando cada espécie, pode-se avaliar o efeito da adubação. Por exemplo, para $E_1$:
+$$
+A_0 = 5 \quad \text{e} \quad A_1 = 10,
+$$
+indicando aumento com a aplicação de adubo. Esse mesmo comportamento ocorre para $E_2$ e $E_3$.
+
+Assim, a interpretação em experimentos fatoriais podemos considerar comparações dentro de linhas e dentro de colunas, permitindo avaliar como um fator se comporta em cada nível do outro.
+
+
+\textbf{Exemplo 3}: Considere um experimento fatorial $2 \times 2$, envolvendo os fatores Adubo (A) e Calcário (C), cada um em dois níveis. Para o fator Adubo, consideram-se os níveis $A_0$ (sem adubo) e $A_1$ (com adubo), enquanto para o fator Calcário, os níveis são $C_0$ (sem calcário) e $C_1$ (com calcário). Esses tratamentos foram aplicados a uma plantação, sendo obtidos os seguintes valores de produção:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\setlength{\arrayrulewidth}{2.5\arrayrulewidth}
+\begin{tabular}{c|cc|c} \hline
+Fator A & \multicolumn{2}{c|}{Fator C – Calcário}  & Totais  \\ \cline{2-3}
+Adubo  & $C_0$ & $C_1$ &  \\ \hline
+$A_0$  & 14 & 23 & 37 \\
+$A_1$  & 32 & 53 & 85 \\ \hline
+Totais & 46 & 76 & 122 \\ \hline
+\end{tabular}
+\end{table}
+
+O estudo de experimentos fatoriais permite avaliar não apenas os efeitos isolados de cada fator, mas também como esses fatores se comportam em conjunto. Nesse contexto, definem-se inicialmente os \textbf{efeitos simples}.
+
+\textbf{Efeito simples de um fator} é a variação observada na variável resposta em função dos níveis desse fator, considerando um nível fixo do outro fator.
+
+ Assim, os efeitos simples do fator Adubo são dados por:
+$$
+A_{(\text{dentro de } C_0)} = A_1C_0 - A_0C_0 = 32 - 14 = 18
+$$
+$$
+A_{(\text{dentro de } C_1)} = A_1C_1 - A_0C_1 = 53 - 23 = 30
+$$
+
+De forma análoga, os efeitos simples do fator Calcário são:
+$$
+C_{(\text{dentro de } A_0)} = A_0C_1 - A_0C_0 = 23 - 14 = 9
+$$
+$$
+C_{(\text{dentro de } A_1)} = A_1C_1 - A_1C_0 = 53 - 32 = 21
+$$
+
+A partir dos efeitos simples, pode-se definir o \textbf{efeito principal} de cada fator, que corresponde ao efeito médio desse fator ao longo dos níveis do outro fator.
+
+O efeito principal do fator Adubo é dado por:
+$$
+\text{Efeito de A} = \frac{18 + 30}{2} = 24
+$$
+
+Enquanto o efeito principal do fator Calcário é:
+$$
+\text{Efeito de C} = \frac{9 + 21}{2} = 15
+$$
+
+Entretanto, em experimentos fatoriais, é fundamental verificar a presença de \textbf{interação entre fatores}. A interação ocorre quando o efeito de um fator depende do nível do outro fator.
+
+No presente exemplo, observa-se que o efeito do Adubo varia de 18 para 30, dependendo do nível de Calcário. De forma semelhante, o efeito do Calcário varia de 9 para 21, dependendo do nível de Adubo. Como esses efeitos não são constantes, conclui-se que há indícios de interação entre os fatores. Ressalta-se, entretanto, que a confirmação da existência de interação deve ser realizada por meio da análise de variância (ANOVA), a partir do teste de significância do termo de interação.
+
+Do ponto de vista prático, a presença de interação indica que os fatores não devem ser interpretados isoladamente. Nesse caso, a resposta da cultura à adubação depende da aplicação de calcário, e vice-versa. Assim, recomendações agronômicas devem considerar a combinação dos fatores, e não apenas seus efeitos médios (Efeitos Principais).
+
+\textbf{Observação:} Na presença de interação, os efeitos principais podem não representar adequadamente o comportamento dos fatores, sendo mais apropriado analisar os efeitos simples.
+
+**Vantagens e Desvantagens**
+
+As principais \textbf{\color{red}vantagens} dos experimentos fatoriais, em comparação aos experimentos simples, são:
+
+- Possibilitam o estudo simultâneo de dois ou mais fatores em um único experimento.
+
+- Permitem avaliar a existência de interação entre os fatores, isto é, verificar se o efeito de um fator depende dos níveis dos demais fatores.
+
+
+Por outro lado, as principais \textbf{\color{red}desvantagens} dos experimentos fatoriais são:
+
+- O número de tratamentos (combinações de níveis dos fatores) cresce rapidamente com o aumento do número de fatores e/ou do número de níveis de cada fator, podendo tornar o experimento mais oneroso e difícil de conduzir.
+
+- A interpretação dos resultados torna-se mais complexa à medida que aumenta o número de fatores e níveis, especialmente na presença de interações.
+
+
+# Experimento fatoria com 2 fatores
+
+Considere os dados apresentados na Tabela \ref{tab:dados}, provenientes de um experimento conduzido no delineamento inteiramente casualizado, em esquema fatorial (3 \times 2). O objetivo do estudo foi avaliar o efeito de três tipos de recipientes utilizados na produção de mudas e de duas espécies de eucalipto sobre o desenvolvimento das plantas.
+
+Este exemplo foi adaptado de Banzatto & Kronka (1995).
+
+\begin{table}[H]
+\centering %
+\renewcommand{\arraystretch}{1.1}
+\setlength{\arrayrulewidth}{1.5\arrayrulewidth}
+\caption{Alturas médias das mudas, em centímetros, aos 80 dias de idade. \label{tab:dados}}%
+%\vspace{-.5cm}
+\begin{tabular}{cp{.3cm}ccp{.3cm}ccp{.3cm}} \hline
+\multirow{2}{*}{Recipientes} &  & \multicolumn{6}{c}{Espécies}                                \\ \cline{3-7} %
+                             &  & \multicolumn{2}{c}{$E_1$} &  & \multicolumn{2}{c}{$E_2$} &   \\ \hline %
+\multirow{2}{*}{$R_1$}       &  &    26,2    &     26,0     &  &     24,8    &     24,6    &   \\
+                             &  &    25,0    &     25,4     &  &     26,7    &     25,2    &   \\[.2cm]
+\multirow{2}{*}{$R_2$}       &  &    25,7    &     26,3     &  &     19,6    &     21,1    &   \\
+                             &  &    25,1    &     26,4     &  &     19,0    &     18,6    &   \\[.2cm]
+\multirow{2}{*}{$R_3$}       &  &    22,8    &     19,4     &  &     19,8    &     21,4    &   \\
+                             &  &    18,8    &     19,2     &  &     22,8    &     21,3    &   \\ \hline
+\end{tabular}
+\end{table}
+
+\noindent em que:
+
+$$
+\begin{array}{ll}
+R_1: \text{saco plástico pequeno} & E_1: \textit{Eucalyptus citriodora} \\
+R_2: \text{saco plástico grande}  & E_2: \textit{Eucalyptus grandis} \\
+R_3: \text{laminado}              &
+\end{array}
+$$
+
+Para facilitar a aplicação das fórmulas de soma de quadrados na análise de variância, é conveniente organizar os dados de forma sistemática.
+
+Seja $y_{ijk}$ a resposta observada correspondente ao (i)-ésimo nível (i = 1,2,\ldots,a) do fator (A) e ao (j)-ésimo nível (j = 1,2,\ldots,b) do fator (B), na (k)-ésima repetição (k = 1,2,\ldots,n).
+
+Em experimentos fatoriais, os dados podem ser dispostos em uma tabela de dupla entrada, na qual as linhas representam os níveis do fator (A) e as colunas os níveis do fator (B). Em cada célula dessa tabela são alocadas as observações correspondentes a cada combinação de níveis dos fatores.
+
+De forma geral, essa organização é apresentada na Tabela \ref{tab:generico}.
+
+\begin{table}[H]
+\centering %
+\renewcommand{\arraystretch}{1.3}
+%\setlength{\arrayrulewidth}{2\arrayrulewidth}
+\caption{Arranjo geral para um experimento fatorial. \label{tab:generico}}%
+\begin{tabular}{cccccc} %\hline
+                                &                       & \multicolumn{4}{c}{\textbf{\color{blue}  Fator B}}   \\ %\cline{2-6} %
+                                &                       & \multicolumn{1}{c}{\color{red}$1$}                         & \multicolumn{1}{c}{\color{red}$2$}                        & \multicolumn{1}{c}{\color{red}$\ldots$} & \multicolumn{1}{c}{\color{red}$b$}                         \\ \cline{3-6} %
+                                & {\color{red}$1$}      &  \multicolumn{1}{|c|}{$y_{111}, y_{112}, \ldots, y_{11n}$} & \multicolumn{1}{|c|}{$y_{121}, y_{122}, \ldots, y_{12n}$} & \multicolumn{1}{|c|}{$\ldots$}          & \multicolumn{1}{|c|}{$y_{1b1}, y_{1b2}, \ldots, y_{1bn}$}  \\ %\hline     %
+                                &                       &  \multicolumn{1}{|c|}{}                                    & \multicolumn{1}{|c|}{}                                    & \multicolumn{1}{|c|}{}                  & \multicolumn{1}{|c|}{}                                     \\ %\hline     %
+                                & {\color{red}$2$}      &  \multicolumn{1}{|c|}{$y_{211}, y_{212}, \ldots, y_{21n}$} & \multicolumn{1}{|c|}{$y_{221}, y_{222}, \ldots, y_{22n}$} & \multicolumn{1}{|c|}{$\ldots$}          & \multicolumn{1}{|c|}{$y_{2b1}, y_{2b2}, \ldots, y_{2bn}$}  \\ %\hline     %
+\textbf{\color{blue}  Fator A} &                       &  \multicolumn{1}{|c|}{}                                    & \multicolumn{1}{|c|}{}                                    & \multicolumn{1}{|c|}{}                  & \multicolumn{1}{|c|}{}                                     \\ %\hline     %
+                                & {\color{red}$\vdots$} &  \multicolumn{1}{|c|}{$\vdots$}                            & \multicolumn{1}{|c|}{$\vdots$}                            & \multicolumn{1}{|c|}{$\vdots$}          & \multicolumn{1}{|c|}{$\vdots$}                             \\ %\hline     %
+                                & {\color{red}$a$}      &  \multicolumn{1}{|c|}{$y_{a11}, y_{a12}, \ldots, y_{a1n}$} & $y_{a21}, y_{a22}, \ldots, y_{a2n}$                       & \multicolumn{1}{|c|}{$\ldots$}          & \multicolumn{1}{|c|}{$y_{ab1}, y_{ab2}, \ldots, y_{abn}$}  \\ \cline{3-6} %
+\end{tabular}
+\end{table}
+
+Essa forma de organização facilita a obtenção de somatórios importantes, como os totais por níveis de cada fator, totais por combinação de tratamentos e o total geral, os quais serão utilizados no cálculo das somas de quadrados.
+
+## Modelo Estatístico
+As observações podem ser descritas pelo seguinte modelo estatístico linear:
+
+\begin{equation}
+y_{ijk} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \epsilon_{ijk},
+\quad \text{com}
+\quad
+\begin{cases}
+i = 1,2,\ldots,a \\
+j = 1,2,\ldots,b \\
+k = 1,2,\ldots,n
+\end{cases}
+\end{equation}
+
+\noindent em que: ($\mu$) é a média geral do experimento; ($\tau_i$) é o efeito do (i)-ésimo nível do fator (A); ($\beta_j$) é o efeito do (j)-ésimo nível do fator (B); ($(\tau\beta)_{ij}$) representa o efeito da interação entre os fatores (A) e (B); e ($\epsilon_{ijk}$) é o erro aleatório associado à observação, assumido com média zero e variância constante.
+
+Esse modelo permite decompor a variabilidade total observada em componentes atribuídos aos fatores principais, à interação entre eles e ao erro experimental, sendo a base para a construção da análise de variância.
+
+## Hipóteses
+
+Em experimentos fatoriais com dois fatores, o interesse é avaliar a significância dos efeitos principais e da interação entre eles.
+
+Inicialmente, testam-se hipóteses relacionadas ao fator (A), isto é, verifica-se se há diferença entre os níveis desse fator:
+
+$$
+H_0: \tau_1 = \tau_2 = \cdots = \tau_a = 0
+$$
+$$
+H_1: \text{pelo menos um } \tau_i \neq 0
+$$
+
+Em seguida, avaliam-se os efeitos do fator (B), por meio das hipóteses:
+
+$$
+H_0: \beta_1 = \beta_2 = \cdots = \beta_b = 0
+$$
+$$
+H_1: \text{pelo menos um } \beta_j \neq 0
+$$
+
+Além dos efeitos principais, é fundamental verificar a existência de interação entre os fatores, ou seja, se o efeito de um fator depende do nível do outro. Para isso, testam-se as hipóteses:
+
+$$
+H_0: (\tau\beta)_{ij} = 0 \quad \text{para todo } i,j
+$$
+$$
+H_1: \text{pelo menos um } (\tau\beta)_{ij} \neq 0
+$$
+
+A rejeição da hipótese de nulidade para a interação indica que os fatores não atuam de forma independente, sendo necessário interpretar os efeitos de um fator dentro dos níveis do outro.
+
+## Análise da Variância
+
+Para a obtenção da ANOVA, consideram-se os seguintes componentes:
+$$
+SQ_{Total} = SQA + SQB + SQA \times B + SQ_{Res}
+$$
+A soma de quadrados total é dada por:
+\begin{eqnarray}
+SQ_{Total} = \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{n} y_{ijk}^2 - \frac{y_{...}^2}{abn}
+\end{eqnarray}
+
+\textbf{Somas de quadrados dos efeitos principais:}
+\begin{eqnarray}
+SQA &=& \sum_{i=1}^{a} \frac{y_{i..}^2}{bn} - \frac{y_{...}^2}{abn} \\[0.2cm]
+SQB &=& \sum_{j=1}^{b} \frac{y_{.j.}^2}{an} - \frac{y_{...}^2}{abn}
+\end{eqnarray}
+\bigskip
+\textbf{Soma de quadrados da interação}
+Inicialmente, calcula-se a soma de quadrados do efeito conjunto de $A$ e $B$:
+$$
+SQA,B = \sum_{i=1}^{a} \sum_{j=1}^{b} \frac{y_{ij.}^2}{n} - \frac{y_{...}^2}{abn}
+$$
+Como essa quantidade contém os efeitos principais, a interação é obtida por:
+$$
+SQA \times B = SQA,B - SQA - SQB
+$$
+\textbf{Soma de quadrados dos resíduos:}
+$$
+SQ_{Res} = SQ_{Total} - SQA - SQB - SQA \times B
+$$
+\medskip
+\textbf{Observação:} Em experimentos fatoriais com dois fatores, a soma de quadrados do efeito conjunto ($SQA,B$) é igual à soma de quadrados de tratamentos.
+\bigskip
+\textbf{Notações utilizadas}
+\begin{eqnarray*}
+y_{...} &=& \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{n} y_{ijk},
+\qquad\qquad \bar{y}{...} = \frac{y{...}}{abn} \\[0.2cm]
+y_{i..} &=& \sum_{j=1}^{b} \sum_{k=1}^{n} y_{ijk},
+\qquad \qquad \quad\; \bar{y}{i..} = \frac{y{i..}}{bn}, \quad i = 1,\ldots,a \\[0.2cm]
+y_{.j.} &=& \sum_{i=1}^{a} \sum_{k=1}^{n} y_{ijk},
+\qquad\qquad\quad\; \bar{y}{.j.} = \frac{y{.j.}}{an}, \quad j = 1,\ldots,b \\[0.2cm]
+y_{ij.} &=& \sum_{k=1}^{n} y_{ijk},
+\qquad\qquad\qquad\;\; \bar{y}{ij.} = \frac{y{ij.}}{n},
+\quad \begin{cases}
+i = 1,\ldots,a \\
+j = 1,\ldots,b
+\end{cases}
+\end{eqnarray*}
+
+
+O procedimento para a realização da análise de variância é resumido:
+
+\begin{table}[H]
+\centering %
+\caption{Análise de variância para um experimento fatorial com 2 fatores. \label{anava}} %
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{ccccc} \hline
+C.V. & S.Q.             & g.l.          & Q.M.                                                       &     $F_{cal}$                          \\ \hline%
+A                 & $SQA$            & $a-1$         & $QMA = \frac{SQA}{a-1}$                                    &  $F_{cal} = \frac{QMA}{QMRes}$                         \\[.2cm]  %
+B                 & $SQB$            & $b-1$         & $QMB = \frac{SQA}{b-1}$                                    &  $F_{cal} = \frac{QMB}{QMRes}$                         \\[.2cm]  %
+$A \times B$      & $SQA\times B$    & $(a-1)(b-1)$  & $QMA\!\times \!\!B = \frac{SQA \! \times \!B}{(a-1)(b-1)}$ &  $F_{cal} = \frac{QMA \times B}{QMRes}$                \\[.2cm] \hline %
+Tratamentos       & $SQTrat$         & (ab-1)         & $QMTrat = \frac{SQTrat}{ab-1}$
+& $F_{cal} = \frac{QMTrat}{QMRes}$                                                   \\ %
+Resíduo           & $SQRes$          & $ab(n-1)$     & $QMRes = \frac{SQRes}{ab(n-1)} $                           &                                                   \\ \hline %
+Total             & $SQTotal$        & $abn-1$       &                                                            &                                                             %
+\end{tabular}
+\end{table}
+
+
+
+A Tabela \ref{dados} apresenta os dados do desenvolvimento das mudas de duas espécies de eucalipto ($E_1$ e $E_2$), plantadas em três tipos de recipientes ($R_1$, $R_2$ e $R_3$).
+
+Em cada combinação de tratamentos, foram realizadas repetições, e os valores destacados em azul correspondem aos totais das observações, isto é, $y_{ij.}$ (totais por combinação de fatores), $y_{i..}$ (totais por recipientes) e $y_{.j.}$ (totais por espécies), além do total geral $y_{...}$.
+
+
+
+\begin{table}[H]
+\centering %
+\caption{Alturas médias das mudas, em centímetros, aos 80 dias de idade. \label{dados}}%
+%\vspace{-.6cm}
+\setlength{\arrayrulewidth}{1.5\arrayrulewidth}
+\begin{tabular}{c|cclccc|r} \hline
+                             & \multicolumn{5}{c}{Espécies}                                        &                                                                       &                                                             \\ \cline{2-7}  %
+\raisebox{.3cm}{Recipientes} & \multicolumn{2}{c}{$E_1$} & {\color{blue} $y_{ij.}$}                & \multicolumn{2}{c}{$E_2$} & {\color{blue} $y_{ij.}$}                  & \multicolumn{1}{c}{\raisebox{.3cm}{{\color{red}$y_{i..}$}}} \\ \hline       %
+                             &    26,2    &     26,0     &                                         &     24,8    &     24,6    &                                           &                                                             \\[-.2cm]       %
+\raisebox{.3cm}{$R_1$}       &    25,0    &     25,4     & \raisebox{.3cm}{{ \color{blue} 102,6}}  &     26,7    &     25,2    &  \raisebox{.3cm}{{ \color{blue} 101,3}}   & \raisebox{.3cm}{{ \color{blue}$203,9$}}                     \\[.2cm]        %
+                             &    25,7    &     26,3     &                                         &     19,6    &     21,1    &                                           &                                                             \\[-.2cm]       %
+\raisebox{.3cm}{$R_2$}       &    25,1    &     26,4     & \raisebox{.3cm}{{ \color{blue} 103,5}}  &     19,0    &     18,6    &  \raisebox{.3cm}{{ \color{blue} ~~78,3}}  & \raisebox{.3cm}{{ \color{blue}$181,8$}}                     \\[.2cm]        %
+                             &    22,8    &     19,4     &                                         &     19,8    &     21,4    &                                           &                                                             \\[-.2cm]       %
+\raisebox{.3cm}{$R_3$}       &    18,8    &     19,2     & \raisebox{.3cm}{{ \color{blue} ~80,2}}  &     22,8    &     21,3    &  \raisebox{.3cm}{{ \color{blue} ~~85,3}}  & \raisebox{.3cm}{{ \color{blue}$165,5$}}                     \\[.2cm] \hline %
+{{\color{red}$y_{.j.}$}}     &            &              &  {{ \color{blue} 286,3}}                &             &             &         {{ \color{blue} 264,9}}           &     {$\color{red}  y_{...}= 551,2$}                   \\ \hline       %
+\end{tabular}
+\end{table}
+
+As somas de quadrados são calculadas a seguir:
+\begin{eqnarray*}
+SQTotal             &=& \displaystyle \sum_{i=1}^{a}  \sum_{j=1}^{b}\sum_{k=1}^{n} y_{ijk}^2 - \displaystyle \frac{y_{...}^2}{abn}.  \\       %
+                    &=& (26,2)^2 + (26,0)^2 + \cdots + (21,3)^2 - \frac{(551,2)^2}{3\times2\times4} = \textbf{\color{red} 198,7933}             \\[.2cm] %
+SQRec               &=& \displaystyle \sum_{i=1}^{a} \frac{y_{i..}^2}{bn} - \displaystyle \frac{y_{...}^2}{abn}                      \\       %
+                    &=& \frac{\left(203,9^2 + 181,8^2 + 165,5^2\right)}{2\times4} - \frac{(551,2)^2}{3\times2\times4} = \textbf{\color{red} 92,86083333}     \\[.2cm] %
+SQEsp               &=& \displaystyle \sum_{j=1}^{b} \frac{y_{.j.}^2}{an} - \displaystyle \frac{y_{...}^2}{abn}.                     \\       %
+                    &=& \frac{\left(286,3^2 + 264,9^2\right)}{3\times4} - \frac{(551,2)^2}{3\times2\times4} = \textbf{\color{red} 19,08166667} \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+SQRec,Esp           &=& \displaystyle \sum_{i=1}^{a} \sum_{j=1}^{b} \frac{y_{ij.}^2}{n} - \displaystyle \frac{y_{...}^2}{abn}        \\       %
+                    &=& \frac{\left(102,6^2 + \cdots + 85,3^2\right)}{4} - \frac{(551,2)^2}{3\times2\times4} = \textbf{\color{red} 175,7033333}    
+                    \\[.4cm] %
+SQRec\times Esp     &=& SQRec,Esp - SQRec - SQEsp                                                                                 \\       %
+                    &=& 175,7 - 92,86 - 19,08  = \textbf{\color{red} 63,76083333}                                                               \\[.4cm] %
+SQRes               &=& SQTotal - SQRec -  SQEsp - SQRec \times Esp                                                                  \\       %
+                    &=& 198,79 - 92,86 - 19,08 - 63,76 =\textbf{\color{red} 23,09}                                                               \\       %
+\end{eqnarray*}
+
+
+Substituindo-se os resultados obtidos na Tabela \ref{anava}, tem-se
+o quadro da análise de variância.
+
+\begin{table}[H]
+\centering %
+\renewcommand{\arraystretch}{2.5}
+%\captionsetup{labelsep=colon, format=hang,width=\textwidth}
+\caption{\label{aanava}Análise de variância de acordo com o esquema
+fatorial $3\times 2$.} %
+\setlength{\arrayrulewidth}{2\arrayrulewidth}
+\begin{tabular}{lr@{,}lcr@{,}lccc} \hline
+Causa de Variação & \multicolumn{2}{c}{S.Q.}  & g.l.    & \multicolumn{2}{c}{Q.M.} &  $F_{calc}$  & $F_{tab}$    &   $ Pr(>F) $     \\ \hline%
+Recipientes (Rec) &  92 & 86083            & $~~2 $  & 46 & 430417            &  $36,20$     &   3,554557   &  4,924e-07 ***   \\[.1cm] %
+Espécies (Esp)    &  19 & 08167            & $~~1 $  & 19 & 081667            &  $14,88$     &   4,413873   &   0,001155 **    \\[.1cm] %
+Rec$\times$Esp           &  63 & 76083            & $~~2 $  & 31 & 880417            &  $24,85$     &   3,554557   &  6,635e-06 ***   \\[.1cm] %
+Resíduo           &  23 & 09000            & $18  $  &  1 & 28278             &              &              &                  \\ \hline%
+Total             & 198 & 79333            & $23  $  & \multicolumn{2}{c}{}     &              &              &                           %
+\end{tabular}
+\end{table}
+
+
+Como $F_{calc} > F_{tab}$ para a interação ($F_{0{,}05;2;18} = 3{,}5546$), conclui-se que há interação significativa entre os fatores recipientes e espécies. Portanto, os efeitos de um fator dependem do nível do outro, sendo necessária a análise dos efeitos simples.
+
+Note que a soma de quadrados associada ao modelo é dada pela soma das contribuições dos fatores principais e da interação, ou seja:
+
+\begin{eqnarray*}
+SQ_{Modelo} &=& SQ_{Rec} + SQ_{Esp} + SQ_{Rec\times Esp} \\
+&=& 92{,}86083 + 19{,}08167 + 63{,}76083 = \textbf{175{,}7033}
+\end{eqnarray*}
+
+Com isso, o coeficiente de determinação do modelo é dado por:
+
+$$
+R^2 = \frac{SQ_{Modelo}}{SQ_{Total}} = \frac{175{,}7033}{198{,}7933} = 0,8838.
+$$
+
+Esse resultado indica que aproximadamente 88% da variabilidade observada no desenvolvimento das mudas é explicada pelos efeitos dos recipientes, das espécies e pela interação entre esses fatores.
+
+Em termos práticos, isso mostra que o modelo ajustado apresenta um bom poder explicativo, restando cerca de 12% da variabilidade associada a fatores não controlados ou ao erro experimental.
+
+## Desdobramento da interação
+
+### Espécies dentro de cada recipiente
+Como a interação entre recipientes e espécies foi significativa, procede-se ao desdobramento dos graus de liberdade da interação, com o objetivo de estudar o comportamento das \textbf{espécies dentro de cada recipiente}.
+
+As somas de quadrados correspondentes são dadas por:
+
+\begin{eqnarray*}
+SQEsp\;d.\;R_1 &=&  \frac{1}{4}\left( 102,6^2 + 101,3^2 \right) -  \frac{(203,9)^2}{8} = 0,21 \\[.3cm]
+SQEsp\;d.\;R_2 &=&  \frac{1}{4}\left( 103,5^2 + 78,3^2 \right) -  \frac{(181,8)^2}{8} = 79,38 \\[.3cm]
+SQEsp\;d.\;R_3 &=&  \frac{1}{4}\left( 80,2^2 + 85,3^2 \right) -  \frac{(165,5)^2}{8} = 3,25
+\end{eqnarray*}
+
+O quadro de análise de variância para o desdobramento é apresentado a seguir.
+
+\begin{table}[H]
+\centering %
+\renewcommand{\arraystretch}{2.5}
+\caption{Estudo das Espécies dentro de cada Recipiente} %
+\vspace{-.3cm}
+\setlength{\arrayrulewidth}{2\arrayrulewidth}
+\begin{tabular}{lr@{,}lcr@{,}lccc} \hline
+Causa de Variação        & \multicolumn{2}{c}{S.Q.}  & g.l.    & \multicolumn{2}{c}{Q.M.} &  $F_{calc}$  & $F_{tab}$    &   $ Pr(>F) $     \\ \hline%
+Recipientes              &  92 & 86                  & $~~2$   & 46 & 43                  & 36,20        &   3,554557   &  4,924e-07 ***   \\[.1cm] %
+\quad Recip:Espec        &  (82 & 84)                & $(~~3)$ & 27 & 61                  & 21,53        &   3,1599     &  $< 0,0001 ***$   \\[.1cm] \hline %
+\qquad Espécies d. $R_1$ &   0 & 21                  & $~~1 $  &  0 & 21                  &  $ 0,16$     &   3,554557   &  $0,6897^{ns}$    \\[.1cm] %
+\qquad Espécies d. $R_2$ &  79 & 38                  & $~~1 $  & 79 & 38                  &  $61,88$     &   4,413873   &  $< 0,0001 **$    \\[.1cm] %
+\qquad Espécies d. $R_3$ &   3 & 25                  & $~~1 $  &  3 & 25                  &  $ 2,53$     &   4,413873   &  $0,1288^{ns}$    \\[.1cm] \hline%
+Resíduo                  &  23 & 09000000            & $18  $  &  1 & 2827778             &              &              &                  \\ \hline%
+Total                    & 198 & 79333333            & $23  $  & \multicolumn{2}{c}{}     &              &              &                           %
+\end{tabular}
+\end{table}
+
+\textbf{Interpretação dos resultados}
+
+Considerando que o fator espécies possui apenas dois níveis, a interpretação pode ser feita diretamente a partir dos testes $F$, sem necessidade de procedimentos de comparação múltipla.
+
+Dessa forma, conclui-se que:
+
+- Para o recipiente $R_1$ (saco plástico pequeno), não há diferença significativa entre as espécies ($p = 0{,}6897$);
+
+- Para o recipiente $R_2$ (saco plástico grande), há diferença significativa entre as espécies ($p < 0{,}0001$), sendo a espécie $E_1$ superior em termos de desenvolvimento;
+
+- Para o recipiente $R_3$ (laminado), não há diferença significativa entre as espécies ($p = 0{,}1288$).
+
+
+Esses resultados evidenciam que o efeito das espécies depende do tipo de recipiente utilizado, confirmando a presença de interação entre os fatores.
+
+Como o fator espécies apresenta apenas dois níveis, não há necessidade de aplicar testes de comparações múltiplas. Nesse caso, o próprio teste $F$ da análise de variância já é suficiente para avaliar a diferença entre as médias, permitindo uma interpretação direta dos resultados.
+
+### Recipientes dentro de cada espécie
+
+Como a interação entre recipientes e espécies foi significativa, procede-se também ao desdobramento para estudar o comportamento dos \textbf{recipientes dentro de cada espécie}.
+
+As somas de quadrados são dadas por:
+
+\begin{eqnarray*}
+SQRec\;d.\;E_1 &=&  \frac{1}{4}\left( 102,6^2 + 103,5^2 + 80,2^2 \right) -  \frac{(286,3)^2}{12} = 87,12 \\[.3cm]
+SQRec\;d.\;E_2 &=&  \frac{1}{4}\left( 101,3^2 + 78,3^2 + 85,3^2 \right) -  \frac{(264,9)^2}{12} = 69,50 \\[.3cm]
+\end{eqnarray*}
+
+O quadro de análise de variância para o desdobramento é apresentado a seguir.
+
+\begin{table}[H]
+\centering %
+\renewcommand{\arraystretch}{2.5}
+\caption{Estudo dos Recipientes dentro de cada Espécie.} %
+\setlength{\arrayrulewidth}{2\arrayrulewidth}
+\begin{tabular}{lr@{,}lcr@{,}lccc} \hline
+Causa de Variação        & \multicolumn{2}{c}{S.Q.}  & g.l.    & \multicolumn{2}{c}{Q.M.} &  $F_{calc}$  & $F_{tab}$    &   $ Pr(>F) $     \\ \hline%
+Espécies                 &  19 & 08                  & $~~1$   & 19 & 08                  & 14,88        &   4,413873   &  0,0012 ***   \\[.1cm] %
+\quad Espec:Recip        &  (156 & 62)               & $(~~4)$ & 39 & 16                  & 30,52        &   2,927744     &  $< 0,0001 ***$   \\[.1cm] \hline %
+\qquad Recip d. $E_1$    &  87 & 12                  & $~~2 $  & 43 & 56                  & 33,96        &   3,554557   &  $7,776e-07 ***$   \\[.1cm] %
+\qquad Recip d. $E_2$    &  69 & 50                  & $~~2 $  & 34 & 75                  & 27,09        &   3,554557   &  $3,730e-06 ***$   \\[.1cm] \hline %
+Resíduo                  &  23 & 09000000            & $18  $  &  1 & 2827778             &              &              &                  \\ \hline%
+Total                    & 198 & 79333333            & $23  $  & \multicolumn{2}{c}{}     &              &              &                           %
+\end{tabular}
+\end{table}
+
+O quadro de análise de variância indica que:
+
+- Os recipientes apresentam efeito significativo sobre o desenvolvimento das mudas da espécie $E_1$ ($p < 0{,}0001$);
+- Os recipientes também apresentam efeito significativo sobre o desenvolvimento das mudas da espécie $E_2$ ($p < 0{,}0001$).
+
+
+Portanto, em ambas as espécies, existem diferenças entre as médias dos recipientes.
+
+Como o fator recipientes possui mais de dois níveis, torna-se necessário aplicar um teste de comparações múltiplas, como o teste de Tukey, para identificar quais médias diferem entre si dentro de cada espécie.
+
+#### Teste de Tukey
+
+**Recipentes dentro de $E_1$**
+
+Assume-se que a melhor estimativa da variância residual é o $QMRes$ da tabela da análise de variância, utilizando a suposição de que a variância residual experimental é a mesma para todos os tratamentos. As três médias para recipientes, em ordem decrescente, são:
+
+\begin{tabular}{ll}
+$\bar{y}_{21.} = \displaystyle \frac{103,5}{4} = 25,875 \, cm$ & ($R_2$ - saco plástico grande ) \\[.4cm] %
+$\bar{y}_{11.} = \displaystyle \frac{102,6}{4} = 25,650 \, cm$ & ($R_1$ - saco plástico pequeno) \\[.4cm] %
+$\bar{y}_{31.} = \displaystyle \frac{ 80,2}{4} = 20,050 \, cm$ & ($R_3$ - laminado             ) \end{tabular}
+
+\medskip
+
+\noindent A diferença mínima significativa pelo teste de Tukey é:
+\begin{eqnarray*} \label{delta}
+{\color{red} \Delta = q \sqrt{\displaystyle \frac{QMRes}{n}} = 3,6093 \times \sqrt{\displaystyle \frac{1,2827778}{4}} = \textbf{\color{red} 2,04 \; cm}}
+\end{eqnarray*}
+
+e as comparações das médias dos recipientes geram: 
+
+\begin{tabular}{lllllll}
+$R_2 \; \mbox{ vs } \; R_1$ & = & $25,875 - 25,650$ & = & {$\color{blue} 0,225 \; cm$} & $<$ & $2,04 \;cm$  \\[.3cm] %
+$R_2 \; \mbox{ vs } \; R_3$ & = & $25,875 - 20,050$ & = & {$\color{red} 5,825  \; cm$} & $>$ & $2,04 \;cm$  \\[.3cm] %
+$R_1 \; \mbox{ vs } \; R_3$ & = & $25,650 - 20,050$ & = & {$\color{red} 5,6    \; cm$} & $>$ & $2,04 \;cm$  \\ %
+\end{tabular}
+
+
+\textbf{Conclusão:} Para o \emph{\color{blue} Eucalyptus citriodora} $(E_1)$, os melhores recipientes foram os sacos plásticos ($R_1$ e $R_2$), que determinaram desenvolvimento de mudas significativamente maiores que o laminado ($R_3$), sem diferirem entre si.
+
+**Recipentes dentro de $E_2$**
+
+Neste caso, as três médias para recipientes,  em ordem decrescente,
+são:
+
+\begin{tabular}{ll}
+$\bar{y}_{12.} = \displaystyle \frac{101,3}{4} = 25,325 cm$ & ($R_1$ - saco plástico pequeno) \\[.3cm] %
+$\bar{y}_{32.} = \displaystyle \frac{ 85,3}{4} = 21,325 cm$ & ($R_3$ - laminado)              \\[.3cm] %
+$\bar{y}_{22.} = \displaystyle \frac{ 78.3}{4} = 19,575 cm$ & ($R_2$ - saco plástico grande)  \\ %
+\end{tabular}
+
+%\medskip
+
+\noindent A diferença mínima significativa, pelo teste de Tukey, e as comparações das médias dos
+recipientes geram:
+
+\begin{tabular}{lllllll}
+\qquad $R_1 \; \mbox{ vs } \; R_3$ & = & $25,325 - 21,325$ & = & {$\color{red} 4,00 \; cm$} & $>$ & $2,04 \;cm$  \\ %
+\qquad $R_1 \; \mbox{ vs } \; R_2$ & = & $25,325 - 19,575$ & = & {$\color{red}  5,75 \; cm$} & $>$ & $2,04 \;cm$  \\ %
+\qquad $R_3 \; \mbox{ vs } \; R_2$ & = & $21,325 - 19,575$ & = & {$\color{blue} 1,75  \; cm$} & $<$ & $2,04 \;cm$  \\ %
+\end{tabular}
+
+\noindent \textbf{\color{red} Conclusão:} Para o \emph{\color{blue} Eucalyptus grandis} $(E_2)$,
+o melhor recipiente foi o saco plástico pequeno ($R_1$), que
+determinou desenvolvimento de mudas significativamente maior que o
+saco plástico grande ($R_2$) e que o laminado.
+
+
+
+
+
+Para facilitar a interpretação dos resultados, apresenta-se a seguir o agrupamento das médias pelo teste de Tukey (5%):
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|ccc}
+\hline
+\textbf{Espécie} & \textbf{$R_1$} & \textbf{$R_2$} & \textbf{$R_3$} \\
+\hline
+$E_1$ & 25,650 a & 25,875 a & 20,050 b \\
+$E_2$ & 25,325 a & 19,575 b & 21,325 b \\
+\hline
+\end{tabular}
+\end{table}
+
+Observa-se que, em $E_1$, os recipientes $R_1$ e $R_2$ não diferem entre si, sendo superiores a $R_3$. Já em $E_2$, o recipiente $R_1$ apresenta média superior, enquanto $R_2$ e $R_3$ não diferem entre si.
+
+```r
+rm(list=ls())
+
+recip = c('R1','R1','R1','R1','R1','R1','R1','R1','R2','R2','R2','R2',
+'R2','R2','R2','R2','R3','R3','R3','R3','R3','R3','R3','R3') 
+
+espec = c('E1','E1','E1','E1','E2','E2','E2','E2','E1','E1','E1','E1',
+'E2','E2','E2','E2','E1','E1','E1','E1','E2','E2','E2','E2')
+
+alturas = c(26.2, 26.0, 25.0, 25.4,24.8, 24.6, 26.7, 25.2,25.7, 26.3, 25.1, 
+26.4,19.6, 21.1, 19.0, 18.6,22.8, 19.4, 18.8, 19.2,19.8, 21.4, 22.8, 21.3)
+
+AgroR::FAT2DIC(recip,espec,alturas)
+
+```
+
+

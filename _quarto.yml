@@ -21,6 +21,8 @@ book:
     - Experimental_TE.qmd
     - DIC_TE.qmd
     - TCM_TE.qmd
+    - DBC_TE.qmd
+    - Fatoriais_TE.qmd
     - references.qmd 
     
 
