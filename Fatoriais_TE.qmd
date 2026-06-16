@@ -6,7 +6,6 @@ Cada fator pode assumir diferentes condições ou categorias, denominadas \textb
 
 O tipo mais simples de experimento fatorial é o $2 \times 2$, no qual são estudados \textbf{\color{red} dois fatores}, cada um com \textbf{\color{red} dois níveis}. Esse arranjo resulta em quatro combinações de tratamentos, permitindo avaliar tanto os efeitos principais quanto a interação entre os fatores.
 
-
 \textbf{Exemplo 1}: Considere um experimento em que se deseja estudar os efeitos de duas variedades e dois espaçamentos sobre uma variável resposta. Nesse caso, tem-se um experimento fatorial $2 \times 2$, no qual os fatores são variedades e espaçamento, cada um com dois níveis ($V_1$ e $V_2$; $E_1$ e $E_2$, respectivamente).
 
 Os tratamentos correspondem a todas as combinações possíveis entre os níveis dos fatores, totalizando $2 \times 2 = 4$ tratamentos:
@@ -17,7 +16,6 @@ $$
 {\color{red}V_2}{\color{blue}E_1} \qquad
 {\color{red}V_2}{\color{blue}E_2}.
 $$
-
 
 \textbf{Exemplo 2}: Considere agora um experimento fatorial $3 \times 2$, no qual se avaliam três espécies ($E_1$, $E_2$, $E_3$) e dois níveis de adubação ($A_0$, $A_1$). Nesse caso, tem-se $3 \times 2 = 6$ tratamentos, resultantes de todas as combinações possíveis entre os níveis dos fatores:
 
@@ -45,26 +43,19 @@ $E_3$ & 15 & 25 \\ \hline
 \end{tabular}
 \end{table}
 
-Na Tabela \ref{tab:fatorial32} podemos observar o comportamento de um fator dentro dos níveis do outro fator. Por exemplo, fixando o nível de adubação $A_0$, pode-se comparar as espécies:
-$$
+Na Tabela \ref{tab:fatorial32} podemos observar o comportamento de um fator dentro dos níveis do outro fator. Por exemplo, fixando o nível de adubação $A_0$, pode-se comparar as espécies: $$
 E_1 = 5, \quad E_2 = 10, \quad E_3 = 15,
-$$
-observando-se um aumento na resposta com a mudança de espécie.
+$$ observando-se um aumento na resposta com a mudança de espécie.
 
-De forma análoga, para o nível de adubação $A_1$:
-$$
+De forma análoga, para o nível de adubação $A_1$: $$
 E_1 = 10, \quad E_2 = 15, \quad E_3 = 25,
-$$
-também se verifica aumento da resposta entre as espécies.
+$$ também se verifica aumento da resposta entre as espécies.
 
-Por outro lado, fixando cada espécie, pode-se avaliar o efeito da adubação. Por exemplo, para $E_1$:
-$$
+Por outro lado, fixando cada espécie, pode-se avaliar o efeito da adubação. Por exemplo, para $E_1$: $$
 A_0 = 5 \quad \text{e} \quad A_1 = 10,
-$$
-indicando aumento com a aplicação de adubo. Esse mesmo comportamento ocorre para $E_2$ e $E_3$.
+$$ indicando aumento com a aplicação de adubo. Esse mesmo comportamento ocorre para $E_2$ e $E_3$.
 
 Assim, a interpretação em experimentos fatoriais podemos considerar comparações dentro de linhas e dentro de colunas, permitindo avaliar como um fator se comporta em cada nível do outro.
-
 
 \textbf{Exemplo 3}: Considere um experimento fatorial $2 \times 2$, envolvendo os fatores Adubo (A) e Calcário (C), cada um em dois níveis. Para o fator Adubo, consideram-se os níveis $A_0$ (sem adubo) e $A_1$ (com adubo), enquanto para o fator Calcário, os níveis são $C_0$ (sem calcário) e $C_1$ (com calcário). Esses tratamentos foram aplicados a uma plantação, sendo obtidos os seguintes valores de produção:
 
@@ -85,31 +76,25 @@ O estudo de experimentos fatoriais permite avaliar não apenas os efeitos isolad
 
 \textbf{Efeito simples de um fator} é a variação observada na variável resposta em função dos níveis desse fator, considerando um nível fixo do outro fator.
 
- Assim, os efeitos simples do fator Adubo são dados por:
-$$
+Assim, os efeitos simples do fator Adubo são dados por: $$
 A_{(\text{dentro de } C_0)} = A_1C_0 - A_0C_0 = 32 - 14 = 18
-$$
-$$
+$$ $$
 A_{(\text{dentro de } C_1)} = A_1C_1 - A_0C_1 = 53 - 23 = 30
 $$
 
-De forma análoga, os efeitos simples do fator Calcário são:
-$$
+De forma análoga, os efeitos simples do fator Calcário são: $$
 C_{(\text{dentro de } A_0)} = A_0C_1 - A_0C_0 = 23 - 14 = 9
-$$
-$$
+$$ $$
 C_{(\text{dentro de } A_1)} = A_1C_1 - A_1C_0 = 53 - 32 = 21
 $$
 
 A partir dos efeitos simples, pode-se definir o \textbf{efeito principal} de cada fator, que corresponde ao efeito médio desse fator ao longo dos níveis do outro fator.
 
-O efeito principal do fator Adubo é dado por:
-$$
+O efeito principal do fator Adubo é dado por: $$
 \text{Efeito de A} = \frac{18 + 30}{2} = 24
 $$
 
-Enquanto o efeito principal do fator Calcário é:
-$$
+Enquanto o efeito principal do fator Calcário é: $$
 \text{Efeito de C} = \frac{9 + 21}{2} = 15
 $$
 
@@ -125,19 +110,17 @@ Do ponto de vista prático, a presença de interação indica que os fatores nã
 
 As principais \textbf{\color{red}vantagens} dos experimentos fatoriais, em comparação aos experimentos simples, são:
 
-- Possibilitam o estudo simultâneo de dois ou mais fatores em um único experimento.
+-   Possibilitam o estudo simultâneo de dois ou mais fatores em um único experimento.
 
-- Permitem avaliar a existência de interação entre os fatores, isto é, verificar se o efeito de um fator depende dos níveis dos demais fatores.
-
+-   Permitem avaliar a existência de interação entre os fatores, isto é, verificar se o efeito de um fator depende dos níveis dos demais fatores.
 
 Por outro lado, as principais \textbf{\color{red}desvantagens} dos experimentos fatoriais são:
 
-- O número de tratamentos (combinações de níveis dos fatores) cresce rapidamente com o aumento do número de fatores e/ou do número de níveis de cada fator, podendo tornar o experimento mais oneroso e difícil de conduzir.
+-   O número de tratamentos (combinações de níveis dos fatores) cresce rapidamente com o aumento do número de fatores e/ou do número de níveis de cada fator, podendo tornar o experimento mais oneroso e difícil de conduzir.
 
-- A interpretação dos resultados torna-se mais complexa à medida que aumenta o número de fatores e níveis, especialmente na presença de interações.
+-   A interpretação dos resultados torna-se mais complexa à medida que aumenta o número de fatores e níveis, especialmente na presença de interações.
 
-
-# Experimento fatoria com 2 fatores
+## Experimento fatorial com 2 fatores
 
 Considere os dados apresentados na Tabela \ref{tab:dados}, provenientes de um experimento conduzido no delineamento inteiramente casualizado, em esquema fatorial (3 \times 2). O objetivo do estudo foi avaliar o efeito de três tipos de recipientes utilizados na produção de mudas e de duas espécies de eucalipto sobre o desenvolvimento das plantas.
 
@@ -198,7 +181,8 @@ De forma geral, essa organização é apresentada na Tabela \ref{tab:generico}.
 
 Essa forma de organização facilita a obtenção de somatórios importantes, como os totais por níveis de cada fator, totais por combinação de tratamentos e o total geral, os quais serão utilizados no cálculo das somas de quadrados.
 
-## Modelo Estatístico
+### Modelo Estatístico
+
 As observações podem ser descritas pelo seguinte modelo estatístico linear:
 
 \begin{equation}
@@ -216,7 +200,7 @@ k = 1,2,\ldots,n
 
 Esse modelo permite decompor a variabilidade total observada em componentes atribuídos aos fatores principais, à interação entre eles e ao erro experimental, sendo a base para a construção da análise de variância.
 
-## Hipóteses
+### Hipóteses
 
 Em experimentos fatoriais com dois fatores, o interesse é avaliar a significância dos efeitos principais e da interação entre eles.
 
@@ -224,8 +208,7 @@ Inicialmente, testam-se hipóteses relacionadas ao fator (A), isto é, verifica-
 
 $$
 H_0: \tau_1 = \tau_2 = \cdots = \tau_a = 0
-$$
-$$
+$$ $$
 H_1: \text{pelo menos um } \tau_i \neq 0
 $$
 
@@ -233,8 +216,7 @@ Em seguida, avaliam-se os efeitos do fator (B), por meio das hipóteses:
 
 $$
 H_0: \beta_1 = \beta_2 = \cdots = \beta_b = 0
-$$
-$$
+$$ $$
 H_1: \text{pelo menos um } \beta_j \neq 0
 $$
 
@@ -242,48 +224,30 @@ Além dos efeitos principais, é fundamental verificar a existência de interaç
 
 $$
 H_0: (\tau\beta)_{ij} = 0 \quad \text{para todo } i,j
-$$
-$$
+$$ $$
 H_1: \text{pelo menos um } (\tau\beta)_{ij} \neq 0
 $$
 
 A rejeição da hipótese de nulidade para a interação indica que os fatores não atuam de forma independente, sendo necessário interpretar os efeitos de um fator dentro dos níveis do outro.
 
-## Análise da Variância
+### Análise da Variância
 
-Para a obtenção da ANOVA, consideram-se os seguintes componentes:
-$$
+Para a obtenção da ANOVA, consideram-se os seguintes componentes: $$
 SQ_{Total} = SQA + SQB + SQA \times B + SQ_{Res}
-$$
-A soma de quadrados total é dada por:
-\begin{eqnarray}
+$$ A soma de quadrados total é dada por: \begin{eqnarray}
 SQ_{Total} = \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{n} y_{ijk}^2 - \frac{y_{...}^2}{abn}
 \end{eqnarray}
 
-\textbf{Somas de quadrados dos efeitos principais:}
-\begin{eqnarray}
+\textbf{Somas de quadrados dos efeitos principais:} \begin{eqnarray}
 SQA &=& \sum_{i=1}^{a} \frac{y_{i..}^2}{bn} - \frac{y_{...}^2}{abn} \\[0.2cm]
 SQB &=& \sum_{j=1}^{b} \frac{y_{.j.}^2}{an} - \frac{y_{...}^2}{abn}
-\end{eqnarray}
-\bigskip
-\textbf{Soma de quadrados da interação}
-Inicialmente, calcula-se a soma de quadrados do efeito conjunto de $A$ e $B$:
-$$
+\end{eqnarray} \bigskip \textbf{Soma de quadrados da interação} Inicialmente, calcula-se a soma de quadrados do efeito conjunto de $A$ e $B$: $$
 SQA,B = \sum_{i=1}^{a} \sum_{j=1}^{b} \frac{y_{ij.}^2}{n} - \frac{y_{...}^2}{abn}
-$$
-Como essa quantidade contém os efeitos principais, a interação é obtida por:
-$$
+$$ Como essa quantidade contém os efeitos principais, a interação é obtida por: $$
 SQA \times B = SQA,B - SQA - SQB
-$$
-\textbf{Soma de quadrados dos resíduos:}
-$$
+$$ \textbf{Soma de quadrados dos resíduos:} $$
 SQ_{Res} = SQ_{Total} - SQA - SQB - SQA \times B
-$$
-\medskip
-\textbf{Observação:} Em experimentos fatoriais com dois fatores, a soma de quadrados do efeito conjunto ($SQA,B$) é igual à soma de quadrados de tratamentos.
-\bigskip
-\textbf{Notações utilizadas}
-\begin{eqnarray*}
+$$ \medskip \textbf{Observação:} Em experimentos fatoriais com dois fatores, a soma de quadrados do efeito conjunto ($SQA,B$) é igual à soma de quadrados de tratamentos. \bigskip \textbf{Notações utilizadas} \begin{eqnarray*}
 y_{...} &=& \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{n} y_{ijk},
 \qquad\qquad \bar{y}{...} = \frac{y{...}}{abn} \\[0.2cm]
 y_{i..} &=& \sum_{j=1}^{b} \sum_{k=1}^{n} y_{ijk},
@@ -297,7 +261,6 @@ i = 1,\ldots,a \\
 j = 1,\ldots,b
 \end{cases}
 \end{eqnarray*}
-
 
 O procedimento para a realização da análise de variância é resumido:
 
@@ -317,13 +280,9 @@ Total             & $SQTotal$        & $abn-1$       &                          
 \end{tabular}
 \end{table}
 
-
-
 A Tabela \ref{dados} apresenta os dados do desenvolvimento das mudas de duas espécies de eucalipto ($E_1$ e $E_2$), plantadas em três tipos de recipientes ($R_1$, $R_2$ e $R_3$).
 
 Em cada combinação de tratamentos, foram realizadas repetições, e os valores destacados em azul correspondem aos totais das observações, isto é, $y_{ij.}$ (totais por combinação de fatores), $y_{i..}$ (totais por recipientes) e $y_{.j.}$ (totais por espécies), além do total geral $y_{...}$.
-
-
 
 \begin{table}[H]
 \centering %
@@ -343,8 +302,7 @@ Em cada combinação de tratamentos, foram realizadas repetições, e os valores
 \end{tabular}
 \end{table}
 
-As somas de quadrados são calculadas a seguir:
-\begin{eqnarray*}
+As somas de quadrados são calculadas a seguir: \begin{eqnarray*}
 SQTotal             &=& \displaystyle \sum_{i=1}^{a}  \sum_{j=1}^{b}\sum_{k=1}^{n} y_{ijk}^2 - \displaystyle \frac{y_{...}^2}{abn}.  \\       %
                     &=& (26,2)^2 + (26,0)^2 + \cdots + (21,3)^2 - \frac{(551,2)^2}{3\times2\times4} = \textbf{\color{red} 198,7933}             \\[.2cm] %
 SQRec               &=& \displaystyle \sum_{i=1}^{a} \frac{y_{i..}^2}{bn} - \displaystyle \frac{y_{...}^2}{abn}                      \\       %
@@ -363,9 +321,7 @@ SQRes               &=& SQTotal - SQRec -  SQEsp - SQRec \times Esp             
                     &=& 198,79 - 92,86 - 19,08 - 63,76 =\textbf{\color{red} 23,09}                                                               \\       %
 \end{eqnarray*}
 
-
-Substituindo-se os resultados obtidos na Tabela \ref{anava}, tem-se
-o quadro da análise de variância.
+Substituindo-se os resultados obtidos na Tabela \ref{anava}, tem-se o quadro da análise de variância.
 
 \begin{table}[H]
 \centering %
@@ -383,7 +339,6 @@ Resíduo           &  23 & 09000            & $18  $  &  1 & 28278             &
 Total             & 198 & 79333            & $23  $  & \multicolumn{2}{c}{}     &              &              &                           %
 \end{tabular}
 \end{table}
-
 
 Como $F_{calc} > F_{tab}$ para a interação ($F_{0{,}05;2;18} = 3{,}5546$), conclui-se que há interação significativa entre os fatores recipientes e espécies. Portanto, os efeitos de um fator dependem do nível do outro, sendo necessária a análise dos efeitos simples.
 
@@ -404,9 +359,10 @@ Esse resultado indica que aproximadamente 88% da variabilidade observada no dese
 
 Em termos práticos, isso mostra que o modelo ajustado apresenta um bom poder explicativo, restando cerca de 12% da variabilidade associada a fatores não controlados ou ao erro experimental.
 
-## Desdobramento da interação
+### Desdobramento da interação
 
-### Espécies dentro de cada recipiente
+#### Espécies dentro de cada recipiente
+
 Como a interação entre recipientes e espécies foi significativa, procede-se ao desdobramento dos graus de liberdade da interação, com o objetivo de estudar o comportamento das \textbf{espécies dentro de cada recipiente}.
 
 As somas de quadrados correspondentes são dadas por:
@@ -443,18 +399,17 @@ Considerando que o fator espécies possui apenas dois níveis, a interpretação
 
 Dessa forma, conclui-se que:
 
-- Para o recipiente $R_1$ (saco plástico pequeno), não há diferença significativa entre as espécies ($p = 0{,}6897$);
+-   Para o recipiente $R_1$ (saco plástico pequeno), não há diferença significativa entre as espécies ($p = 0{,}6897$);
 
-- Para o recipiente $R_2$ (saco plástico grande), há diferença significativa entre as espécies ($p < 0{,}0001$), sendo a espécie $E_1$ superior em termos de desenvolvimento;
+-   Para o recipiente $R_2$ (saco plástico grande), há diferença significativa entre as espécies ($p < 0{,}0001$), sendo a espécie $E_1$ superior em termos de desenvolvimento;
 
-- Para o recipiente $R_3$ (laminado), não há diferença significativa entre as espécies ($p = 0{,}1288$).
-
+-   Para o recipiente $R_3$ (laminado), não há diferença significativa entre as espécies ($p = 0{,}1288$).
 
 Esses resultados evidenciam que o efeito das espécies depende do tipo de recipiente utilizado, confirmando a presença de interação entre os fatores.
 
 Como o fator espécies apresenta apenas dois níveis, não há necessidade de aplicar testes de comparações múltiplas. Nesse caso, o próprio teste $F$ da análise de variância já é suficiente para avaliar a diferença entre as médias, permitindo uma interpretação direta dos resultados.
 
-### Recipientes dentro de cada espécie
+#### Recipientes dentro de cada espécie
 
 Como a interação entre recipientes e espécies foi significativa, procede-se também ao desdobramento para estudar o comportamento dos \textbf{recipientes dentro de cada espécie}.
 
@@ -485,9 +440,8 @@ Total                    & 198 & 79333333            & $23  $  & \multicolumn{2}
 
 O quadro de análise de variância indica que:
 
-- Os recipientes apresentam efeito significativo sobre o desenvolvimento das mudas da espécie $E_1$ ($p < 0{,}0001$);
-- Os recipientes também apresentam efeito significativo sobre o desenvolvimento das mudas da espécie $E_2$ ($p < 0{,}0001$).
-
+-   Os recipientes apresentam efeito significativo sobre o desenvolvimento das mudas da espécie $E_1$ ($p < 0{,}0001$);
+-   Os recipientes também apresentam efeito significativo sobre o desenvolvimento das mudas da espécie $E_2$ ($p < 0{,}0001$).
 
 Portanto, em ambas as espécies, existem diferenças entre as médias dos recipientes.
 
@@ -495,7 +449,7 @@ Como o fator recipientes possui mais de dois níveis, torna-se necessário aplic
 
 #### Teste de Tukey
 
-**Recipentes dentro de $E_1$**
+**Recipentes dentro de** $E_1$
 
 Assume-se que a melhor estimativa da variância residual é o $QMRes$ da tabela da análise de variância, utilizando a suposição de que a variância residual experimental é a mesma para todos os tratamentos. As três médias para recipientes, em ordem decrescente, são:
 
@@ -506,12 +460,11 @@ $\bar{y}_{31.} = \displaystyle \frac{ 80,2}{4} = 20,050 \, cm$ & ($R_3$ - lamina
 
 \medskip
 
-\noindent A diferença mínima significativa pelo teste de Tukey é:
-\begin{eqnarray*} \label{delta}
+\noindent A diferença mínima significativa pelo teste de Tukey é: \begin{eqnarray*} \label{delta}
 {\color{red} \Delta = q \sqrt{\displaystyle \frac{QMRes}{n}} = 3,6093 \times \sqrt{\displaystyle \frac{1,2827778}{4}} = \textbf{\color{red} 2,04 \; cm}}
 \end{eqnarray*}
 
-e as comparações das médias dos recipientes geram: 
+e as comparações das médias dos recipientes geram:
 
 \begin{tabular}{lllllll}
 $R_2 \; \mbox{ vs } \; R_1$ & = & $25,875 - 25,650$ & = & {$\color{blue} 0,225 \; cm$} & $<$ & $2,04 \;cm$  \\[.3cm] %
@@ -519,13 +472,11 @@ $R_2 \; \mbox{ vs } \; R_3$ & = & $25,875 - 20,050$ & = & {$\color{red} 5,825  \
 $R_1 \; \mbox{ vs } \; R_3$ & = & $25,650 - 20,050$ & = & {$\color{red} 5,6    \; cm$} & $>$ & $2,04 \;cm$  \\ %
 \end{tabular}
 
-
 \textbf{Conclusão:} Para o \emph{\color{blue} Eucalyptus citriodora} $(E_1)$, os melhores recipientes foram os sacos plásticos ($R_1$ e $R_2$), que determinaram desenvolvimento de mudas significativamente maiores que o laminado ($R_3$), sem diferirem entre si.
 
-**Recipentes dentro de $E_2$**
+**Recipentes dentro de** $E_2$
 
-Neste caso, as três médias para recipientes,  em ordem decrescente,
-são:
+Neste caso, as três médias para recipientes, em ordem decrescente, são:
 
 \begin{tabular}{ll}
 $\bar{y}_{12.} = \displaystyle \frac{101,3}{4} = 25,325 cm$ & ($R_1$ - saco plástico pequeno) \\[.3cm] %
@@ -533,10 +484,9 @@ $\bar{y}_{32.} = \displaystyle \frac{ 85,3}{4} = 21,325 cm$ & ($R_3$ - laminado)
 $\bar{y}_{22.} = \displaystyle \frac{ 78.3}{4} = 19,575 cm$ & ($R_2$ - saco plástico grande)  \\ %
 \end{tabular}
 
-%\medskip
+\%\medskip
 
-\noindent A diferença mínima significativa, pelo teste de Tukey, e as comparações das médias dos
-recipientes geram:
+\noindent A diferença mínima significativa, pelo teste de Tukey, e as comparações das médias dos recipientes geram:
 
 \begin{tabular}{lllllll}
 \qquad $R_1 \; \mbox{ vs } \; R_3$ & = & $25,325 - 21,325$ & = & {$\color{red} 4,00 \; cm$} & $>$ & $2,04 \;cm$  \\ %
@@ -544,14 +494,7 @@ recipientes geram:
 \qquad $R_3 \; \mbox{ vs } \; R_2$ & = & $21,325 - 19,575$ & = & {$\color{blue} 1,75  \; cm$} & $<$ & $2,04 \;cm$  \\ %
 \end{tabular}
 
-\noindent \textbf{\color{red} Conclusão:} Para o \emph{\color{blue} Eucalyptus grandis} $(E_2)$,
-o melhor recipiente foi o saco plástico pequeno ($R_1$), que
-determinou desenvolvimento de mudas significativamente maior que o
-saco plástico grande ($R_2$) e que o laminado.
-
-
-
-
+\noindent \textbf{\color{red} Conclusão:} Para o \emph{\color{blue} Eucalyptus grandis} $(E_2)$, o melhor recipiente foi o saco plástico pequeno ($R_1$), que determinou desenvolvimento de mudas significativamente maior que o saco plástico grande ($R_2$) e que o laminado.
 
 Para facilitar a interpretação dos resultados, apresenta-se a seguir o agrupamento das médias pelo teste de Tukey (5%):
 
@@ -569,7 +512,7 @@ $E_2$ & 25,325 a & 19,575 b & 21,325 b \\
 
 Observa-se que, em $E_1$, os recipientes $R_1$ e $R_2$ não diferem entre si, sendo superiores a $R_3$. Já em $E_2$, o recipiente $R_1$ apresenta média superior, enquanto $R_2$ e $R_3$ não diferem entre si.
 
-```r
+``` r
 rm(list=ls())
 
 recip = c('R1','R1','R1','R1','R1','R1','R1','R1','R2','R2','R2','R2',
@@ -582,7 +525,573 @@ alturas = c(26.2, 26.0, 25.0, 25.4,24.8, 24.6, 26.7, 25.2,25.7, 26.3, 25.1,
 26.4,19.6, 21.1, 19.0, 18.6,22.8, 19.4, 18.8, 19.2,19.8, 21.4, 22.8, 21.3)
 
 AgroR::FAT2DIC(recip,espec,alturas)
-
 ```
+
+## Experimento fatorial com 3 fatores
+
+Muitos experimentos na área agronômica envolvem o estudo simultâneo de mais de dois fatores. Nessas situações, a análise isolada de cada fator pode não ser suficiente para descrever adequadamente o comportamento da variável resposta, uma vez que podem existir interações entre os fatores.
+
+Quando um experimento envolve três ou mais fatores, a abordagem adequada é a utilização de experimentos fatoriais. Esses experimentos permitem avaliar não apenas os efeitos principais de cada fator, mas também as possíveis interações entre eles.
+
+Diante disso, surgem algumas questões fundamentais:
+
+\begin{itemize}
+\item Como proceder à análise estatística quando há três ou mais fatores?
+\item Qual modelo estatístico deve ser adotado?
+\item Como interpretar os efeitos de interação entre os fatores?
+\end{itemize}
+
+Neste capítulo, será apresentada a análise de experimentos fatoriais com três fatores, considerando um modelo que permite avaliar:
+
+\begin{itemize}
+\item os efeitos principais de cada fator;
+\item as interações duplas entre os fatores;
+\item e a interação tripla entre os três fatores.
+\end{itemize}
+
+A compreensão dessas componentes é essencial, pois a presença de interações pode alterar completamente a interpretação dos efeitos principais, exigindo uma análise mais detalhada dos resultados.
+
+Nos próximos tópicos, será apresentado o modelo estatístico para experimentos fatoriais com três fatores, bem como os procedimentos para análise de variância e interpretação dos resultados.
+
+### Modelo Estatístico
+
+As observações podem ser descritas pelo seguinte modelo estatístico linear:
+
+$$
+Y_{ijkl} = \mu + A_i + B_j + C_k + (AB)_{ij} + (AC)_{ik} + (BC)_{jk} + (ABC)_{ijk} + \epsilon_{ijkl},
+$$
+
+em que:
+
+\begin{itemize}
+\item $Y_{ijkl}$ é a observação referente ao $i$-ésimo nível do fator $A$, $j$-ésimo nível do fator $B$, $k$-ésimo nível do fator $C$ e $l$-ésima repetição;
+\item $\mu$ é a média geral do experimento;
+\item $A_i$ é o efeito do $i$-ésimo nível do fator $A$, com $i = 1, 2, \ldots, a$;
+\item $B_j$ é o efeito do $j$-ésimo nível do fator $B$, com $j = 1, 2, \ldots, b$;
+\item $C_k$ é o efeito do $k$-ésimo nível do fator $C$, com $k = 1, 2, \ldots, c$;
+\item $(AB)*{ij}$ é o efeito da interação entre os fatores $A$ e $B$;
+\item $(AC)*{ik}$ é o efeito da interação entre os fatores $A$ e $C$;
+\item $(BC)*{jk}$ é o efeito da interação entre os fatores $B$ e $C$;
+\item $(ABC)*{ijk}$ é o efeito da interação tripla entre os fatores $A$, $B$ e $C$;
+\item $\epsilon_{ijkl}$ é o erro aleatório associado à observação, assumindo que $\epsilon_{ijkl} \sim N(0, \sigma^2)$, independentes entre si.
+\end{itemize}
+
+
+### Formulação das Hipóteses
+
+A análise de variância em experimentos fatoriais com três fatores baseia-se no teste de hipóteses sobre os efeitos principais e as interações entre os fatores.
+
+**Efeito do fator A**
+
+$$
+H_0: A_1 = A_2 = \cdots = A_a = 0
+$$
+
+$$
+H_1: \text{pelo menos um } A_i \neq 0
+$$
+
+
+
+**Efeito do fator B**
+
+$$
+H_0: B_1 = B_2 = \cdots = B_b = 0
+$$
+
+$$
+H_1: \text{pelo menos um } B_j \neq 0
+$$
+
+
+
+**Efeito do fator C**
+
+$$
+H_0: C_1 = C_2 = \cdots = C_c = 0
+$$
+
+$$
+H_1: \text{pelo menos um } C_k \neq 0
+$$
+
+
+
+**Interação entre os fatores A e B**
+
+$$
+H_0: (AB)_{ij} = 0 \quad \forall i,j
+$$
+
+$$
+H_1: \text{pelo menos um } (AB)_{ij} \neq 0
+$$
+
+
+
+**Interação entre os fatores A e C**
+
+$$
+H_0: (AC)_{ik} = 0 \quad \forall i,k
+$$
+
+$$
+H_1: \text{pelo menos um } (AC)_{ik} \neq 0
+$$
+
+
+
+**Interação entre os fatores B e C**
+
+$$
+H_0: (BC)_{jk} = 0 \quad \forall j,k
+$$
+
+$$
+H_1: \text{pelo menos um } (BC)_{jk} \neq 0
+$$
+
+
+**Interação tripla entre os fatores A, B e C**
+
+$$
+H_0: (ABC)_{ijk} = 0 \quad \forall i,j,k
+$$
+
+$$
+H_1: \text{pelo menos um } (ABC)_{ijk} \neq 0
+$$
+
+
+
+**Interpretação dos Resultados**
+
+A interpretação dos resultados em experimentos fatoriais com três fatores deve seguir uma ordem hierárquica, respeitando a estrutura do modelo:
+
+1. **Inicialmente, testa-se a interação tripla ($A \times B \times C$)**.
+
+   * Se for significativa, conclui-se que o efeito de um fator depende simultaneamente dos níveis dos outros dois fatores.
+   * Nesse caso, a interpretação deve ser feita considerando os três fatores em conjunto, não sendo apropriado interpretar separadamente as interações duplas ou os efeitos principais.
+
+2. **Caso a interação tripla não seja significativa**, procede-se à análise das **interações duplas** ($A \times B$, $A \times C$, $B \times C$).
+
+   * Se alguma interação dupla for significativa, os efeitos principais envolvidos não devem ser interpretados isoladamente, devendo-se analisar os desdobramentos da interação.
+
+3. **Na ausência de interações significativas**, realiza-se a interpretação dos **efeitos principais** ($A$, $B$ e $C$), que passam a representar adequadamente o comportamento da variável resposta.
+
+
+Essa abordagem hierárquica é essencial para evitar interpretações incorretas dos efeitos dos fatores no experimento.
+
+
+### Análise da Variância
+
+\begin{table}[H]
+\centering
+\caption{Análise de variância para um experimento fatorial com 3 fatores. \label{anava3f}}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{ccccc} \hline
+C.V. & S.Q. & g.l. & Q.M. & $F_{cal}$ \\ \hline
+
+A & $SQ_A$ & $a-1$ & $QM_A = \frac{SQ_A}{a-1}$ & $F_{cal} = \frac{QM_A}{QM_{Res}}$ \\
+
+B & $SQ_B$ & $b-1$ & $QM_B = \frac{SQ_B}{b-1}$ & $F_{cal} = \frac{QM_B}{QM_{Res}}$ \\
+
+C & $SQ_C$ & $c-1$ & $QM_C = \frac{SQ_C}{c-1}$ & $F_{cal} = \frac{QM_C}{QM_{Res}}$ \\
+
+$A \times B$ & $SQ_{A \times B}$ & $(a-1)(b-1)$ & $QM_{A\times B} = \frac{SQ_{A \times B}}{(a-1)(b-1)}$ & $F_{cal} = \frac{QM_{A \times B}}{QM_{Res}}$ \\
+
+$A \times C$ & $SQ_{A \times C}$ & $(a-1)(c-1)$ & $QM_{A\times C} = \frac{SQ_{A \times C}}{(a-1)(c-1)}$ & $F_{cal} = \frac{QM_{A \times C}}{QM_{Res}}$ \\
+
+$B \times C$ & $SQ_{B \times C}$ & $(b-1)(c-1)$ & $QM_{B \times C} = \frac{SQ_{B \times C}}{(b-1)(c-1)}$ & $F_{cal} = \frac{QM_{B \times C}}{QM_{Res}}$ \\
+
+$A \times B \times C$ & $SQ_{A \times B \times C}$ & $(a-1)(b-1)(c-1)$ & $QM_{A \times B \times C} = \frac{SQ_{A \times B \times C}}{(a-1)(b-1)(c-1)}$ & $F_{cal} = \frac{QM_{A \times B \times C}}{QM_{Res}}$ \\
+
+\hline
+
+Tratamentos & $SQ_{Trat}$ & $(abc-1)$ & $QM_{Trat} = \frac{SQ_{Trat}}{abc-1}$ & $F_{cal} = \frac{QM_{Trat}}{QM_{Res}}$ \\
+
+Resíduo & $SQ_{Res}$ & $abc(n-1)$ & $QM_{Res} = \frac{SQ_{Res}}{abc(n-1)}$ & \\ \hline
+
+Total & $SQ_{Total}$ & $abcn-1$ & & \\
+\end{tabular}
+\end{table}
+
+
+
+**Soma de Quadrados em Experimentos Fatoriais com Três Fatores**
+
+A soma de quadrados total pode ser decomposta da seguinte forma:
+
+$$
+SQ_{Total} = SQ_A + SQ_B + SQ_C + SQ_{AB} + SQ_{AC} + SQ_{BC} + SQ_{ABC} + SQ_{Res}
+$$
+
+**Soma de Quadrados Total**
+
+$$
+SQ_{Total} = \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{c} \sum_{l=1}^{n} y_{ijkl}^{2} - \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+
+em que:
+
+* $y_{\cdot\cdot\cdot\cdot}$ é o total geral das observações.
+
+As somas de quadrados para os efeitos principais são:
+
+**Fator A**
+
+$$
+SQ_A = \frac{1}{bcn} \sum_{i=1}^{a} y_{i\cdot\cdot\cdot}^{2} - \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+
+**Fator B**
+
+$$
+SQ_B = \frac{1}{acn} \sum_{j=1}^{b} y_{\cdot j\cdot\cdot}^{2} - \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+
+**Fator C**
+
+$$
+SQ_C = \frac{1}{abn} \sum_{k=1}^{c} y_{\cdot\cdot k\cdot}^{2} - \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+Para os cálculos das somas de quadrados das interações duplas, deve-se, inicialmente, calcular as somas de quadrados dos efeitos conjuntos dos dois fatores utilizado quadros auxiliares de dupla entrada considerando os fatores da interação:
+
+**Conjunta A,B**
+
+$$
+SQ_{A,B} = \frac{1}{cn} \sum_{i=1}^{a} \sum_{j=1}^{b} y_{ij\cdot\cdot}^{2}
+- \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+
+**Conjunta A,C**
+
+$$
+SQ_{A,C} = \frac{1}{bn} \sum_{i=1}^{a} \sum_{k=1}^{c} y_{i\cdot k\cdot}^{2}
+- \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+
+**Conjunta B,C**
+
+$$
+SQ_{B,C} = \frac{1}{an} \sum_{j=1}^{b} \sum_{k=1}^{c} y_{\cdot jk\cdot}^{2}
+- \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+As somas de quadrados das interações duplas são:
+
+**Interação A x B**
+$$SQ_{A\times B}=SQ_{A,B}-SQ_A-SQ_B$$
+
+**Interação A x C**
+$$SQ_{A\times C}=SQ_{A,C}-SQ_A-SQ_C$$
+
+**Interação B x C**
+$$SQ_{B\times C}=SQ_{B,C}-SQ_B-SQ_C$$
+
+Para o cálculo da soma de quadrados da interação tripla, deve-se, inicialmente, calcular a soma de quadrados dos efeitos conjuntos dos três fatores:
+
+**Conjunta Tripla**
+
+$$
+SQ_{A,B,C} =\frac{1}{n} \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{c} y_{ijk\cdot}^{2} 
+- \frac{y_{\cdot\cdot\cdot\cdot}^{2}}{abcn}
+$$
+OBS: Nos experimentos fatoriais com 3 fatores, a soma de quadrados do efeito conjunto dos três fatores é sempre igual à soma de quadrados de tratamentos.
+
+Portanto, a soma de quadrados da interação é:
+
+**Interação Tripla**
+$$SQ_{A\times B\times C}=SQ_{A,B,C}-SQ_A-SQ_B-SQ_C-SQ_{A\times B}-SQ_{A\times C}-SQ_{B\times C}$$
+
+
+**Soma de Quadrados do Resíduo**
+
+$$
+SQ_{Res} = SQ_{Total} - (SQ_A + SQ_B + SQ_C + SQ_{A\times B} + SQ_{A\times C} + SQ_{B\times C} + SQ_{A\times B\times C})
+$$
+
+### Exemplo: Experimento Fatorial $2^3$ em Blocos Casualizados
+
+Em um experimento conduzido no delineamento em blocos casualizados, no esquema fatorial $2^3$, avaliou-se o efeito da adubação nitrogenada (N), fosfatada (P) e potássica (K) sobre a produtividade da cultura do cafeeiro.
+
+Cada fator foi estudado em dois níveis:
+
+* N: $N_0$ (ausência) e $N_1$ (presença)
+* P: $P_0$ (ausência) e $P_1$ (presença)
+* K: $K_0$ (ausência) e $K_1$ (presença)
+
+O experimento foi conduzido com seis blocos (repetições), e as parcelas tinham área de $105,m^2$.
+
+A variável resposta considerada foi a produção de café coco, expressa em kg por parcela.
+
+\vspace{0.3cm}
+
+Os dados observados estão apresentados na Tabela a seguir:
+
+$$\begin{tabular}{c|cccccc|c}\hline
+\multirow{2}{*}{Trat.} & \multicolumn{6}{c|}{Blocos} & \multirow{2}{*}{Total}\\\cline{2-7}
+            & I     & II    & III   & IV    & V     & VI    & \\ \hline
+$N_0P_0K_0$ & 31,8  & 40,5  & 25,7  & 25,7  & 37,2  & 45,3  & 206,2 \\
+$N_0P_0K_1$ & 25,6  & 32,4  & 39,6  & 48,9  & 20,6  & 33,7  & 200,8 \\
+$N_0P_1K_0$ & 36,2  & 37,8  & 40,9  & 44,8  & 32,4  & 38,4  & 230,5 \\
+$N_0P_1K_1$ & 37,1  & 53,0  & 36,4  & 43,0  & 19,7  & 30,4  & 219,6 \\
+$N_1P_0K_0$ & 35,3  & 39,0  & 36,0  & 33,5  & 28,2  & 42,4  & 214,4 \\
+$N_1P_0K_1$ & 51,5  & 66,1  & 51,7  & 52,0  & 56,5  & 58,2  & 336,0 \\
+$N_1P_1K_0$ & 43,8  & 32,7  & 43,3  & 41,8  & 31,9  & 37,7  & 231,2 \\
+$N_1P_1K_1$ & 47,0  & 49,9  & 50,9  & 49,1  & 71,7  & 39,6  & 308,2 \\\hline
+Totais      & 308,3 & 351,4 & 324,5 & 338,8 & 298,2 & 325,7 & 1946,9 \\\hline
+\end{tabular}$$
+
+
+**Observações**
+
+* O experimento envolve **três fatores** (N, P e K), cada um com dois níveis, totalizando $2^3 = 8$ tratamentos.
+* Como o delineamento é em blocos casualizados, a variabilidade entre blocos é controlada, aumentando a precisão experimental.
+* A análise deve considerar:
+
+  * efeitos principais: N, P e K;
+  * interações duplas: N×P, N×K, P×K;
+  * interação tripla: N×P×K.
+
+
+**Objetivo da análise**
+
+A análise de variância (ANOVA) permitirá verificar:
+
+* se os fatores N, P e K influenciam significativamente a produção;
+* se existem interações entre os fatores;
+* e, principalmente, se o efeito de um fator depende dos níveis dos outros (interações).
+
+A interpretação deve seguir a seguinte ordem:
+
+1. verificar a significância da interação tripla (N×P×K);
+2. não sendo significativa, analisar as interações duplas;
+3. na ausência de interações significativas, interpretar os efeitos principais.
+
+
+**Cálculo das Somas de Quadrados**
+
+
+A soma de quadrados total é dada por:
+
+$$
+SQ_{Total} = \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{c} \sum_{l=1}^{n} y_{ijkl}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+
+Substituindo os valores:
+
+$$
+SQ_{Total} = (31{,}8^2 + 40{,}5^2 + \cdots + 39{,}6^2) - \frac{(1946{,}9)^2}{48}
+$$
+
+$$
+SQ_{Total} = 5495,5548
+$$
+
+**Soma de Quadrados de Tratamentos**
+
+$$
+SQ_{Trat} = \frac{1}{n} \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{c} y_{ijk\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+
+Substituindo:
+
+$$
+SQ_{Trat} = \frac{1}{6} (206{,}2^2 + \cdots + 308{,}2^2) - \frac{(1946{,}9)^2}{48}
+$$
+
+$$
+SQ_{Trat} = 2949,1798
+$$
+
+**Soma de Quadrados de Blocos**
+
+$$
+SQ_{Blocos} = \frac{1}{abc} \sum_{l=1}^{n} y_{\cdot\cdot\cdot l}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+
+Substituindo:
+
+$$
+SQ_{Blocos} = \frac{1}{8} (308{,}3^2 + \cdots + 325{,}7^2) - \frac{(1946{,}9)^2}{48}
+$$
+
+$$
+SQ_{Blocos} = 235,4585
+$$
+
+**Soma de Quadrados do Resíduo**
+
+$$
+SQ_{Res} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos}
+$$
+
+$$
+SQ_{Res} = 5495{,}5548 - 2949{,}1798 - 235{,}4585
+$$
+
+$$
+SQ_{Res} = 2310,9165
+$$
+
+**Observação**
+
+Note que:
+
+* $SQ_{Trat}$ inclui todos os efeitos fatoriais:
+  $$
+  SQ_{Trat} = SQ_A + SQ_B + SQ_C + SQ_{AB} + SQ_{AC} + SQ_{BC} + SQ_{ABC}
+  $$
+
+**Quadros Auxiliares de Dupla Entrada**
+
+Para o cálculo das somas de quadrados dos efeitos principais e das interações, constroem-se os quadros auxiliares de dupla entrada a partir dos totais marginais.
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|cc|c}\hline
+\textbf{P $\backslash$ N} & $N_0$ & $N_1$ & Total \\ \hline
+$P_0$ & 407,0 (12) & 550,4  & 957,4 (24) \\
+$P_1$ & 450,1  & 539,4  & 989,5  \\ \hline
+Total & 857,1 (24) & 1089,8  & 1946,9 (48) \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|cc|c}\hline
+\textbf{K $\backslash$ N} & $N_0$ & $N_1$ & Total \\ \hline
+$K_0$ & 436,7 (12) & 445,6 & 882,3 (24) \\
+$K_1$ & 420,4  & 644,2  & 1064,6  \\ \hline
+Total & 857,1 (24) & 1089,8  & 1946,9 (48) \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|cc|c}\hline
+\textbf{P $\backslash$ K} & $K_0$ & $K_1$ & Total \\ \hline
+$P_0$ & 420,6 (12) & 536,8  & 957,4 (24) \\
+$P_1$ & 461,7  & 527,8  & 989,5  \\ \hline
+Total & 882,3 (24) & 1064,6  & 1946,9 (48) \\ \hline
+\end{tabular}
+\end{table}
+
+**Somas de Quadrados dos Efeitos Principais**
+
+As somas de quadrados dos efeitos principais são obtidas a partir dos totais marginais de cada fator.
+
+**Soma de Quadrados do Fator N**
+
+$$
+SQ_N = \frac{1}{bcn} \sum_{i=1}^{a} y_{i\cdot\cdot\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+
+Como $bcn = 2 \times 2 \times 6 = 24$, tem-se:
+
+$$
+SQ_N = \frac{1}{24} (857{,}1^2 + 1089{,}8^2) - \frac{(1946{,}9)^2}{48}
+$$
+
+$$
+SQ_N = 1128{,}1102
+$$
+
+**Soma de Quadrados do Fator P**
+
+$$
+SQ_P = \frac{1}{acn} \sum_{j=1}^{b} y_{\cdot j\cdot\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+
+Como $acn = 2 \times 2 \times 6 = 24$, tem-se:
+
+$$
+SQ_P = \frac{1}{24} (957{,}4^2 + 989{,}5^2) - \frac{(1946{,}9)^2}{48}
+$$
+
+$$
+SQ_P = 27{,}5127
+$$
+
+**Soma de Quadrados do Fator K**
+
+$$
+SQ_K = \frac{1}{abn} \sum_{k=1}^{c} y_{\cdot\cdot k\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+
+Como $abn = 2 \times 2 \times 6 = 24$, tem-se:
+
+$$
+SQ_K = \frac{1}{24} (882{,}3^2 + 1064{,}6^2) - \frac{(1946{,}9)^2}{48}
+$$
+
+$$
+SQ_K = 692{,}3602
+$$
+
+**Soma de quadrado conjunta**
+
+**Conjunta $N,P$**
+
+$$
+SQ_{N,P}=\frac{1}{cn}\sum_{i=1}^{a}\sum_{j=1}^{b} y_{ij\cdot\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+$$
+SQ_{N,P}=\frac{1}{12}(407^2+550,4^2+450,1^2+539,4^2)-\frac{1946,9^2}{48}=1210,5523
+$$
+
+**Conjunta $N,K$**
+$$
+SQ_{N,K}=\frac{1}{bn}\sum_{i=1}^{a}\sum_{k=1}^{c} y_{i\cdot k\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+$$
+SQ_{N,K}=\frac{1}{12}(436,7^2+445,6^2+420,4^2+644,2^2)-\frac{1946,9^2}{48}=2782,5956
+$$
+
+**Conjunta $P,K$**
+$$
+SQ_{P,K}=\frac{1}{an}\sum_{j=1}^{b}\sum_{k=1}^{c} y_{\cdot jk\cdot}^2 - \frac{y_{\cdot\cdot\cdot\cdot}^2}{abcn}
+$$
+$$
+SQ_{P,K}=\frac{1}{12}(420,6^2+536,8^2+461,7^2+527,8^2)-\frac{1946,9^2}{48}=766,1190
+$$
+
+**Somas de quadrados das interações duplas**
+
+\begin{eqnarray*}
+SQ_{N\times P}&=&SQ_{N,P}-SQ_N-SQ_P\\
+              &=&1210,5523-1128,1102-21,4669\\
+              &=&60,9752
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+SQ_{N\times K}&=&SQ_{N,K}-SQ_N-SQ_K\\
+              &=&2782,5956-1128,1102-692,3602\\
+              &=&962,1252
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+SQ_{P\times K}&=&SQ_{P,K}-SQ_P-SQ_K\\
+              &=&766,1190-21,4669-692,3602\\
+              &=&52,2919
+\end{eqnarray*}
+
+
+**Soma de quadrado da interação tripla**
+
+\begin{eqnarray*}
+SQ_{N\times P\times K}&=&SQ_{N,P,K}-SQ_N-SQ_P-SQ_K-SQ_{N\times P}-SQ_{N \times K}-SQ_{P\times K}\\
+              &=&2949,1798-1128,1102-21,4669-692,3602-60,9752-962,1252-52,2919\\
+              &=&31,8502
+\end{eqnarray*}
+
 
 
